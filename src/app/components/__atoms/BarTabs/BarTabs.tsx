@@ -1,14 +1,16 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
-function BarTabs({ image, text }) {
+function BarTabs({ image, text, href }) {
   return (
     <>
-      <div className="text-black opacity-65 hover:opacity-100 cursor-pointer flex flex-col items-center px-[30px] justify-center">
-        <Image src={image} width={30} alt="bar selector" />
-
-        <h1 className="font-normal">{text}</h1>
-      </div>
+      <Link className="flex items-center" href={href}>
+        <div className="text-black opacity-65 hover:opacity-100 cursor-pointer flex flex-col items-center px-[20px] justify-center">
+          <Image src={image} width={25} alt="bar selector" />
+          <h1 className="font-normal">{text}</h1>
+        </div>
+      </Link>
     </>
   );
 }
