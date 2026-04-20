@@ -8,11 +8,11 @@ import Image from "next/image";
 function Start() {
   return (
     <>
-      <section>
+      <section className="w-full max-h-[608px]">
         <div className="w-full pt-[70px] flex justify-center max-md:flex-col whitespace-nowrap max-[980px]:pt-[120px] flex items-center">
-          <div className="pl-14 pr-7">
-            <h1 className="font-[400] text-[48px]">
-              Welcome to your <br /> professional community
+          <div className="pl-14 pr-7 max-md:pr-0 max-md:pl-0">
+            <h1 className="font-[400] text-[48px] max-md:text-[32px] max-w-[572px]">
+              Welcome to your professional community
             </h1>
             <button></button>
             <button></button>
@@ -34,11 +34,9 @@ function Start() {
               .
             </div>
           </div>
-          <Image
-            src={Working}
-            alt="man working with laptop"
-            className="relative flex-shrink w-[55%]"
-          />
+          <div>
+            <Image src={Working} alt="man working with laptop" />
+          </div>
         </div>
       </section>
       <section className="bg-[#f2f2f1] w-full py-[60px] flex items-center justify-center pl-5">
@@ -49,9 +47,9 @@ function Start() {
           <ButtonsWrap />
         </div>
       </section>
-      <section className="bg-[#f0ece4] w-full">
+      <section className="bg-[#f0ece4] w-full px-[20px]">
         <div className="flex justify-center flex-col items-center py-[64px] gap-5">
-          <h1 className="text-[#b24020] text-[32px] font-normal">
+          <h1 className="text-[#b24020] text-[32px] font-normal max-md:text-[24px]">
             Post your job for millions of people to see
           </h1>
           <button
