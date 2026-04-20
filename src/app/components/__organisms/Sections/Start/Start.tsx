@@ -9,9 +9,11 @@ function Start() {
   return (
     <>
       <section>
-        <div className="w-full py-[60px] flex justify-center">
-          <div className="pr-14">
-            <h1>Welcome to your professional community</h1>
+        <div className="w-full pt-[70px] flex justify-center max-md:flex-col whitespace-nowrap max-[980px]:pt-[120px] flex items-center">
+          <div className="pl-14 pr-7">
+            <h1 className="font-[400] text-[48px]">
+              Welcome to your <br /> professional community
+            </h1>
             <button></button>
             <button></button>
             <button></button>
@@ -32,26 +34,37 @@ function Start() {
               .
             </div>
           </div>
-          <div>
-            <Image src={Working} alt="man working with laptop" />
-          </div>
+          <Image
+            src={Working}
+            alt="man working with laptop"
+            className="relative flex-shrink w-[55%]"
+          />
         </div>
       </section>
-      <section className="bg-[#f2f2f1] w-full py-[60px] flex items-center justify-center">
-        <div className="max-w-[1128px] w-full flex justify-between container">
-          <h1 className="flex flex-wrap text-[30px] font-normal max-w-[400px]">
+      <section className="bg-[#f2f2f1] w-full py-[60px] flex items-center justify-center pl-5">
+        <div className="max-w-[1128px] w-full flex justify-between container max-md:flex-col max-md:gap-5">
+          <h1 className="flex flex-wrap text-[30px] font-normal max-w-[400px] max-md:text-[20px]">
             Find the right job or internship for you
           </h1>
           <ButtonsWrap />
         </div>
       </section>
-      <section>
-        <div></div>
+      <section className="bg-[#f0ece4] w-full">
+        <div className="flex justify-center flex-col items-center py-[64px] gap-5">
+          <h1 className="text-[#b24020] text-[32px] font-normal">
+            Post your job for millions of people to see
+          </h1>
+          <button
+            className={`rounded-[30px] border-[1px] border-[#0a66c2] text-[#0a66c2] px-[30px] py-[13px] bg-transparent hover:bg-[#0a66c229] cursor-pointer whitespace-nowrap`}
+          >
+            Post a job
+          </button>
+        </div>
       </section>
-      <section className="max-w-[1128px] w-full py-[60px]">
-        <div className="container flex justify-between w-full">
+      <section className="max-w-[1128px] w-full py-[60px] pl-5">
+        <div className="container flex justify-between w-full max-[1150px]:flex-col max-[1150px]:gap-5">
           <div className="max-w-[370px] flex flex-col gap-[10px]">
-            <h1 className="font-[600] text-[25px]">
+            <h1 className="font-[400] text-[30px]">
               Discover the best software tools
             </h1>
             <h1>
@@ -70,7 +83,7 @@ function Start() {
             <Button text="Social Networking Software" />
             <Button text="Desktop Publishing Software" />
             <button
-              className={`rounded-[30px] border-[1px] border-[#0a66c2] px-[30px] py-[13px] bg-transparent hover:bg-[#0a66c229] cursor-pointer whitespace-nowrap`}
+              className={`rounded-[30px] border-[1px] border-[#0a66c2] px-[30px] py-[13px] bg-transparent hover:bg-[#0a66c229] cursor-pointer whitespace-nowrap max-md:px-[15px] max-md:py-[0px]`}
             >
               Show all
             </button>
