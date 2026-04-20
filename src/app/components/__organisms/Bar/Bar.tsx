@@ -15,7 +15,7 @@ function Bar() {
   return (
     <>
       <div className="w-[95vw] sticky top-0 z-[900] flex justify-center bg-white">
-        <div className=" bg-white max-w-[1128px] w-full whitespace-nowrap pt-[10px] pb-2 flex justify-between items-center relative flex-nowrap max-[980px]:px-0 max-[980px]:items-start">
+        <div className=" bg-white max-w-[1128px] max-[980px]:h-[150px] w-full whitespace-nowrap pt-[10px] pb-2 flex justify-between items-center relative flex-nowrap max-[980px]:px-0 max-[980px]:items-start">
           <div className="min-w-[101px] max-xl:min-w-[30px] max-[980px]:mt-[11px] ml-4 pr-[100px]">
             <Image
               src={logo}

@@ -4,38 +4,21 @@ import ButtonsWrap from "@/app/components/__molecules/ButtonsWrap/ButtonsWrap";
 import React, { useState } from "react";
 import Working from "../../../../../../public/start/man with laptop.svg";
 import Image from "next/image";
+import SignInBtns from "@/app/components/__molecules/SignInBtns/SignInBtns";
 
 function Start() {
   return (
     <>
-      <section className="w-full max-h-[608px]">
-        <div className="w-full pt-[70px] flex justify-center max-md:flex-col whitespace-nowrap max-[980px]:pt-[120px] flex items-center">
-          <div className="pl-14 pr-7 max-md:pr-0 max-md:pl-0">
-            <h1 className="font-[400] text-[48px] max-md:text-[32px] max-w-[572px]">
-              Welcome to your professional community
-            </h1>
-            <button></button>
-            <button></button>
-            <button></button>
-            <div class="text-center text-sm text-gray-500 leading-relaxed py-4">
-              By clicking Continue to join or sign in, you agree to LinkedIn's
-              <br />
-              <a href="#" class="text-[#8344cc] hover:underline">
-                User Agreement
-              </a>
-              ,
-              <a href="#" class="text-[#0a66c2] hover:underline">
-                Privacy Policy
-              </a>
-              , and .
-              <a href="#" class="text-[#0a66c2] hover:underline">
-                Cookie Policy
-              </a>
-              .
-            </div>
-          </div>
+      <section className="w-full h-[100vh] pb-[20px] ">
+        <div className="w-full pt-[50px] flex justify-center max-md:flex-col whitespace-nowrap flex items-center">
+          <SignInBtns />
           <div>
-            <Image src={Working} alt="man working with laptop" />
+            <Image
+              width={700}
+              className="h-[100%]"
+              src={Working}
+              alt="man working with laptop"
+            />
           </div>
         </div>
       </section>

@@ -1,9 +1,10 @@
 "use client";
 type props = {
   text: string;
+  style: string;
 };
 
-function Button({ text, colorHover, borderColor, bg, style }: props) {
+function Button({ text, style }: props) {
   return (
     <>
       <button
