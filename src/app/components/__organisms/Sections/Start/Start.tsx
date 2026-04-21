@@ -5,17 +5,28 @@ import React, { useState } from "react";
 import Working from "../../../../../../public/start/man with laptop.svg";
 import Image from "next/image";
 import SignInBtns from "@/app/components/__molecules/SignInBtns/SignInBtns";
-
+import SliderStart from "@/app/components/__molecules/SliderStart/SliderStart";
+const BUTTONS: Array = [
+  "E-Commerce Platforms",
+  "CRM Software",
+  "Human Resources Management Systems",
+  "Recruting Software",
+  "Sales Intelligence Software",
+  "Project Management Software",
+  "Help Desk Software",
+  "Social Networking Software",
+  "Desktop Publishing Software",
+];
 function Start() {
   return (
     <>
-      <section className="w-full h-[100vh] pb-[20px] ">
+      <section className="w-full pb-[20px]">
         <div className="w-full pt-[50px] flex justify-center max-md:flex-col whitespace-nowrap flex items-center">
           <SignInBtns />
           <div>
             <Image
               width={700}
-              className="h-[100%]"
+              className="h-[100%] max-md:h-[214px]"
               src={Working}
               alt="man working with laptop"
             />
@@ -53,26 +64,19 @@ function Start() {
               best products for you.
             </h1>
           </div>
+
           <div className="flex-wrap flex gap-[7px] max-w-[640px]">
-            <Button text="E-Commerce Platforms" />
-            <Button text="CRM Software" />
-            <Button text="Human Resources Management Systems" />
-            <Button text="Recruting Software" />
-            <Button text="Sales Intelligence Software" />
-            <Button text="Project Management Software" />
-            <Button text="Help Desk Software" />
-            <Button text="Social Networking Software" />
-            <Button text="Desktop Publishing Software" />
-            <button
-              className={`rounded-[30px] border-[1px] border-[#0a66c2] px-[30px] py-[13px] bg-transparent hover:bg-[#0a66c229] cursor-pointer whitespace-nowrap max-md:px-[15px] max-md:py-[0px]`}
-            >
+            {BUTTONS.map((text) => (
+              <Button key={text} text={text} />
+            ))}
+            <button className="rounded-[30px] border border-[#0a66c2] px-[30px] py-[13px] bg-transparent hover:bg-[#0a66c229] cursor-pointer whitespace-nowrap max-md:px-[15px] max-md:py-0">
               Show all
             </button>
           </div>
         </div>
       </section>
-      <section>
-        <div></div>
+      <section className="bg-[#f2f2f1] w-full py-[60px] flex items-center justify-center pl-5">
+        <SliderStart />
       </section>
       <section>
         <div></div>
