@@ -1,8 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { StaticImageData } from "next/image";
+type Props = {
+  image: StaticImageData;
+  text: string;
+  href: string;
+};
 
-function BarTabs({ image, text, href }) {
+function BarTabs({ image, text, href }: Props) {
   return (
     <>
       <Link className="flex items-center" href={href}>

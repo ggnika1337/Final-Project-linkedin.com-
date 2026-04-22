@@ -6,10 +6,13 @@ import Working from "../../../../../../public/start/man with laptop.svg";
 import Image from "next/image";
 import SignInBtns from "@/app/components/__molecules/SignInBtns/SignInBtns";
 import SliderStart from "@/app/components/__molecules/SliderStart/SliderStart";
+import HighFive from "../../../../../../public/start/HighFive.svg";
+import WorkWithPC from "../../../../../../public/start/SittingAtPC.svg";
+import DropDownInput from "@/app/components/__molecules/DropDownInput/DropDownInput";
 const BUTTONS: Array = [
   "E-Commerce Platforms",
   "CRM Software",
-  "Human Resources Management Systems",
+  "Human Resources Management",
   "Recruting Software",
   "Sales Intelligence Software",
   "Project Management Software",
@@ -17,6 +20,16 @@ const BUTTONS: Array = [
   "Social Networking Software",
   "Desktop Publishing Software",
 ];
+
+const topics: array = [
+  "Artificial Intelligence for Business 1,040+ course",
+  "Business Analysis and Strategy 2,030+ course",
+  "Diversity, Equity, and Inclusion (DEI) 340+ course",
+  "Business Software and Tools 3,480+ course",
+  "Career Development 720+ course",
+  "Customer Service 320+ course",
+];
+
 function Start() {
   return (
     <>
@@ -33,7 +46,7 @@ function Start() {
           </div>
         </div>
       </section>
-      <section className="bg-[#f2f2f1] w-full py-[60px] flex items-center justify-center pl-5">
+      <section className="bg-[#f2f2f1] w-full py-[60px] flex items-center justify-center px-5">
         <div className="max-w-[1128px] w-full flex justify-between container max-md:flex-col max-md:gap-5">
           <h1 className="flex flex-wrap text-[30px] font-normal max-w-[400px] max-md:text-[20px]">
             Find the right job or internship for you
@@ -75,11 +88,33 @@ function Start() {
           </div>
         </div>
       </section>
-      <section className="bg-[#f2f2f1] w-full py-[60px] flex items-center justify-center pl-5">
+      <section className="bg-[#f2f2f1] w-full py-[60px] flex items-center justify-center">
         <SliderStart />
       </section>
-      <section>
-        <div></div>
+      <section className="w-full flex items-center justify-center py-[120px] px-[60px]">
+        <div className="flex max-[990px]:flex-col items-center gap-5">
+          <div className="flex flex-col gap-5 pr-50 max-[990px]:items-center max-[990px]:pr-0">
+            <Image src={HighFive} width={256} height={256} alt="high five" />
+            <h1 className="text-[32px] font-normal">
+              Connect with people who can help
+            </h1>
+            <button
+              className={`rounded-[30px] w-[208px] border-[1px] border-[#7a7b79] py-[10px] bg-transparent hover:bg-[#5d5d5d26] cursor-pointer whitespace-nowrap`}
+            >
+              Find people you know
+            </button>
+          </div>
+          <div className="flex flex-col gap-5 max-[990px]:items-center">
+            <Image src={WorkWithPC} width={256} height={256} alt="high five" />
+            <h1 className="text-[32px] font-normal">
+              Learn the skills you need to succeed
+            </h1>
+            <DropDownInput
+              header="Choose a topic to learn about"
+              options={topics}
+            />
+          </div>
+        </div>
       </section>
       <section>
         <div></div>

@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Button from "../../__atoms/Button/Button";
 
-const VISIBLE_BUTTONS: Array = [
+const visible: string[] = [
   "Business Development",
   "Finance",
   "Administrative Assistant",
@@ -14,7 +14,7 @@ const VISIBLE_BUTTONS: Array = [
   "Human Resources",
 ];
 
-const MORE_BUTTONS: Array = [
+const moreStr: string[] = [
   "Healthcare Service",
   "Sales",
   "Program And Project Management",
@@ -42,11 +42,10 @@ function ButtonsWrap() {
     <>
       <div className="flex gap-[15px] flex-col items-start">
         <div className="flex-wrap max-w-[640px] flex gap-[7px]">
-          {VISIBLE_BUTTONS.map((text) => (
+          {visible.map((text) => (
             <Button key={text} text={text} />
           ))}
-          {more &&
-            MORE_BUTTONS.map((text) => <Button key={text} text={text} />)}
+          {more && moreStr.map((text) => <Button key={text} text={text} />)}
         </div>
 
         <button
