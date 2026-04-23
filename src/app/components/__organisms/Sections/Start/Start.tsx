@@ -174,7 +174,11 @@ function Start() {
               <h1 className="font-[700] text-[16px]">General</h1>
               {footerStrings.map((str) => {
                 return (
-                  <a href="/." className="hover:underline hover:text-[#1e1e87]">
+                  <a
+                    key={str}
+                    href="/."
+                    className="hover:underline hover:text-[#1e1e87]"
+                  >
                     {str}
                   </a>
                 );
@@ -184,7 +188,11 @@ function Start() {
               <h1 className="font-[700] text-[16px]">Browse LinkedIn</h1>
               {footerStringsTwo.map((str) => {
                 return (
-                  <a href="/." className="hover:underline hover:text-[#1e1e87]">
+                  <a
+                    key={str}
+                    href="/."
+                    className="hover:underline hover:text-[#1e1e87]"
+                  >
                     {str}
                   </a>
                 );
@@ -194,7 +202,11 @@ function Start() {
               <h1 className="font-[700] text-[16px]">Business Solutions</h1>
               {footerStringsThree.map((str) => {
                 return (
-                  <a href="/." className="hover:underline hover:text-[#1e1e87]">
+                  <a
+                    key={str}
+                    href="/."
+                    className="hover:underline hover:text-[#1e1e87]"
+                  >
                     {str}
                   </a>
                 );
@@ -204,7 +216,11 @@ function Start() {
               <h1 className="font-[700] text-[16px]">Directories</h1>
               {footerStringsFour.map((str) => {
                 return (
-                  <a href="/." className="hover:underline hover:text-[#1e1e87]">
+                  <a
+                    key={str}
+                    href="/."
+                    className="hover:underline hover:text-[#1e1e87]"
+                  >
                     {str}
                   </a>
                 );
@@ -220,6 +236,7 @@ function Start() {
           {footerPolicies.map((str) => {
             return (
               <a
+                key={str}
                 href="/."
                 className="hover:underline text-[#666666] font-[600] text-[15px] hover:text-[#1e1e87]"
               >

@@ -12,10 +12,7 @@ function SignInBtns() {
           community
         </h1>
         <div className="flex flex-col gap-3 mt-7 w-full pr-7">
-          <button className="max-w-[400px] w-full h-[40px] bg-[#1a73e9] rounded-[20px] text-white hover:opacity-50 flex items-center justify-center gap-3 font-[500]">
-            <Image width={38} src={Google} alt="Google Logo" /> Continue with
-            Google
-          </button>
+          id
           <button className="max-w-[400px] w-full h-[40px] bg-white rounded-[20px] border-[1px] border-black text-black flex items-center justify-center gap-3 font-[500]">
             <Image width={20} src={Microsoft} alt="Microsoft Logo" /> Continue
             with Microsoft
@@ -24,17 +21,16 @@ function SignInBtns() {
             Sign in with email
           </button>
         </div>
-        <div className="text-center whitespace-break-spaces text-sm text-gray-500 leading-relaxed py-4 max-w-[500px]">
+        <div className="whitespace-break-spaces text-sm text-gray-500 leading-relaxed py-4 max-w-[500px]">
           <h1>
-            By clicking Continue to join or sign in, you agree to LinkedIn’s
+            By clicking Continue to join or sign in, you agree to LinkedIn’
             <a href="" className="text-[#8344cc] hover:underline">
-              User Agreement
+              s User Agreement
             </a>
-            ,
             <a href="" className="text-[#0a66c2] hover:underline">
-              Privacy Policy,
+              , Privacy Policy
             </a>
-            and
+            , and ,
             <a href="" className="text-[#0a66c2] hover:underline">
               Cookie Policy.
             </a>

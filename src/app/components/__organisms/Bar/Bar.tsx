@@ -11,12 +11,13 @@ import Video from "../../../../../public/bar/Video.png";
 import Games from "../../../../../public/bar/Games.png";
 import Laptop from "../../../../../public/bar/Laptop.png";
 import Bag from "../../../../../public/bar/Bag.png";
+import Link from "next/link";
 function Bar() {
   return (
     <>
-      <div className="w-[95vw] sticky top-0 z-[900] flex justify-center bg-white">
+      <div className="w-[100%] sticky top-0 z-[900] flex justify-center bg-white">
         <div className=" bg-white max-w-[1128px] max-[980px]:h-[150px] w-full whitespace-nowrap pt-[10px] pb-2 flex justify-between items-center relative flex-nowrap max-[980px]:px-0 max-[980px]:items-start">
-          <div className="min-w-[101px] max-xl:min-w-[30px] max-[980px]:mt-[11px] ml-4 pr-[100px]">
+          <Link href={"./"} className="min-w-[101px] max-xl:min-w-[30px] max-[980px]:mt-[11px] ml-4 pr-[100px]">
             <Image
               src={logo}
               width={101}
@@ -29,7 +30,7 @@ function Bar() {
               className="cursor-pointer max-md:block md:hidden min-w-[30px]"
               alt="linkedin logo small"
             />
-          </div>
+          </Link>
           <div className="flex max-[980px]:ml-[0px] max-[980px]:mt-[70px] max-[980px]:absolute max-[980px]:w-[100%] max-[980px]:justify-between max-[640px]:overflow-x-scroll md:mr-3">
             <BarTabs href={"/people"} image={Rocket} text={"Top Content"} />
             <BarTabs href={"/people"} image={People} text={"People"} />
@@ -47,12 +48,18 @@ function Bar() {
             </div>
           </div>
           <div className="flex gap-x-2 max-[980px]:absolute right-[15px]">
-            <button className="cursor-pointer rounded-[30px] border-[1px] font-[600] max-h-[60px] text-[#0a66c2] border-[#0a66c2] px-[25px] py-[13px] bg-transparent hover:bg-[#0a66c221]">
+            <Link
+              href={"/SignIn"}
+              className="cursor-pointer rounded-[30px] border-[1px] font-[600] max-h-[60px] text-[#0a66c2] border-[#0a66c2] px-[25px] py-[13px] bg-transparent hover:bg-[#0a66c221]"
+            >
               Sign in
-            </button>
-            <button className="cursor-pointer rounded-[30px] border-[0px] font-[600] max-h-[60px] text-white px-[25px] py-[13px] bg-[#0a66c2] hover:bg-[#073c71]">
+            </Link>
+            <Link
+              href={""}
+              className="cursor-pointer rounded-[30px] border-[0px] font-[600] max-h-[60px] text-white px-[25px] py-[13px] bg-[#0a66c2] hover:bg-[#073c71]"
+            >
               Join now
-            </button>
+            </Link>
           </div>
         </div>
       </div>
