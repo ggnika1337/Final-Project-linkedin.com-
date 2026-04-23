@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import React from "react";
 import One from "../../../../../public/start/SliderImageOne.png";
 import Two from "../../../../../public/start/SliderImageTwo.png";
@@ -9,8 +9,14 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
+type slides = {
+  header: string;
+  text: string;
+  img: StaticImageData;
+};
+
 function sliderStart() {
-  const SLIDES: array = [
+  const SLIDES: slides[] = [
     {
       header: "Let the right people know you're open to work",
       text: "With the Open To Work feature, you can privately tell recruiters or publicly share with the LinkedIn community that you are looking for new job opportunities.",

@@ -1,7 +1,6 @@
 "use client";
 import Button from "@/app/components/__atoms/Button/Button";
 import ButtonsWrap from "@/app/components/__molecules/ButtonsWrap/ButtonsWrap";
-import React, { useState } from "react";
 import Working from "../../../../../../public/start/man with laptop.svg";
 import Image from "next/image";
 import SignInBtns from "@/app/components/__molecules/SignInBtns/SignInBtns";
@@ -9,31 +8,25 @@ import SliderStart from "@/app/components/__molecules/SliderStart/SliderStart";
 import HighFive from "../../../../../../public/start/HighFive.svg";
 import WorkWithPC from "../../../../../../public/start/SittingAtPC.svg";
 import DropDownInput from "@/app/components/__molecules/DropDownInput/DropDownInput";
-const BUTTONS: Array = [
-  "E-Commerce Platforms",
-  "CRM Software",
-  "Human Resources Management",
-  "Recruting Software",
-  "Sales Intelligence Software",
-  "Project Management Software",
-  "Help Desk Software",
-  "Social Networking Software",
-  "Desktop Publishing Software",
-];
+import PeopleWorking from "../../../../../../public/start/PeopleWorking.jpg";
+import logo from "../../../../../../public/logo.png";
 
-const topics: array = [
-  "Artificial Intelligence for Business 1,040+ course",
-  "Business Analysis and Strategy 2,030+ course",
-  "Diversity, Equity, and Inclusion (DEI) 340+ course",
-  "Business Software and Tools 3,480+ course",
-  "Career Development 720+ course",
-  "Customer Service 320+ course",
-];
+import {
+  GAMES,
+  topics,
+  BUTTONS,
+  footerStrings,
+  footerStringsTwo,
+  footerStringsThree,
+  footerStringsFour,
+  footerPolicies,
+} from "@/app/Datas/Buttons/Buttons";
+import ButtonArrow from "@/app/components/__atoms/ButtonArrow/ButtonArrow";
 
 function Start() {
   return (
     <>
-      <section className="w-full pb-[20px]">
+      <header className="w-full pb-[20px]">
         <div className="w-full pt-[50px] flex justify-center max-md:flex-col whitespace-nowrap flex items-center">
           <SignInBtns />
           <div>
@@ -45,7 +38,7 @@ function Start() {
             />
           </div>
         </div>
-      </section>
+      </header>
       <section className="bg-[#f2f2f1] w-full py-[60px] flex items-center justify-center px-5">
         <div className="max-w-[1128px] w-full flex justify-between container max-md:flex-col max-md:gap-5">
           <h1 className="flex flex-wrap text-[30px] font-normal max-w-[400px] max-md:text-[20px]">
@@ -66,7 +59,7 @@ function Start() {
           </button>
         </div>
       </section>
-      <section className="max-w-[1128px] w-full py-[60px] pl-5">
+      <section className="max-w-[1128px] w-full flex flex-col gap-10 py-[60px] pl-5">
         <div className="container flex justify-between w-full max-[1150px]:flex-col max-[1150px]:gap-5">
           <div className="max-w-[370px] flex flex-col gap-[10px]">
             <h1 className="font-[400] text-[30px]">
@@ -85,6 +78,24 @@ function Start() {
             <button className="rounded-[30px] border border-[#0a66c2] px-[30px] py-[13px] bg-transparent hover:bg-[#0a66c229] cursor-pointer whitespace-nowrap max-md:px-[15px] max-md:py-0">
               Show all
             </button>
+          </div>
+        </div>
+        <div>
+          <div className="flex justify-between">
+            <div className="max-w-[370px] flex flex-col gap-5">
+              <h1 className="font-[400] text-[30px]">
+                Keep your mind sharp with games
+              </h1>
+              <h1>
+                Take a break and reconnect with your network through quick daily
+                games.
+              </h1>
+            </div>
+            <div className="flex-wrap flex gap-[7px] max-w-[640px]">
+              {GAMES.map((text) => (
+                <Button key={text} text={text} />
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -116,15 +127,111 @@ function Start() {
           </div>
         </div>
       </section>
-      <section>
-        <div></div>
+      <section className="flex w-full justify-around items-center overflow-hidden max-md:flex-col">
+        <div className="bg-[#f2f2f1] w-full items-center min-w-[413px] max-md:min-w-[340px] justify-end flex h-[720px] pr-20 max-md:pr-0 max-md:justify-center max-md:w-full max-md:h-[437px]">
+          <div className="py-[60px] flex flex-col gap-2  justify-center ml-5 max-md:ml-0 max-md:px-5 max-md:w-full">
+            <h1 className="text-[#b24020] text-[32px] font-normal max-md:text-[24px] whitespace-nowrap">
+              Who is LinkedIn for?
+            </h1>
+            <p className="mb-5">
+              Anyone looking to navigate their professional life.
+            </p>
+
+            <ButtonArrow text={"Find a coworker or classmate"} />
+            <ButtonArrow text={"Find a new job"} />
+            <ButtonArrow text={"Find a course or training"} />
+          </div>
+        </div>
+        <div className="w-full">
+          <Image
+            src={PeopleWorking}
+            height={840}
+            alt="2 people read"
+            className="ml-[70px] min-h-[840px] min-w-[840px] max-md:hidden"
+          />
+        </div>
       </section>
       <section>
-        <div></div>
+        <div className="mb-[50px] px-5">
+          <h1 className="text-[48px] mt-[50px] mb-[16px] max-w-[1100px] opacity-89 max-md:text-[24px]">
+            Join your colleagues, classmates, and friends on LinkedIn
+          </h1>
+          <button className="cursor-pointer rounded-[30px] border-[0px] font-[600] max-h-[60px] text-white px-[25px] py-[13px] bg-[#0a66c2] hover:bg-[#073c71]">
+            Get started
+          </button>
+        </div>
       </section>
-      <section>
-        <div></div>
-      </section>
+      <footer className="w-full py-[60px] flex items-center justify-center bg-[#f2f2f1] px-5">
+        <div className="flex justify-between max-w-[1128px] w-full max-[990px]:gap-5 max-[990px]:flex-col">
+          <Image
+            src={logo}
+            width={101}
+            alt="linkedin logo"
+            className="cursor-pointer max-md:hidden max-h-[30px] min-w-[101px]"
+          />
+          <div className="flex max-[990px]:flex-col max-[990px]:gap-5">
+            <div className="flex flex-col gap-2 mr-[100px]">
+              <h1 className="font-[700] text-[16px]">General</h1>
+              {footerStrings.map((str) => {
+                return (
+                  <a href="/." className="hover:underline hover:text-[#1e1e87]">
+                    {str}
+                  </a>
+                );
+              })}
+            </div>
+            <div className="flex flex-col gap-2 mr-[100px]">
+              <h1 className="font-[700] text-[16px]">Browse LinkedIn</h1>
+              {footerStringsTwo.map((str) => {
+                return (
+                  <a href="/." className="hover:underline hover:text-[#1e1e87]">
+                    {str}
+                  </a>
+                );
+              })}
+            </div>
+            <div className="flex flex-col gap-2 mr-[100px]">
+              <h1 className="font-[700] text-[16px]">Business Solutions</h1>
+              {footerStringsThree.map((str) => {
+                return (
+                  <a href="/." className="hover:underline hover:text-[#1e1e87]">
+                    {str}
+                  </a>
+                );
+              })}
+            </div>
+            <div className="flex flex-col gap-2 mr-[100px]">
+              <h1 className="font-[700] text-[16px]">Directories</h1>
+              {footerStringsFour.map((str) => {
+                return (
+                  <a href="/." className="hover:underline hover:text-[#1e1e87]">
+                    {str}
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </footer>
+      <footer>
+        <div className="flex p-[10px] max-[990px]:py-[64px] max-[990px]:px-5 gap-5 flex-wrap overflow-hidden">
+          <Image src={logo} width={101} height={30} alt="linkedin logo black" />
+          <span className="text-[#666666] text-[15px]">© 2026</span>
+          {footerPolicies.map((str) => {
+            return (
+              <a
+                href="/."
+                className="hover:underline text-[#666666] font-[600] text-[15px] hover:text-[#1e1e87]"
+              >
+                {str}
+              </a>
+            );
+          })}
+          <a href="/." className="hover:underline text-[#4809bf]">
+            Community Guidelines
+          </a>
+        </div>
+      </footer>
     </>
   );
 }
