@@ -17,7 +17,10 @@ function Bar() {
     <>
       <div className="w-[100%] sticky top-0 z-[900] flex justify-center bg-white">
         <div className=" bg-white max-w-[1128px] max-[980px]:h-[150px] w-full whitespace-nowrap pt-[10px] pb-2 flex justify-between items-center relative flex-nowrap max-[980px]:px-0 max-[980px]:items-start">
-          <Link href={"./"} className="min-w-[101px] max-xl:min-w-[30px] max-[980px]:mt-[11px] ml-4 pr-[100px]">
+          <Link
+            href={"./"}
+            className="min-w-[101px] max-xl:min-w-[30px] max-[980px]:mt-[11px] ml-4 pr-[100px]"
+          >
             <Image
               src={logo}
               width={101}
@@ -32,11 +35,11 @@ function Bar() {
             />
           </Link>
           <div className="flex max-[980px]:ml-[0px] max-[980px]:mt-[70px] max-[980px]:absolute max-[980px]:w-[100%] max-[980px]:justify-between max-[640px]:overflow-x-scroll md:mr-3">
-            <BarTabs href={"/people"} image={Rocket} text={"Top Content"} />
+            <BarTabs href={"/"} image={Rocket} text={"Top Content"} />
             <BarTabs href={"/people"} image={People} text={"People"} />
-            <BarTabs href={"/people"} image={Video} text={"Learning"} />
-            <BarTabs href={"/people"} image={Bag} text={"Jobs"} />
-            <BarTabs href={"/people"} image={Games} text={"Games"} />
+            <BarTabs href={"/"} image={Video} text={"Learning"} />
+            <BarTabs href={"/"} image={Bag} text={"Jobs"} />
+            <BarTabs href={"/"} image={Games} text={"Games"} />
             <div className="flex items-center">
               <div className="h-[60px] bg-black opacity-10 min-w-[1px]"></div>
               <BarTabs
@@ -55,7 +58,7 @@ function Bar() {
               Sign in
             </Link>
             <Link
-              href={""}
+              href={"/SignUp"}
               className="cursor-pointer rounded-[30px] border-[0px] font-[600] max-h-[60px] text-white px-[25px] py-[13px] bg-[#0a66c2] hover:bg-[#073c71]"
             >
               Join now

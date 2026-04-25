@@ -3,12 +3,13 @@ import Button from "@/app/components/__atoms/Button/Button";
 import ButtonsWrap from "@/app/components/__molecules/ButtonsWrap/ButtonsWrap";
 import Working from "../../../../../../public/start/man with laptop.svg";
 import Image from "next/image";
-import SignInBtns from "@/app/components/__molecules/SignInBtns/SignInBtns";
+import SignInBtns from "@/app/components/__atoms/SignInBtns/SignInBtns";
 import SliderStart from "@/app/components/__molecules/SliderStart/SliderStart";
 import HighFive from "../../../../../../public/start/HighFive.svg";
 import WorkWithPC from "../../../../../../public/start/SittingAtPC.svg";
 import DropDownInput from "@/app/components/__molecules/DropDownInput/DropDownInput";
 import PeopleWorking from "../../../../../../public/start/PeopleWorking.jpg";
+import ButtonArrow from "@/app/components/__atoms/ButtonArrow/ButtonArrow";
 import logo from "../../../../../../public/logo.png";
 
 import {
@@ -21,7 +22,7 @@ import {
   footerStringsFour,
   footerPolicies,
 } from "@/app/Datas/Buttons/Buttons";
-import ButtonArrow from "@/app/components/__atoms/ButtonArrow/ButtonArrow";
+import Policies from "@/app/components/__atoms/Policies/Policies";
 
 function Start() {
   return (
@@ -230,24 +231,7 @@ function Start() {
         </div>
       </footer>
       <footer>
-        <div className="flex p-[10px] max-[990px]:py-[64px] max-[990px]:px-5 gap-5 flex-wrap overflow-hidden">
-          <Image src={logo} width={101} height={30} alt="linkedin logo black" />
-          <span className="text-[#666666] text-[15px]">© 2026</span>
-          {footerPolicies.map((str) => {
-            return (
-              <a
-                key={str}
-                href="/."
-                className="hover:underline text-[#666666] font-[600] text-[15px] hover:text-[#1e1e87]"
-              >
-                {str}
-              </a>
-            );
-          })}
-          <a href="/." className="hover:underline text-[#4809bf]">
-            Community Guidelines
-          </a>
-        </div>
+        <Policies />
       </footer>
     </>
   );

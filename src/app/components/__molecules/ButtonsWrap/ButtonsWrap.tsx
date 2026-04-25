@@ -1,40 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Button from "../../__atoms/Button/Button";
-
-const visible: string[] = [
-  "Business Development",
-  "Finance",
-  "Administrative Assistant",
-  "Retail Associate",
-  "Customer Service",
-  "Operations",
-  "Information Technology",
-  "Marketing",
-  "Human Resources",
-];
-
-const moreStr: string[] = [
-  "Healthcare Service",
-  "Sales",
-  "Program And Project Management",
-  "Accounting",
-  "Arts and Design",
-  "Community and Social Services",
-  "Consulting",
-  "Education",
-  "Entrepreneurship",
-  "Legal",
-  "Media and Communications",
-  "Military and Protective Services",
-  "Product Management",
-  "Purchasing",
-  "Quality Assurance",
-  "Real Estate",
-  "Research",
-  "Support",
-  "Administrative",
-];
+import { visible, moreStr } from "../../../Datas/Buttons/Buttons";
 
 function ButtonsWrap() {
   const [more, setMore] = useState(false);

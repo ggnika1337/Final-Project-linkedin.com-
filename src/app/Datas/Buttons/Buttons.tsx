@@ -84,3 +84,37 @@ export const footerPolicies: string[] = [
   "Brand Policy",
   "Guest Controls",
 ];
+
+export const visible: string[] = [
+  "Business Development",
+  "Finance",
+  "Administrative Assistant",
+  "Retail Associate",
+  "Customer Service",
+  "Operations",
+  "Information Technology",
+  "Marketing",
+  "Human Resources",
+];
+
+export const moreStr: string[] = [
+  "Healthcare Service",
+  "Sales",
+  "Program And Project Management",
+  "Accounting",
+  "Arts and Design",
+  "Community and Social Services",
+  "Consulting",
+  "Education",
+  "Entrepreneurship",
+  "Legal",
+  "Media and Communications",
+  "Military and Protective Services",
+  "Product Management",
+  "Purchasing",
+  "Quality Assurance",
+  "Real Estate",
+  "Research",
+  "Support",
+  "Administrative",
+];

@@ -1,9 +1,11 @@
+"use client";
 import Image from "next/image";
 import logo from "../../../../public/logo.png";
-import SignIn from "@/app/components/__molecules/Auths/SignIn/SignIn";
 import Link from "next/link";
 
-function Page() {
+import SignUp from "@/app/components/__molecules/Auths/SignUp/SignUp";
+
+function page() {
   return (
     <>
       <Link href={"./"}>
@@ -14,9 +16,9 @@ function Page() {
           className="cursor-pointer min-w-[101px] absolute top-5 left-15"
         />
       </Link>
-      <SignIn />
+      <SignUp />
     </>
   );
 }
 
-export default Page;
+export default page;

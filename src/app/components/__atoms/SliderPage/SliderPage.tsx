@@ -1,9 +1,9 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import React from "react";
 type props = {
   header: string;
   text: string;
-  img: any;
+  img: StaticImageData;
 };
 
 function SliderPage({ header, text, img }: props) {
