@@ -7,7 +7,7 @@ import SignInBtns from "@/app/components/__atoms/SignInBtns/SignInBtns";
 import SliderStart from "@/app/components/__molecules/SliderStart/SliderStart";
 import HighFive from "../../../../../../public/start/HighFive.svg";
 import WorkWithPC from "../../../../../../public/start/SittingAtPC.svg";
-import DropDownInput from "@/app/components/__molecules/DropDownInput/DropDownInput";
+import DropDownInput from "@/app/components/__atoms/DropDownInput/DropDownInput";
 import PeopleWorking from "../../../../../../public/start/PeopleWorking.jpg";
 import ButtonArrow from "@/app/components/__atoms/ButtonArrow/ButtonArrow";
 import logo from "../../../../../../public/logo.png";
