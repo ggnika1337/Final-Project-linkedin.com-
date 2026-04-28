@@ -11,6 +11,7 @@ import DropDownInput from "@/app/components/__atoms/DropDownInput/DropDownInput"
 import PeopleWorking from "../../../../../../public/start/PeopleWorking.jpg";
 import ButtonArrow from "@/app/components/__atoms/ButtonArrow/ButtonArrow";
 import logo from "../../../../../../public/logo.png";
+import People from "../../../../../../public/start/people.png";
 
 import {
   GAMES,
@@ -152,14 +153,26 @@ function Start() {
           />
         </div>
       </section>
-      <section>
-        <div className="mb-[50px] px-5">
+      <section className="relative w-full flex justify-center mb-100">
+        <div className="mb-[50px] px-5 z-500">
           <h1 className="text-[48px] mt-[50px] mb-[16px] max-w-[1100px] opacity-89 max-md:text-[24px]">
             Join your colleagues, classmates, and friends on LinkedIn
           </h1>
           <button className="cursor-pointer rounded-[30px] border-[0px] font-[600] max-h-[60px] text-white px-[25px] py-[13px] bg-[#0a66c2] hover:bg-[#073c71]">
             Get started
           </button>
+          <div className="absolute left-0 flex overflow-hidden">
+            <Image src={People} alt="people" height={500} />
+            <Image src={People} alt="people" height={500} />
+            <Image src={People} alt="people" height={500} />
+            <Image src={People} alt="people" height={500} />
+            <Image src={People} alt="people" height={500} />
+            <Image src={People} alt="people" height={500} />
+            <Image src={People} alt="people" height={500} />
+            <Image src={People} alt="people" height={500} />
+            <Image src={People} alt="people" height={500} />
+            <Image src={People} alt="people" height={500} />
+          </div>
         </div>
       </section>
       <footer className="w-full py-[60px] flex items-center justify-center bg-[#f2f2f1] px-5">
