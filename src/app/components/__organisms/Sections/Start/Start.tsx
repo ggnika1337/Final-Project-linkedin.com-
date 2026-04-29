@@ -24,6 +24,7 @@ import {
   footerPolicies,
 } from "@/app/Datas/Buttons/Buttons";
 import Policies from "@/app/components/__atoms/Policies/Policies";
+import Link from "next/link";
 
 function Start() {
   return (
@@ -43,7 +44,7 @@ function Start() {
       </header>
       <section className="bg-[#f2f2f1] w-full py-[60px] flex items-center justify-center px-5">
         <div className="max-w-[1128px] w-full flex justify-between container max-md:flex-col max-md:gap-5">
-          <h1 className="flex flex-wrap text-[30px] font-normal max-w-[400px] max-md:text-[20px]">
+          <h1 className="flex flex-wrap text-[30px] text-start font-normal max-w-[400px] max-md:text-[20px]">
             Find the right job or internship for you
           </h1>
           <ButtonsWrap />
@@ -159,7 +160,7 @@ function Start() {
             Join your colleagues, classmates, and friends on LinkedIn
           </h1>
           <button className="cursor-pointer rounded-[30px] border-[0px] font-[600] max-h-[60px] text-white px-[25px] py-[13px] bg-[#0a66c2] hover:bg-[#073c71]">
-            Get started
+            <Link href={"/SignUp"}> Get started</Link>
           </button>
           <div className="absolute left-0 flex overflow-hidden">
             <Image src={People} alt="people" height={500} />

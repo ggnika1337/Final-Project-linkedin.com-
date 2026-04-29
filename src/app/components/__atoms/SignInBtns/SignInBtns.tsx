@@ -8,7 +8,7 @@ function SignInBtns() {
   return (
     <>
       <div className="px-5 max-md:pr-0 flex flex-col items-start max-md:w-full">
-        <h1 className="font-[400] text-[48px] max-md:text-[28px] max-w-[572px] self-center whitespace-normal text-center">
+        <h1 className="font-[400] text-[48px] max-md:text-[28px] max-w-[572px] self-center whitespace-normal">
           Welcome to your <br className="max-md:hidden" /> professional
           community
         </h1>

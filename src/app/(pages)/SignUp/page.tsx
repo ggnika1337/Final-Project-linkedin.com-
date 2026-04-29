@@ -1,9 +1,14 @@
-"use client";
 import Image from "next/image";
 import logo from "../../../../public/logo.png";
 import Link from "next/link";
+import type { Metadata } from "next";
 
 import SignUp from "@/app/components/__molecules/Auths/SignUp/SignUp";
+
+export const metadata: Metadata = {
+  title: "Sign Up | LinkedIn",
+  description: "",
+};
 
 function page() {
   return (

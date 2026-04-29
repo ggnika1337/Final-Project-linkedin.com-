@@ -2,6 +2,12 @@ import Image from "next/image";
 import logo from "../../../../public/logo.png";
 import SignIn from "@/app/components/__molecules/Auths/SignIn/SignIn";
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Sign In | LinkedIn",
+  description: "",
+};
 
 function Page() {
   return (
