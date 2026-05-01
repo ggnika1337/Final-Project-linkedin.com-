@@ -11,13 +11,19 @@ import { auth } from "../../../../../config/firebase";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { useRouter } from "next/navigation";
+import { CheckAuth } from "@/app/Datas/Functions/CheckAuth";
 
 function SignIn() {
+  CheckAuth();
+  const router = useRouter();
   const [password, setPassword] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   async function signIn() {
     try {
       await signInWithEmailAndPassword(auth, email, password);
+      console.log(auth?.currentUser?.email);
+      router.push("/feed");
     } catch (error) {
       console.error(error);
     }
@@ -26,14 +32,14 @@ function SignIn() {
   return (
     <>
       <form
-        action="submit"
+        onSubmit={signIn}
         className="w-full h-full flex items-center justify-center"
       >
         <div className="flex flex-col bg-white border-1 border-[#e9e8e9] rounded-[10px] p-[30px]">
           <h1 className="text-[34px] font-[500]">Sign in</h1>
           <span className="font-[600] mt-2 flex gap-2">
             New to LinkedIn?
-            <Link href={"/SignUp"} className="text-[#0A66C2]">
+            <Link href={"/sign-up"} className="text-[#0A66C2]">
               Join now
             </Link>
           </span>

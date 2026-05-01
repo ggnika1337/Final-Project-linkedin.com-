@@ -52,13 +52,13 @@ function Bar() {
           </div>
           <div className="flex gap-x-2 max-[980px]:absolute right-[15px]">
             <Link
-              href={"/SignIn"}
+              href={"/sign-in"}
               className="cursor-pointer rounded-[30px] border-[1px] font-[600] max-h-[60px] text-[#0a66c2] border-[#0a66c2] px-[25px] py-[13px] bg-transparent hover:bg-[#0a66c221]"
             >
               Sign in
             </Link>
             <Link
-              href={"/SignUp"}
+              href={"/sign-up"}
               className="cursor-pointer rounded-[30px] border-[0px] font-[600] max-h-[60px] text-white px-[25px] py-[13px] bg-[#0a66c2] hover:bg-[#073c71]"
             >
               Join now

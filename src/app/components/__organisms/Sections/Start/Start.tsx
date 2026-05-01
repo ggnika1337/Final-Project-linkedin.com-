@@ -12,7 +12,10 @@ import PeopleWorking from "../../../../../../public/start/PeopleWorking.jpg";
 import ButtonArrow from "@/app/components/__atoms/ButtonArrow/ButtonArrow";
 import logo from "../../../../../../public/logo.png";
 import People from "../../../../../../public/start/people.png";
-
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "@/config/firebase";
 import {
   GAMES,
   topics,
@@ -160,7 +163,7 @@ function Start() {
             Join your colleagues, classmates, and friends on LinkedIn
           </h1>
           <button className="cursor-pointer rounded-[30px] border-[0px] font-[600] max-h-[60px] text-white px-[25px] py-[13px] bg-[#0a66c2] hover:bg-[#073c71]">
-            <Link href={"/SignUp"}> Get started</Link>
+            <Link href={"/sign-up"}> Get started</Link>
           </button>
           <div className="absolute left-0 flex overflow-hidden">
             <Image src={People} alt="people" height={500} />

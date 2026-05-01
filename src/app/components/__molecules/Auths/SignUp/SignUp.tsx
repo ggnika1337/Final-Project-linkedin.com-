@@ -4,7 +4,11 @@ import LineOr from "@/app/components/__atoms/LineOr/LineOr";
 import Policies from "@/app/components/__atoms/Policies/Policies";
 import Link from "next/link";
 import { useState } from "react";
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  updateCurrentUser,
+  updateProfile,
+} from "firebase/auth";
 import { auth } from "../../../../../config/firebase";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -12,8 +16,12 @@ import { formTypes } from "@/app/Datas/Props/Props";
 import { schema, schemaTwo } from "@/app/Datas/Schemas/Schemas";
 import Remember from "@/app/components/__atoms/Remember/Remember";
 import AuthButton from "@/app/components/__atoms/AuthButton/AuthButton";
+import { useRouter } from "next/navigation";
+import { CheckAuth } from "@/app/Datas/Functions/CheckAuth";
 
 function SignUp() {
+  CheckAuth();
+  const router = useRouter();
   const [stage, setStage] = useState(0);
   //
   const {
@@ -21,8 +29,7 @@ function SignUp() {
     handleSubmit,
     formState: { errors },
   } = useForm<formTypes>({
-    //                           BUILD ERROR HERE \/
-    resolver: yupResolver(stage === 0 ? schema : schemaTwo),
+    resolver: yupResolver(stage === 0 ? (schema as any) : (schemaTwo as any)),
   });
 
   async function signUp({ email, password, firstName, lastName }: formTypes) {
@@ -31,10 +38,13 @@ function SignUp() {
       await updateProfile(user.user, {
         displayName: `${firstName} ${lastName}`,
       });
+      router.push("/feed");
     } catch (error) {
       console.error(error);
     }
   }
+
+  console.log(auth?.currentUser?.email);
 
   function stageOne() {
     setStage(stage + 1);
@@ -91,7 +101,7 @@ function SignUp() {
             <h1 className="font-[600]">
               Already on LinkedIn?
               <Link
-                href={"/SignIn"}
+                href={"/sign-in"}
                 className="hover:underline text-[#6466c2] cursor-pointer ml-2"
               >
                 Sign in
