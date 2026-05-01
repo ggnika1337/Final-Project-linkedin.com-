@@ -28,4 +28,4 @@ function Policies() {
   );
 }
 
-export default Policies;
+export default React.memo(Policies);

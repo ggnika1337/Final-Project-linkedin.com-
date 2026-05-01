@@ -11,4 +11,4 @@ function Remember() {
   );
 }
 
-export default Remember;
+export default React.memo(Remember);

@@ -32,4 +32,4 @@ function ButtonsWrap() {
   );
 }
 
-export default ButtonsWrap;
+export default React.memo(ButtonsWrap);

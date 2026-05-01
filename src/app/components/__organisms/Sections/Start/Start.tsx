@@ -28,8 +28,10 @@ import {
 } from "@/app/Datas/Buttons/Buttons";
 import Policies from "@/app/components/__atoms/Policies/Policies";
 import Link from "next/link";
+import { CheckAuth } from "@/app/Datas/Functions/CheckAuth";
 
 function Start() {
+  CheckAuth();
   return (
     <>
       <header className="w-full pb-[20px]">

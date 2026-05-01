@@ -12,4 +12,4 @@ function LineOr() {
   );
 }
 
-export default LineOr;
+export default React.memo(LineOr);

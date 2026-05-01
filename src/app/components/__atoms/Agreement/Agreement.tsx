@@ -22,4 +22,4 @@ function Agreement() {
   );
 }
 
-export default Agreement;
+export default React.memo(Agreement);

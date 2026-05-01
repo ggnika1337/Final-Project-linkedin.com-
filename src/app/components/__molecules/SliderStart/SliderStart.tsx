@@ -15,7 +15,7 @@ type slides = {
   img: StaticImageData;
 };
 
-function sliderStart() {
+function SliderStart() {
   const SLIDES: slides[] = [
     {
       header: "Let the right people know you're open to work",
@@ -51,4 +51,4 @@ function sliderStart() {
   );
 }
 
-export default sliderStart;
+export default React.memo(SliderStart);
