@@ -4,6 +4,7 @@ import Microsoft from "../../../../../public/start/MicrosoftLogo.png";
 import Image from "next/image";
 import Agreement from "../Agreement/Agreement";
 import { useRouter } from "next/navigation";
+import { GoogleSignIn } from "@/app/Datas/Functions/Auth";
 
 function SignInBtns() {
   const router = useRouter();
@@ -15,7 +16,10 @@ function SignInBtns() {
           community
         </h1>
         <div className="flex flex-col gap-3 mt-7 w-full pr-7">
-          <button className="max-w-[400px] cursor-pointer w-full h-[40px] bg-[#1a73e9] rounded-[20px] text-white hover:opacity-50 flex items-center justify-center gap-3 font-[500]">
+          <button
+            onClick={GoogleSignIn}
+            className="max-w-[400px] cursor-pointer w-full h-[40px] bg-[#1a73e9] rounded-[20px] text-white hover:opacity-50 flex items-center justify-center gap-3 font-[500]"
+          >
             <Image width={38} src={Google} alt="Google Logo" /> Continue with
             Google
           </button>

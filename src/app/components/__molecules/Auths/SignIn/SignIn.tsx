@@ -12,22 +12,21 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useRouter } from "next/navigation";
-import { CheckAuth } from "@/app/Datas/Functions/CheckAuth";
 
 function SignIn() {
-  CheckAuth();
   const router = useRouter();
   const [password, setPassword] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   async function signIn() {
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      console.log(auth?.currentUser?.email);
       router.push("/feed");
     } catch (error) {
-      console.error(error);
+      console.log(error);
     }
   }
+
+  console.log(auth?.currentUser?.email);
 
   return (
     <>
@@ -80,7 +79,6 @@ function SignIn() {
           </div>
           <button
             type="submit"
-            onClick={signIn}
             className="mt-4 cursor-pointer rounded-[30px] border-[0px] font-[600] h-[52px] text-white px-[25px] py-[13px] bg-[#0a66c2] hover:bg-[#073c71]"
           >
             Sign in

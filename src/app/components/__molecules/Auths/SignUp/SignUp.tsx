@@ -4,12 +4,6 @@ import LineOr from "@/app/components/__atoms/LineOr/LineOr";
 import Policies from "@/app/components/__atoms/Policies/Policies";
 import Link from "next/link";
 import { useState } from "react";
-import {
-  createUserWithEmailAndPassword,
-  updateCurrentUser,
-  updateProfile,
-} from "firebase/auth";
-import { auth } from "../../../../../config/firebase";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { formTypes } from "@/app/Datas/Props/Props";
@@ -17,13 +11,12 @@ import { schema, schemaTwo } from "@/app/Datas/Schemas/Schemas";
 import Remember from "@/app/components/__atoms/Remember/Remember";
 import AuthButton from "@/app/components/__atoms/AuthButton/AuthButton";
 import { useRouter } from "next/navigation";
-import { CheckAuth } from "@/app/Datas/Functions/CheckAuth";
+import { EmailPassword } from "@/app/Datas/Functions/Auth";
 
 function SignUp() {
-  CheckAuth();
   const router = useRouter();
   const [stage, setStage] = useState(0);
-  //
+
   const {
     register,
     handleSubmit,
@@ -31,20 +24,6 @@ function SignUp() {
   } = useForm<formTypes>({
     resolver: yupResolver(stage === 0 ? (schema as any) : (schemaTwo as any)),
   });
-
-  async function signUp({ email, password, firstName, lastName }: formTypes) {
-    try {
-      const user = await createUserWithEmailAndPassword(auth, email, password);
-      await updateProfile(user.user, {
-        displayName: `${firstName} ${lastName}`,
-      });
-      router.push("/feed");
-    } catch (error) {
-      console.error(error);
-    }
-  }
-
-  console.log(auth?.currentUser?.email);
 
   function stageOne() {
     setStage(stage + 1);
@@ -123,7 +102,7 @@ function SignUp() {
     return (
       <>
         <form
-          onSubmit={handleSubmit(signUp)}
+          onSubmit={handleSubmit(EmailPassword)}
           className="flex flex-col bg-[#f2f2f1] gap-3 w-full h-full items-center justify-center"
         >
           <input className="hidden" type="email" {...register("email")} />
