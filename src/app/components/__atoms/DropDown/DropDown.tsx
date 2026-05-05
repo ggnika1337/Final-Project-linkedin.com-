@@ -1,7 +1,11 @@
 import React from "react";
 import Arrow from "@/../public/bar/Arrow.png";
-import Image from "next/image";
-type props = { image: string; text: string; onClick: () => void };
+import Image, { StaticImageData } from "next/image";
+type props = {
+  image: StaticImageData;
+  text: string;
+  onClick: () => void;
+};
 
 function DropDown({ image, text, onClick }: props) {
   return (

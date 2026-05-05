@@ -61,10 +61,10 @@ function FeedBar() {
                 onClick={() => setActive(tab.text)}
               />
             ))}
-            <DropDown image={Pfp} text="Me" />
+            <DropDown onClick={() => {}} image={Pfp} text="Me" />
 
             <div className="ml-7 pl-3 border-l-1 border-[#0000001a] h-full justify-center">
-              <DropDown image={Dots} text="For Business" />
+              <DropDown onClick={() => {}} image={Dots} text="For Business" />
             </div>
             <div className="text-[14px] flex flex-col items-center ml-6">
               <Image src={Premium} alt={"Premium"} />
