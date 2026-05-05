@@ -13,6 +13,10 @@ function Feed() {
 
   return (
     <>
+      <button className="border-black border-1" onClick={logout}>
+        LOG OUT
+      </button>
+
       <div className="w-full h-full flex flex-col items-center bg-[#f4f2ee]">
         <FeedBar />
         <div className="container max-w-[1128px] w-full justify-center px-2 mt-6 flex max-[830px]:flex-col max-[830px]:items-center">
@@ -26,7 +30,3 @@ function Feed() {
 }
 
 export default Feed;
-
-/* <button className="bg-black" onClick={logout}>
-        LOG OUT
-      </button> */
