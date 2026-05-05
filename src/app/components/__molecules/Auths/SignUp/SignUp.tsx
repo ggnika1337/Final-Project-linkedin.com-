@@ -102,7 +102,7 @@ function SignUp() {
     return (
       <>
         <form
-          onSubmit={handleSubmit(EmailPassword)}
+          onSubmit={handleSubmit((data) => EmailPassword(data, router))}
           className="flex flex-col bg-[#f2f2f1] gap-3 w-full h-full items-center justify-center"
         >
           <input className="hidden" type="email" {...register("email")} />
