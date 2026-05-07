@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Banner from "../../../../../public/feed/banner.png";
 import { auth } from "@/config/firebase";
+import Pfp from "../Pfp/Pfp";
 
 type props = {
   location: string;
@@ -9,12 +10,13 @@ type props = {
 function ProfileCard() {
   return (
     <>
-      <div className="rounded-[10px] bg-[#fefeff] shadow-[0px_0px_0px_1px_rgb(140_140_140_/_0.2)]">
+      <div className="rounded-[10px] relative bg-[#fefeff] shadow-[0px_0px_0px_1px_rgb(140_140_140_/_0.2)]">
         <Image
           src={Banner}
           alt={"background banner"}
           className="w-full rounded-t-[10px]"
         />
+        <Pfp />
         <div className="p-4 flex flex-col mt-13">
           <h1 className="text-[20px] font-[500]">
             {auth.currentUser?.displayName}
