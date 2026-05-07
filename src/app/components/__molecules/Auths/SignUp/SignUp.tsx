@@ -6,12 +6,12 @@ import Link from "next/link";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { formTypes } from "@/app/Datas/Props/Props";
-import { schema, schemaTwo } from "@/app/Datas/Schemas/Schemas";
+import { formTypes } from "@/app/helpers/Props/Props";
+import { schema, schemaTwo } from "@/app/helpers/Schemas/Schemas";
 import Remember from "@/app/components/__atoms/Remember/Remember";
 import AuthButton from "@/app/components/__atoms/AuthButton/AuthButton";
 import { useRouter } from "next/navigation";
-import { EmailPassword } from "@/app/Datas/Functions/Auth";
+import { EmailPassword } from "@/app/hooks/Auth";
 
 function SignUp() {
   const router = useRouter();

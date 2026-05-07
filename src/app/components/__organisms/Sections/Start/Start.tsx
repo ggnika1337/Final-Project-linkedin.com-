@@ -12,10 +12,6 @@ import PeopleWorking from "../../../../../../public/start/PeopleWorking.jpg";
 import ButtonArrow from "@/app/components/__atoms/ButtonArrow/ButtonArrow";
 import logo from "../../../../../../public/logo.png";
 import People from "../../../../../../public/start/people.png";
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "@/config/firebase";
 import {
   GAMES,
   topics,
@@ -24,11 +20,10 @@ import {
   footerStringsTwo,
   footerStringsThree,
   footerStringsFour,
-  footerPolicies,
 } from "@/app/Datas/Buttons/Buttons";
 import Policies from "@/app/components/__atoms/Policies/Policies";
 import Link from "next/link";
-import { CheckAuth } from "@/app/Datas/Functions/CheckAuth";
+import { CheckAuth } from "@/app/hooks/CheckAuth";
 
 function Start() {
   CheckAuth();

@@ -1,7 +1,7 @@
 import { signInWithPopup } from "firebase/auth";
 import { auth, googleProvider } from "@/config/firebase";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { formTypes } from "@/app/Datas/Props/Props";
+import { formTypes } from "@/app/helpers/Props/Props";
 import { signOut } from "firebase/auth";
 
 export async function GoogleSignIn(router: any) {

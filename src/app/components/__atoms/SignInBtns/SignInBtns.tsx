@@ -4,7 +4,7 @@ import Microsoft from "../../../../../public/start/MicrosoftLogo.png";
 import Image from "next/image";
 import Agreement from "../Agreement/Agreement";
 import { useRouter } from "next/navigation";
-import { GoogleSignIn } from "@/app/Datas/Functions/Auth";
+import { GoogleSignIn } from "@/app/hooks/Auth";
 
 function SignInBtns() {
   const router = useRouter();

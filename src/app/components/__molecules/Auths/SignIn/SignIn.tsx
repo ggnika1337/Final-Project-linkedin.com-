@@ -8,7 +8,7 @@ import LineOr from "@/app/components/__atoms/LineOr/LineOr";
 import Policies from "@/app/components/__atoms/Policies/Policies";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../../../../config/firebase";
-import { GoogleSignIn } from "@/app/Datas/Functions/Auth";
+import { GoogleSignIn } from "@/app/hooks/Auth";
 
 import { useRouter } from "next/navigation";
 
