@@ -9,11 +9,12 @@ import Home from "@/../public/bar/Home.svg";
 import Messages from "@/../public/bar/Messages.png";
 import Pfp from "@/../public/PfpDefault.png";
 import Arrow from "@/../public/bar/Arrow.png";
+import { MeDropDownMenu } from "../../__atoms/DropDown/DropDown";
 
 import Premium from "@/../public/feed/premium.png";
 import Dots from "@/../public/bar/Dots.png";
 import FeedBarTabs from "../../__atoms/FeedBarTabs/FeedBarTabs";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import DropDown from "../../__atoms/DropDown/DropDown";
 
 const tabs = [
@@ -26,10 +27,29 @@ const tabs = [
 
 function FeedBar() {
   const [active, setActive] = useState("Home");
+  const [meOpen, setMeOpen] = useState(false);
+  const [bizOpen, setBizOpen] = useState(false);
+
+  const meRef = useRef<HTMLDivElement>(null);
+  const bizRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleOutsideClick(e: MouseEvent) {
+      if (meRef.current && !meRef.current.contains(e.target as Node)) {
+        setMeOpen(false);
+      }
+      if (bizRef.current && !bizRef.current.contains(e.target as Node)) {
+        setBizOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => document.removeEventListener("mousedown", handleOutsideClick);
+  }, []);
 
   return (
     <>
-      <div className="w-full h-[60px] bg-[#fefeff] flex justify-center shadow-[0px_0px_0px_1px_rgb(140_140_140_/_0.2)]">
+      <div className="w-full h-[60px] bg-[#fefeff] flex justify-center shadow-[0px_0px_0px_1px_rgb(140_140_140_/_0.2)] px-[10px]">
         <div className="max-w-[1128px] h-full w-full flex justify-between">
           <div className="flex items-center w-full">
             <Image
@@ -37,7 +57,7 @@ function FeedBar() {
               className="cursor-pointer size-[34px]"
               alt="linkedin logo small"
             />
-            <div className="relative ml-2 h-[34px] w-full">
+            <div className="relative ml-2 h-[34px] w-full max-[910px]:hidden">
               <Image
                 src={Magnifier}
                 alt="magnifier"
@@ -50,6 +70,7 @@ function FeedBar() {
               />
             </div>
           </div>
+
           <div className="flex whitespace-nowrap items-center justify-center">
             {tabs.map((tab) => (
               <FeedBarTabs
@@ -61,11 +82,27 @@ function FeedBar() {
                 onClick={() => setActive(tab.text)}
               />
             ))}
-            <DropDown onClick={() => {}} image={Pfp} text="Me" />
 
-            <div className="ml-7 pl-3 border-l-1 border-[#0000001a] h-full justify-center">
-              <DropDown onClick={() => {}} image={Dots} text="For Business" />
+            <div ref={meRef} className="relative">
+              <DropDown
+                onClick={() => setMeOpen((prev) => !prev)}
+                image={Pfp}
+                text="Me"
+              />
+              {meOpen && <MeDropDownMenu />}
             </div>
+
+            <div className="ml-7 pt-2 pl-3 max-[1100px]:pt-4 border-l-1 border-[#0000001a] h-full justify-center">
+              <div ref={bizRef} className="relative">
+                <DropDown
+                  onClick={() => setBizOpen((prev) => !prev)}
+                  image={Dots}
+                  text="For Business"
+                />
+                {bizOpen && <div className="bg-black size-[20px]"></div>}
+              </div>
+            </div>
+
             <div className="text-[14px] flex flex-col items-center ml-6">
               <Image src={Premium} alt={"Premium"} />
               <span className="mt-1 font-[600] cursor-pointer opacity-70">
