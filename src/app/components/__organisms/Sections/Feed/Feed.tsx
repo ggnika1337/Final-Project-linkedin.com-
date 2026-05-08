@@ -21,10 +21,10 @@ function Feed() {
   console.log(auth.currentUser);
 
   useEffect(() => {
-    if (auth.currentUser?.emailVerified) {
-      setVerify(false);
-    } else {
+    if (auth.currentUser?.emailVerified === true) {
       setVerify(true);
+    } else {
+      setVerify(false);
     }
   }, []);
 
