@@ -83,7 +83,7 @@ function FeedBar() {
               />
             ))}
 
-            <div ref={meRef} className="relative">
+            <div ref={meRef} className="relative ml-2">
               <DropDown
                 onClick={() => setMeOpen((prev) => !prev)}
                 image={Pfp}

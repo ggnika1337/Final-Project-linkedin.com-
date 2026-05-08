@@ -9,6 +9,7 @@ import Middle from "@/app/components/__molecules/Feed/Middle/Middle";
 import Image from "next/image";
 import Loading from "@/../public/Loading.gif";
 import { auth } from "@/config/firebase";
+import Logo from "@/../public/logo.png";
 
 function Feed() {
   const [verify, setVerify] = useState<boolean>();
@@ -17,19 +18,24 @@ function Feed() {
   const [loading, setLoading] = useState(true);
   setInterval(() => {
     setLoading(false);
-  }, 2000);
+  }, 1000);
   console.log(auth.currentUser);
 
   useEffect(() => {
     if (auth.currentUser?.emailVerified === true) {
-      setVerify(false);
+      localStorage.setItem("emailVerified", "true");
     } else {
-      setVerify(true);
+      localStorage.setItem("emailVerified", "false");
     }
   }, []);
 
   if (loading) {
-    return <Image src={Loading} alt="loading" width={700} height={700} />;
+    return (
+      <div className="h-full flex-col gap-10 flex items-center justify-center">
+        <Image src={Logo} alt="LinkedIn Logo" width={200} height={200} />
+        <Image src={Loading} alt="loading" width={300} height={400} />
+      </div>
+    );
   } else
     return (
       <>
@@ -41,7 +47,7 @@ function Feed() {
             <span className="font-semibold text-[#b65c20d2]">
               We’re almost there! We just need you to confirm your email
               address. Check your <span>{auth.currentUser?.email}</span> account
-              or{" "}
+              or
               <span
                 onClick={() => {
                   resendVerification();
