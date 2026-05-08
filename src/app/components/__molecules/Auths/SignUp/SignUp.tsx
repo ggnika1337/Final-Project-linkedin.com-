@@ -107,7 +107,7 @@ function SignUp() {
         >
           <input className="hidden" type="email" {...register("email")} />
           <input className="hidden" type="password" {...register("password")} />
-          <h1 className="text-[32px]">Join LinkedIn now — it’s free!</h1>
+          <h1 className="text-[32px] max-md:text-[25px]">Join LinkedIn now — it’s free!</h1>
           <div className="px-[24px] py-[20px] max-w-[400px] w-full bg-[white] rounded-[10px]">
             <div className="flex flex-col gap-1">
               <label>First name</label>
