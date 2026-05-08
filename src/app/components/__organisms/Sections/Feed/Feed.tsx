@@ -43,7 +43,10 @@ function Feed() {
               address. Check your <span>{auth.currentUser?.email}</span> account
               or{" "}
               <span
-                onClick={(resendVerification, setVerify(false))}
+                onClick={() => {
+                  resendVerification();
+                  setVerify(false);
+                }}
                 className="hover:underline text-[#b65d20] font-bold cursor-pointer"
               >
                 request a new confirmation link.
