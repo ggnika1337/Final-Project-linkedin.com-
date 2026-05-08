@@ -1,6 +1,3 @@
-import Image from "next/image";
-import Premium from "../../../../../public/feed/premium.png";
-
 function PremiumOffer() {
   return (
     <>
@@ -9,10 +6,22 @@ function PremiumOffer() {
           Access exclusive tools & insights
         </span>
         <div className="text-[14px] flex gap-2 text-center">
-          <Image src={Premium} alt={"Premium"} />
-          <span className="mt-1 font-[600] hover:text-[#0a0abc] cursor-pointer">
+          <svg height={24} width={24}>
+            <path
+              fill="#e7a33e"
+              d="M20.01 20.01c.63-.63.99-1.48.99-2.38V6.38C21 4.51 19.49 3 17.62 3H6.38c-.9 0-1.75.36-2.38.99l16.02 16.02z"
+            ></path>
+            <path
+              fill="#c37d16"
+              d="M3.99 3.99C3.36 4.62 3 5.48 3 6.38v11.25c0 1.87 1.51 3.38 3.38 3.38h11.25c.9 0 1.75-.36 2.38-.99z"
+            ></path>
+          </svg>
+          <a
+            href="https://www.linkedin.com/premium/survey/?isSS=true&referenceId=HUELV0YOQiqIWm%2BWiDg7%2Fg%3D%3D&upsellOrderOrigin=Tracking%3Av1%3Apremium_homepage_identity_upsell%3ANav%3AIn-Product"
+            className="mt-1 font-[600] hover:text-[#0a0abc] cursor-pointer"
+          >
             Try Premium for $0
-          </span>
+          </a>
         </div>
       </div>
     </>

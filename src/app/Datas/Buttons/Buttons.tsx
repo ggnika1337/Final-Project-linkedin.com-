@@ -118,3 +118,16 @@ export const moreStr: string[] = [
   "Support",
   "Administrative",
 ];
+
+import People from "@/../public/bar/People.png";
+import Jobs from "@/../public/bar/Bag.png";
+import Bell from "@/../public/bar/Bell.svg";
+import Home from "@/../public/bar/Home.svg";
+import Messages from "@/../public/bar/Messages.png";
+export const tabs = [
+  { href: "/", image: Home, text: "Home" },
+  { href: "/", image: People, text: "My Network" },
+  { href: "/", image: Jobs, text: "Jobs" },
+  { href: "/", image: Messages, text: "Messaging" },
+  { href: "/", image: Bell, text: "Notifications" },
+];

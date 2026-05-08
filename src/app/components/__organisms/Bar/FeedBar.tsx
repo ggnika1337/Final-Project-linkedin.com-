@@ -2,33 +2,20 @@
 import Image from "next/image";
 import logoSmall from "../../../../../public/logo small.png";
 import Magnifier from "../../../../../public/bar/Magnifier.png";
-import People from "@/../public/bar/People.png";
-import Jobs from "@/../public/bar/Bag.png";
-import Bell from "@/../public/bar/Bell.svg";
-import Home from "@/../public/bar/Home.svg";
-import Messages from "@/../public/bar/Messages.png";
 import Pfp from "@/../public/PfpDefault.png";
-import Arrow from "@/../public/bar/Arrow.png";
 import { MeDropDownMenu } from "../../__atoms/DropDown/DropDown";
-
-import Premium from "@/../public/feed/premium.png";
 import Dots from "@/../public/bar/Dots.png";
 import FeedBarTabs from "../../__atoms/FeedBarTabs/FeedBarTabs";
 import { useState, useRef, useEffect } from "react";
 import DropDown from "../../__atoms/DropDown/DropDown";
-
-const tabs = [
-  { href: "/", image: Home, text: "Home" },
-  { href: "/", image: People, text: "My Network" },
-  { href: "/", image: Jobs, text: "Jobs" },
-  { href: "/", image: Messages, text: "Messaging" },
-  { href: "/", image: Bell, text: "Notifications" },
-];
+import PremiumPopup from "../../__atoms/PremiumPopup/PremiumPopup";
+import { tabs } from "@/app/Datas/Buttons/Buttons";
 
 function FeedBar() {
   const [active, setActive] = useState("Home");
-  const [meOpen, setMeOpen] = useState(false);
-  const [bizOpen, setBizOpen] = useState(false);
+  const [meOpen, setMeOpen] = useState<boolean>(false);
+  const [bizOpen, setBizOpen] = useState<boolean>(false);
+  const [vip, setVip] = useState<boolean>(false);
 
   const meRef = useRef<HTMLDivElement>(null);
   const bizRef = useRef<HTMLDivElement>(null);
@@ -102,10 +89,26 @@ function FeedBar() {
                 {bizOpen && <div className="bg-black size-[20px]"></div>}
               </div>
             </div>
-
-            <div className="text-[14px] flex flex-col items-center ml-6">
-              <Image src={Premium} alt={"Premium"} />
-              <span className="mt-1 font-[600] cursor-pointer opacity-70">
+            <div
+              className={`absolute ${vip ? "top-[-400px]" : "top-20 mr-[500px]"}`}
+            >
+              <PremiumPopup onClick={() => setVip((prev) => !prev)} />
+            </div>
+            <div
+              onClick={() => setVip((prev) => !prev)}
+              className="text-[14px] flex flex-col items-center ml-6"
+            >
+              <svg height={24} width={24}>
+                <path
+                  fill="#e7a33e"
+                  d="M20.01 20.01c.63-.63.99-1.48.99-2.38V6.38C21 4.51 19.49 3 17.62 3H6.38c-.9 0-1.75.36-2.38.99l16.02 16.02z"
+                ></path>
+                <path
+                  fill="#c37d16"
+                  d="M3.99 3.99C3.36 4.62 3 5.48 3 6.38v11.25c0 1.87 1.51 3.38 3.38 3.38h11.25c.9 0 1.75-.36 2.38-.99z"
+                ></path>
+              </svg>
+              <span className="mt-1 text-[10px] font-[600] cursor-pointer opacity-70">
                 Try Premium for $0
               </span>
             </div>

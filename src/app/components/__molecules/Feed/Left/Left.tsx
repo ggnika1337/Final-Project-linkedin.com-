@@ -1,8 +1,6 @@
 "use client";
-import React, { useState } from "react";
-import Image from "next/image";
-import News from "../../../../../public/feed/news.png";
-import Favourites from "../../../../../public/feed/favourites.png";
+import { useState } from "react";
+
 import TabsSelector from "@/app/components/__atoms/TabsSelector/TabsSelector";
 import ProfileCard from "@/app/components/__atoms/ProfileCard/ProfileCard";
 import PremiumOffer from "@/app/components/__atoms/PremiumOffer/PremiumOffer";

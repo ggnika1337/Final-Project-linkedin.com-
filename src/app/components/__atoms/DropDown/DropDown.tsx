@@ -3,7 +3,6 @@ import Arrow from "@/../public/bar/Arrow.png";
 import Image, { StaticImageData } from "next/image";
 import Pfp from "@/../public/PfpDefault.png";
 import { auth } from "@/config/firebase";
-import Premium from "@/../public/feed/premium.png";
 import { useRouter } from "next/navigation";
 import { logout } from "@/app/hooks/Auth";
 type props = {
@@ -60,7 +59,16 @@ export function MeDropDownMenu() {
         <div className="px-[15px] pt-[7px]">
           <h1 className="font-bold">Account</h1>
           <div className="text-[14px] flex gap-2 text-center mt-2">
-            <Image src={Premium} alt={"Premium"} />
+            <svg height={24} width={24}>
+              <path
+                fill="#e7a33e"
+                d="M20.01 20.01c.63-.63.99-1.48.99-2.38V6.38C21 4.51 19.49 3 17.62 3H6.38c-.9 0-1.75.36-2.38.99l16.02 16.02z"
+              ></path>
+              <path
+                fill="#c37d16"
+                d="M3.99 3.99C3.36 4.62 3 5.48 3 6.38v11.25c0 1.87 1.51 3.38 3.38 3.38h11.25c.9 0 1.75-.36 2.38-.99z"
+              ></path>
+            </svg>
             <span className="mt-1 font-[700] text-[#3e3e3eca] hover:text-[#0a0abc] cursor-pointer">
               Try 1 month of Premium for $0
             </span>
