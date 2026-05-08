@@ -22,9 +22,9 @@ function Feed() {
 
   useEffect(() => {
     if (auth.currentUser?.emailVerified === true) {
-      setVerify(true);
-    } else {
       setVerify(false);
+    } else {
+      setVerify(true);
     }
   }, []);
 
