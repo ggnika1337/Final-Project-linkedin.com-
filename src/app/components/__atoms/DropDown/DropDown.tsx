@@ -1,5 +1,4 @@
 import React from "react";
-import Arrow from "@/../public/bar/Arrow.png";
 import Image, { StaticImageData } from "next/image";
 import Pfp from "@/../public/PfpDefault.png";
 import { auth } from "@/config/firebase";
@@ -21,7 +20,9 @@ function DropDown({ image, text, onClick }: props) {
         <Image src={image} className="cursor-pointer size-[30px]" alt="PFP" />
         <h1 className="flex items-center gap-1 opacity-50 text-[12px] hover:opacity-100 max-[1100px]:hidden">
           {text}
-          <Image src={Arrow} alt="Arrow" className="size-[12px]" />
+          <svg width={12} height={15}>
+            <path d="M8 11 3 6h10Z"></path>
+          </svg>
         </h1>
       </div>
     </>
@@ -41,7 +42,7 @@ export function MeDropDownMenu() {
             alt="PFP"
           />
           <div className="flex flex-col gap-1">
-            <h1 className="font-600 text-[20px]">
+            <h1 className="font-600 text-[18px]">
               {auth.currentUser?.displayName}
             </h1>
             <span>--</span>

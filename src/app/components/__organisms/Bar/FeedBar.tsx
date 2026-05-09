@@ -2,7 +2,6 @@
 import Image from "next/image";
 import logoSmall from "../../../../../public/logo small.png";
 import Magnifier from "../../../../../public/bar/Magnifier.png";
-import Pfp from "@/../public/PfpDefault.png";
 import { MeDropDownMenu } from "../../__atoms/DropDown/DropDown";
 import Dots from "@/../public/bar/Dots.png";
 import FeedBarTabs from "../../__atoms/FeedBarTabs/FeedBarTabs";
@@ -10,29 +9,17 @@ import { useState, useRef, useEffect } from "react";
 import DropDown from "../../__atoms/DropDown/DropDown";
 import PremiumPopup from "../../__atoms/PremiumPopup/PremiumPopup";
 import { tabs } from "@/app/Datas/Buttons/Buttons";
+import { OutsideClick } from "@/app/hooks/OutsideClick";
+import Pfp from "@/../public/PfpDefault.png";
 
 function FeedBar() {
   const [active, setActive] = useState("Home");
   const [meOpen, setMeOpen] = useState<boolean>(false);
   const [bizOpen, setBizOpen] = useState<boolean>(false);
   const [vip, setVip] = useState<boolean>(false);
-
-  const meRef = useRef<HTMLDivElement>(null);
-  const bizRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    function handleOutsideClick(e: MouseEvent) {
-      if (meRef.current && !meRef.current.contains(e.target as Node)) {
-        setMeOpen(false);
-      }
-      if (bizRef.current && !bizRef.current.contains(e.target as Node)) {
-        setBizOpen(false);
-      }
-    }
-
-    document.addEventListener("mousedown", handleOutsideClick);
-    return () => document.removeEventListener("mousedown", handleOutsideClick);
-  }, []);
+  const meRef = OutsideClick(() => setMeOpen(false));
+  const bizRef = OutsideClick(() => setBizOpen(false));
+  const vipRef = OutsideClick(() => setVip(false));
 
   return (
     <>
@@ -86,11 +73,13 @@ function FeedBar() {
                   image={Dots}
                   text="For Business"
                 />
+                <div></div>
                 {bizOpen && <div className="bg-black size-[20px]"></div>}
               </div>
             </div>
             <div
-              className={`absolute ${vip ? "top-[-400px]" : "top-20 mr-[500px]"}`}
+              ref={vipRef}
+              className={`fixed inset-0 m-auto z-900 flex justify-center items-center w-fit h-fit ${vip ? "opacity-100 translate-y-[-30px] pointer-events-auto" : "opacity-0 translate-y-[-0px] pointer-events-none"}`}
             >
               <PremiumPopup onClick={() => setVip((prev) => !prev)} />
             </div>

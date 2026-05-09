@@ -5,9 +5,15 @@ type props = {
 };
 
 function PremiumPopup({ onClick }: props) {
+  const texts: string[] = [
+    "Message anyone with InMail",
+    "Get up to 11x more profile views",
+    "Access exclusive company insights",
+    "Join live talks with industry leaders",
+  ];
   return (
     <>
-      <div className="p-[16px] flex flex-col w-[320px] rounded-[10px] gap-2 bg-white shadow-lg relative">
+      <div className="p-[16px] flex flex-col max-w-[320px] rounded-[10px] gap-2 bg-white relative overflow-hidden">
         <svg
           onClick={onClick}
           fill="#ac4600"
@@ -21,42 +27,21 @@ function PremiumPopup({ onClick }: props) {
         <h1 className="font-semibold">
           <span>{auth.currentUser?.displayName}</span>, level up your career
         </h1>
-        <span className="flex gap-3">
-          <svg width={20} height={20}>
-            <path
-              fill="orange"
-              d="M21 4 10 20l-6-6 1.41-1.41 4.3 4.3L18.57 4Z"
-            ></path>
-          </svg>
-          Message anyone with InMail
-        </span>
-        <span className="flex gap-3">
-          <svg width={20} height={20}>
-            <path
-              fill="orange"
-              d="M21 4 10 20l-6-6 1.41-1.41 4.3 4.3L18.57 4Z"
-            ></path>
-          </svg>
-          Get up to 11x more profile views
-        </span>
-        <span className="flex gap-3">
-          <svg width={20} height={20}>
-            <path
-              fill="orange"
-              d="M21 4 10 20l-6-6 1.41-1.41 4.3 4.3L18.57 4Z"
-            ></path>
-          </svg>
-          Access exclusive company insights
-        </span>
-        <span className="flex gap-3">
-          <svg width={20} height={20}>
-            <path
-              fill="orange"
-              d="M21 4 10 20l-6-6 1.41-1.41 4.3 4.3L18.57 4Z"
-            ></path>
-          </svg>
-          Join live talks with industry leaders
-        </span>
+
+        {texts.map((text) => {
+          return (
+            <span className="flex gap-3">
+              <svg width={20} height={20}>
+                <path
+                  fill="orange"
+                  d="M21 4 10 20l-6-6 1.41-1.41 4.3 4.3L18.57 4Z"
+                ></path>
+              </svg>
+              {text}
+            </span>
+          );
+        })}
+
         <span className="text-[#191919b8]">
           Millions of members use Premium
         </span>
