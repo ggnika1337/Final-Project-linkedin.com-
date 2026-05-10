@@ -4,6 +4,7 @@ import { auth } from "@/config/firebase";
 import Pfp from "@/../public/PfpDefault.png";
 import PostAdditions from "../../__atoms/PostAdditions/PostAdditions";
 import PremiumPopup from "../../__atoms/PremiumPopup/PremiumPopup";
+import { smiles } from "@/app/Datas/Buttons/Buttons";
 
 function NewPostPopup({
   ref,
@@ -12,20 +13,6 @@ function NewPostPopup({
 }) {
   const [text, setText] = useState<string>("");
   const [vip, setVip] = useState<boolean>(false);
-  const smiles: string[] = [
-    " :D ",
-    " :) ",
-    " :( ",
-    " :P ",
-    " :O ",
-    " :/ ",
-    " :3 ",
-    " ^_^ ",
-    " -_- ",
-    " o_O ",
-    " xD ",
-    " T_T ",
-  ];
   function generateRandomSmile(arr: string[]) {
     const randomNumber = Math.floor(Math.random() * arr.length) + 1;
     let final = arr[randomNumber];

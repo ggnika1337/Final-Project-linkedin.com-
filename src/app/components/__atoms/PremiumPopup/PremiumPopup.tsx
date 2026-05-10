@@ -30,7 +30,7 @@ function PremiumPopup({ onClick }: props) {
 
         {texts.map((text) => {
           return (
-            <span className="flex gap-3">
+            <span key={text} className="flex gap-3">
               <svg width={20} height={20}>
                 <path
                   fill="orange"

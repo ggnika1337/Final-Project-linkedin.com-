@@ -131,3 +131,18 @@ export const tabs = [
   { href: "/", image: Messages, text: "Messaging" },
   { href: "/", image: Bell, text: "Notifications" },
 ];
+
+export const smiles: string[] = [
+  " :D ",
+  " :) ",
+  " :( ",
+  " :P ",
+  " :O ",
+  " :/ ",
+  " :3 ",
+  " ^_^ ",
+  " -_- ",
+  " o_O ",
+  " xD ",
+  " T_T ",
+];
