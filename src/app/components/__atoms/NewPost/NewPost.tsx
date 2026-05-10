@@ -42,12 +42,15 @@ function NewPost({
             </svg>
             <h1>Photo</h1>
           </div>
-          <div className="hover:bg-[#6e73211f] cursor-pointer items-center justify-center flex p-3 rounded-[10px]">
+          <a
+            href="https://www.linkedin.com/article/new/"
+            className="hover:bg-[#6e73211f] cursor-pointer items-center justify-center flex p-3 rounded-[10px]"
+          >
             <svg fill="#b34120" className="w-[25px] h-[20px] mr-1">
               <path d="M21 3v2H3V3zm-6 6h6V7h-6zm0 4h6v-2h-6zm0 4h6v-2h-6zM3 21h18v-2H3zM13 7H3v10h10z"></path>
             </svg>
             <h1>Write article</h1>
-          </div>
+          </a>
         </div>
       </div>
     </>
