@@ -7,19 +7,31 @@ type Props = {
   href: string;
   border: boolean;
   onClick: () => void;
+  searchOpen: boolean;
 };
 
-function FeedBarTabs({ image, text, href, border, onClick }: Props) {
+function FeedBarTabs({
+  image,
+  text,
+  href,
+  border,
+  onClick,
+  searchOpen,
+}: Props) {
   return (
     <>
       <Link
         onClick={onClick}
-        className={`flex opacity-70 hover:opacity-100 w-[85px] max-[1100px]:w-[60px] h-full justify-center items-center ${border ? "border-b-2 border-b-black" : ""}`}
+        className={`flex opacity-70 hover:opacity-100 min-w-[85px] max-[1100px]:w-[60px] h-full justify-center items-center ${border ? "border-b-2 border-b-black" : ""}`}
         href={href}
       >
         <div className="flex flex-col items-center w-full">
           <Image src={image} width={25} alt="bar selector" />
-          <h1 className="text-[12px] max-[1100px]:hidden">{text}</h1>
+          <h1
+            className={`text-[12px] max-[1100px]:hidden overflow-hidden ${searchOpen ? "h-0" : "h-[18px]"}`}
+          >
+            {text}
+          </h1>
         </div>
       </Link>
     </>

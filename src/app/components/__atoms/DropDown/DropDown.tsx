@@ -8,22 +8,27 @@ type props = {
   image: StaticImageData;
   text: string;
   onClick: () => void;
+  searchOpen: boolean;
 };
 
-function DropDown({ image, text, onClick }: props) {
+function DropDown({ image, text, onClick, searchOpen }: props) {
   return (
     <>
       <div
         onClick={onClick}
-        className="flex flex-col ml-2 cursor-pointer items-center h-full justify-center"
+        className="flex flex-col ml-2 gap-0.2 cursor-pointer items-center min-w-[24px] min-h-[24px] h-full justify-center"
       >
-        <Image src={image} className="cursor-pointer size-[30px]" alt="PFP" />
-        <h1 className="flex items-center gap-1 opacity-50 text-[12px] hover:opacity-100 max-[1100px]:hidden">
-          {text}
-          <svg width={12} height={15}>
-            <path d="M8 11 3 6h10Z"></path>
-          </svg>
-        </h1>
+        <Image src={image} className="cursor-pointer min-w-[30px] size-[30px]" alt="btn" />
+        <div>
+          <h1
+            className={`flex items-center overflow-hidden gap-1 opacity-50 text-[12px] hover:opacity-100 max-[1100px]:hidden ${searchOpen ? "h-0" : "h-[18px]"}`}
+          >
+            {text}
+            <svg width={12} height={15}>
+              <path d="M8 11 3 6h10Z"></path>
+            </svg>
+          </h1>
+        </div>
       </div>
     </>
   );
@@ -33,7 +38,7 @@ export function MeDropDownMenu() {
   let Router = useRouter();
   return (
     <>
-      <div className="flex flex-col bg-[#fefeff] absolute left-[-195] rounded-l-[10px] top-16 min-w-[240px] shadow-[#0000008c] shadow-lg pb-[10px]">
+      <div className="flex flex-col bg-[#fefeff] z-[600] absolute left-[-195] rounded-l-[10px] top-16 min-w-[240px] shadow-[#0000008c] shadow-lg pb-[10px]">
         <div className="flex gap-5 px-[15px] mt-[15px]">
           <Image
             src={Pfp}
