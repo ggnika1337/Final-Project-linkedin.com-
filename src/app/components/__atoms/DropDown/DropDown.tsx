@@ -11,7 +11,7 @@ function DropDown({ image, text, onClick, searchOpen }: dropDownProps) {
     <>
       <div
         onClick={onClick}
-        className="flex flex-col ml-2 gap-0.2 cursor-pointer items-center min-w-[24px] min-h-[24px] h-full justify-center"
+        className="flex flex-col ml-2 gap-0.2 max-[790px]:ml-0 cursor-pointer items-center min-w-[24px] min-h-[24px] h-full justify-center"
       >
         <Image
           src={image}
@@ -37,7 +37,7 @@ export function MeDropDownMenu() {
   let Router = useRouter();
   return (
     <>
-      <div className="flex flex-col bg-[#fefeff] z-[600] absolute left-[-195] rounded-l-[10px] top-16 min-w-[240px] shadow-[#0000008c] shadow-lg pb-[10px]">
+      <div className="flex flex-col bg-[#fefeff] z-[600] absolute right-[213] max-[1100px]:right-[160] max-[790px]:right-[70] max-[430px]:right-[30] rounded-l-[10px] top-16 min-w-[240px] shadow-[#0000008c] shadow-lg pb-[10px]">
         <div className="flex gap-5 px-[15px] mt-[15px]">
           <Image
             src={Pfp}

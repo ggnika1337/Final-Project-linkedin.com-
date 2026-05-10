@@ -14,7 +14,7 @@ function FeedBarTabs({
     <>
       <Link
         onClick={onClick}
-        className={`flex opacity-70 hover:opacity-100 min-w-[85px] max-[1100px]:w-[60px] max-[1020px]:min-w-[40px] h-full justify-center items-center ${border ? "border-b-2 border-b-black" : ""}`}
+        className={`flex opacity-70 w-full hover:opacity-100 min-w-[85px] max-[790px]:min-w-[52px] max-[1100px]:w-[60px] max-[1020px]:min-w-[40px] h-full justify-center items-center ${border ? "border-b-2 border-b-black" : ""}`}
         href={href}
       >
         <div className="flex flex-col items-center w-full">

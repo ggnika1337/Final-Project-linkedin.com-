@@ -22,18 +22,23 @@ function FeedBar() {
   const vipRef = OutsideClick(() => setVip(false));
   const [isActive, setIsActive] = useState<boolean>(false);
 
+  useEffect(() => {
+    if (isActive) {
+      document.getElementById("searchInput")?.focus();
+    }
+  }, [isActive]);
   return (
     <>
       <div className="w-full">
         <div className="w-full h-[60px] bg-[#fefeff] flex justify-center shadow-[0px_0px_0px_1px_rgb(140_140_140_/_0.2)] px-[10px]">
-          <div className="max-w-[1128px] h-full w-full flex justify-between">
+          <div className="max-w-[1128px] h-full w-full flex justify-between relative">
             <div className="flex items-center w-full">
               <Image
                 src={logoSmall}
                 className="cursor-pointer min-w-[34px] size-[34px]"
                 alt="linkedin logo small"
               />
-              <div className="relative ml-2 h-[34px] w-full max-[1070px]:hidden block">
+              {/* <div className="relative ml-2 h-[34px] w-full max-[790]:hidden">
                 <Image
                   src={Magnifier}
                   alt="magnifier"
@@ -42,30 +47,34 @@ function FeedBar() {
                 <input
                   type="text"
                   placeholder="Search"
-                  className="h-full w-full pl-9 border rounded-[30px] border-[#0000003e] max-w-[270px] focus:max-w-[380px] w-full"
+                  className="h-full w-full pl-9 border rounded-[30px] border-[#0000003e] min-w-[180px] max-w-[260px] focus:max-w-[380px] w-full"
                   onFocus={() => setIsActive(true)}
                   onBlur={() => setIsActive(false)}
                 />
-              </div>
+              </div> */}
               <div
-                className={`${isActive ? "" : ""} relative ml-2 h-[34px] w-full max-[1070px]:block hidden `}
+                className={`${isActive ? "bg-white z-1200" : ""} relative ml-2 pt-[15px] h-full flex items-center justify-center h-[34px] w-full max-[790px]:block hidden`}
               >
                 <Image
                   src={Magnifier}
                   alt="magnifier"
-                  className="absolute size-[15px] top-[10px] cursor-pointer left-3"
+                  className="absolute size-[15px] top-[10px] cursor-pointer left-3 translate-y-[15px]"
+                  onClick={() => setIsActive((prev) => !prev)}
                 />
                 <input
                   type="text"
                   placeholder="Search"
-                  className="h-full w-full pl-9 border rounded-[30px] border-[#0000003e] w-full max-w-[300px] min-w-[270px]"
+                  className={`${isActive ? "opacity-100 max-w-[500px] pointer-events-auto" : "opacity-0 max-w-[300px] pointer-events-none"} h-full w-full max-h-[33px] pl-9 border rounded-[30px] border-[#0000003e] w-full max-w-[300px] min-w-[270px]`}
                   onFocus={() => setIsActive(true)}
                   onBlur={() => setIsActive(false)}
+                  id="searchInput"
                 />
               </div>
             </div>
+            {meOpen && <MeDropDownMenu />}
+            {bizOpen && <div className="bg-black size-[20px]"></div>}
 
-            <div className="flex whitespace-nowrap items-center justify-center w-full max-[1020px]:overflow-x-scroll overflow-y-clip">
+            <div className="flex whitespace-nowrap items-center justify-center h-full right-0 top-0 z-900 w-full max-[790px]:overflow-x-scroll max-[790px]:justify-start max-[790px]:absolute max-[790px]:max-w-[370px]">
               {tabs.map((tab) => (
                 <FeedBarTabs
                   key={tab.text}
@@ -77,27 +86,22 @@ function FeedBar() {
                   searchOpen={isActive}
                 />
               ))}
-
-              <div ref={meRef} className="relative ml-2">
+              <div ref={meRef} className="relative ml-2 max-[790px]:ml-0">
                 <DropDown
                   onClick={() => setMeOpen((prev) => !prev)}
                   image={Pfp}
                   text="Me"
                   searchOpen={isActive}
                 />
-                {meOpen && <MeDropDownMenu />}
               </div>
-
-              <div className="ml-7 flex pl-3 border-l-1 border-[#0000001a] h-full justify-center">
+              <div className="ml-7 flex pl-3 border-l-1 border-[#0000001a] h-full justify-center max-[790px]:ml-3">
                 <div ref={bizRef} className="relative">
                   <DropDown
                     onClick={() => setBizOpen((prev) => !prev)}
                     image={Dots}
                     text="For Business"
                     searchOpen={isActive}
-                  />
-                  <div></div>
-                  {bizOpen && <div className="bg-black size-[20px]"></div>}
+                  />{" "}
                 </div>
               </div>
               <div
@@ -112,7 +116,7 @@ function FeedBar() {
               </div>
               <div
                 onClick={() => setVip((prev) => !prev)}
-                className="text-[14px] flex flex-col items-center ml-6"
+                className="text-[14px] flex flex-col items-center ml-6 max-[790px]:ml-4 mt-2"
               >
                 <svg height={24} width={24}>
                   <path
