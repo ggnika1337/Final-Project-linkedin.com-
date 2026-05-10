@@ -1,14 +1,7 @@
 import Working from "@/../public/feed/Working.svg";
 import Image from "next/image";
-function PostMedia({
-  onClick,
-  upload,
-  mediaRef,
-}: {
-  onClick: () => void;
-  upload: () => void;
-  mediaRef: React.RefObject<HTMLDivElement>;
-}) {
+import { PostMediaProps } from "@/app/helpers/Props/Props";
+function PostMedia({ onClick, upload, mediaRef }: PostMediaProps) {
   return (
     <>
       <div

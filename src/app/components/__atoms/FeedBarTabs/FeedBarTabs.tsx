@@ -1,14 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { StaticImageData } from "next/image";
-type Props = {
-  image: StaticImageData;
-  text: string;
-  href: string;
-  border: boolean;
-  onClick: () => void;
-  searchOpen: boolean;
-};
+import { FeedBarTabsProps } from "@/app/helpers/Props/Props";
 
 function FeedBarTabs({
   image,
@@ -17,12 +9,12 @@ function FeedBarTabs({
   border,
   onClick,
   searchOpen,
-}: Props) {
+}: FeedBarTabsProps) {
   return (
     <>
       <Link
         onClick={onClick}
-        className={`flex opacity-70 hover:opacity-100 min-w-[85px] max-[1100px]:w-[60px] h-full justify-center items-center ${border ? "border-b-2 border-b-black" : ""}`}
+        className={`flex opacity-70 hover:opacity-100 min-w-[85px] max-[1100px]:w-[60px] max-[1020px]:min-w-[40px] h-full justify-center items-center ${border ? "border-b-2 border-b-black" : ""}`}
         href={href}
       >
         <div className="flex flex-col items-center w-full">

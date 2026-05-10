@@ -146,3 +146,18 @@ export const smiles: string[] = [
   " xD ",
   " T_T ",
 ];
+
+import Groups from "@/../public/feed/groups.png";
+import Favourites from "@/../public/feed/favourites.png";
+import News from "@/../public/feed/news.png";
+import Events from "@/../public/feed/events.png";
+export const tabsNav = [
+  { icon: Favourites, name: "Saved items", href: "" },
+  { icon: Groups, name: "Groups", href: "https://www.linkedin.com/groups/" },
+  {
+    icon: News,
+    name: "Newsletters",
+    href: "https://www.linkedin.com/mynetwork/network-manager/newsletters/",
+  },
+  { icon: Events, name: "Events", href: "https://www.linkedin.com/events/" },
+];

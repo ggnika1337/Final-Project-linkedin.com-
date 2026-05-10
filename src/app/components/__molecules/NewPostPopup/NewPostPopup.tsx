@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useState, RefObject } from "react";
 import { auth } from "@/config/firebase";
 import Pfp from "@/../public/PfpDefault.png";
 import PostAdditions from "../../__atoms/PostAdditions/PostAdditions";
@@ -16,6 +16,7 @@ function NewPostPopup({
   ref: React.RefObject<HTMLDivElement | null>;
   postType: string;
   close: () => void;
+  mediaRef: RefObject<HTMLDivElement | null>;
 }) {
   const [text, setText] = useState<string>("");
   const [vip, setVip] = useState<boolean>(false);
@@ -139,7 +140,7 @@ function NewPostPopup({
   } else if (postType === "media") {
     return (
       <>
-        <PostMedia mediaRef={mediaRef} onClick={close} />
+        <PostMedia mediaRef={mediaRef} onClick={close} upload={() => {}} />
       </>
     );
   }

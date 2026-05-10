@@ -17,9 +17,9 @@ function FeedBar() {
   const [meOpen, setMeOpen] = useState<boolean>(false);
   const [bizOpen, setBizOpen] = useState<boolean>(false);
   const [vip, setVip] = useState<boolean>(false);
-  const meRef = OutsideClick(() => setMeOpen<boolean>(false));
-  const bizRef = OutsideClick(() => setBizOpen<boolean>(false));
-  const vipRef = OutsideClick(() => setVip<boolean>(false));
+  const meRef = OutsideClick(() => setMeOpen(false));
+  const bizRef = OutsideClick(() => setBizOpen(false));
+  const vipRef = OutsideClick(() => setVip(false));
   const [isActive, setIsActive] = useState<boolean>(false);
 
   return (
@@ -33,7 +33,7 @@ function FeedBar() {
                 className="cursor-pointer min-w-[34px] size-[34px]"
                 alt="linkedin logo small"
               />
-              <div className="relative ml-2 h-[34px] w-full">
+              <div className="relative ml-2 h-[34px] w-full max-[1070px]:hidden block">
                 <Image
                   src={Magnifier}
                   alt="magnifier"
@@ -47,9 +47,25 @@ function FeedBar() {
                   onBlur={() => setIsActive(false)}
                 />
               </div>
+              <div
+                className={`${isActive ? "" : ""} relative ml-2 h-[34px] w-full max-[1070px]:block hidden `}
+              >
+                <Image
+                  src={Magnifier}
+                  alt="magnifier"
+                  className="absolute size-[15px] top-[10px] cursor-pointer left-3"
+                />
+                <input
+                  type="text"
+                  placeholder="Search"
+                  className="h-full w-full pl-9 border rounded-[30px] border-[#0000003e] w-full max-w-[300px] min-w-[270px]"
+                  onFocus={() => setIsActive(true)}
+                  onBlur={() => setIsActive(false)}
+                />
+              </div>
             </div>
 
-            <div className="flex whitespace-nowrap items-center justify-center">
+            <div className="flex whitespace-nowrap items-center justify-center w-full max-[1020px]:overflow-x-scroll overflow-y-clip">
               {tabs.map((tab) => (
                 <FeedBarTabs
                   key={tab.text}

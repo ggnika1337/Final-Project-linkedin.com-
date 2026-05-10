@@ -1,16 +1,9 @@
 import Image from "next/image";
 import React from "react";
 import pfp from "../../../../../public/PfpDefault.png";
+import { NewPostProps } from "@/app/helpers/Props/Props";
 
-function NewPost({
-  VideoClick,
-  PhotoClick,
-  TextClick,
-}: {
-  VideoClick: () => void;
-  PhotoClick: () => void;
-  TextClick: () => void;
-}) {
+function NewPost({ VideoClick, PhotoClick, TextClick }: NewPostProps) {
   return (
     <>
       <div className="shadow-[0px_0px_0px_1px_rgb(140_140_140_/_0.2)] w-[552px] max-[830px]:mt-4 max-[830px]:w-full py-3 px-5 rounded-[10px] bg-[#fefeff]">

@@ -1,12 +1,7 @@
 import Image, { StaticImageData } from "next/image";
-import React from "react";
-type props = {
-  header: string;
-  text: string;
-  img: StaticImageData;
-};
+import { SliderPageProps } from "@/app/helpers/Props/Props";
 
-function SliderPage({ header, text, img }: props) {
+function SliderPage({ header, text, img }: SliderPageProps) {
   return (
     <>
       <div className="flex max-w-[1128px] items-center max-[990px]:flex-col-reverse pl-20 max-[900px]:pl-5 max-[400px]:pr-5 gap-15">
