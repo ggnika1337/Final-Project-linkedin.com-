@@ -38,7 +38,7 @@ function FeedBar() {
                 className="cursor-pointer min-w-[34px] size-[34px]"
                 alt="linkedin logo small"
               />
-              {/* <div className="relative ml-2 h-[34px] w-full max-[790]:hidden">
+              <div className="relative ml-2 h-[34px] w-full max-[790]:hidden">
                 <Image
                   src={Magnifier}
                   alt="magnifier"
@@ -51,7 +51,7 @@ function FeedBar() {
                   onFocus={() => setIsActive(true)}
                   onBlur={() => setIsActive(false)}
                 />
-              </div> */}
+              </div>
               <div
                 className={`${isActive ? "bg-white z-1200" : ""} relative ml-2 pt-[15px] h-full flex items-center justify-center h-[34px] w-full max-[790px]:block hidden`}
               >
@@ -74,7 +74,7 @@ function FeedBar() {
             {meOpen && <MeDropDownMenu />}
             {bizOpen && <div className="bg-black size-[20px]"></div>}
 
-            <div className="flex whitespace-nowrap items-center justify-center h-full right-0 top-0 z-900 w-full max-[790px]:overflow-x-scroll max-[790px]:justify-start max-[790px]:absolute max-[790px]:max-w-[370px]">
+            <div className="flex whitespace-nowrap items-center justify-center h-full right-0 max-[520px]:max-w-[300px] max-[440px]:max-w-[200px] top-0 z-900 w-full max-[790px]:overflow-x-scroll max-[790px]:justify-start max-[790px]:absolute max-[790px]:max-w-[370px] max-[790px]:overflow-y-hidden">
               {tabs.map((tab) => (
                 <FeedBarTabs
                   key={tab.text}
