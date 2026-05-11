@@ -11,9 +11,9 @@ function NewPost({ VideoClick, PhotoClick, TextClick }: NewPostProps) {
           <Image src={pfp} width={48} height={48} alt="Profile Picute" />
           <button
             onClick={TextClick}
-            className="rounded-[40px] cursor-pointer hover:bg-[#6e732111] font-[600] text-start pl-5 max-w-[462px] w-full py-3 shadow-[0px_0px_0px_1px_rgb(140_140_140_/_0.2)]"
+            className="rounded-[40px] cursor-pointer hover:bg-[#6e732111] font-[600] text-start pl-5 max-w-[462px] w-full py-3 shadow-[0px_0px_0px_1px_rgb(140_140_140_/_0.5)]"
           >
-            Start a post
+            Start a post 
           </button>
         </div>
         <div className="w-full h-full cursor-pointer items-center justify-between flex font-[600] whitespace-nowrap px-15 max-[830px]:px-0 pt-2">

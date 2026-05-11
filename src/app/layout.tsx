@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "LinkedIn",
-  description: "LinkedIn Unofficial Website",
+  description: "LinkedIn Website",
 };
 
 export default function RootLayout({

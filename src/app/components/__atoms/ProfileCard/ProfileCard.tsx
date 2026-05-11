@@ -16,7 +16,7 @@ function ProfileCard() {
           alt={"background banner"}
           className="w-full rounded-t-[10px]"
         />
-        <Pfp />
+        <Pfp size="72"/>
         <div className="p-4 flex flex-col mt-13">
           <h1 className="text-[20px] font-[500]">
             {auth.currentUser?.displayName}

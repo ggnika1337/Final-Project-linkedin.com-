@@ -1,15 +1,13 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { CheckAuth } from "@/app/hooks/CheckAuth";
-import { logout, resendVerification } from "@/app/hooks/Auth";
+import { resendVerification } from "@/app/hooks/Auth";
 import FeedBar from "../../Bar/FeedBar";
 import Left from "@/app/components/__molecules/Feed/Left/Left";
 import Middle from "@/app/components/__molecules/Feed/Middle/Middle";
-import Image from "next/image";
-import Loading from "@/../public/Loading.gif";
 import { auth } from "@/config/firebase";
-import Logo from "@/../public/logo.png";
+import Loading from "@/app/components/__atoms/Loading/Loading";
 
 function Feed() {
   const [verify, setVerify] = useState<boolean>();
@@ -30,12 +28,7 @@ function Feed() {
   }, []);
 
   if (loading) {
-    return (
-      <div className="h-full flex-col gap-10 flex items-center justify-center">
-        <Image src={Logo} alt="LinkedIn Logo" width={200} height={200} />
-        <Image src={Loading} alt="loading" width={300} height={400} />
-      </div>
-    );
+    return <Loading />;
   } else
     return (
       <>

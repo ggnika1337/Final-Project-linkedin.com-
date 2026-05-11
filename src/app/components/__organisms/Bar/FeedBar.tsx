@@ -2,7 +2,6 @@
 import Image from "next/image";
 import logoSmall from "../../../../../public/logo small.png";
 import Magnifier from "../../../../../public/bar/Magnifier.png";
-import { MeDropDownMenu } from "../../__atoms/DropDown/DropDown";
 import Dots from "@/../public/bar/Dots.png";
 import FeedBarTabs from "../../__atoms/FeedBarTabs/FeedBarTabs";
 import { useState, useRef, useEffect } from "react";
@@ -11,6 +10,7 @@ import PremiumPopup from "../../__atoms/PremiumPopup/PremiumPopup";
 import { tabs } from "@/app/Datas/Buttons/Buttons";
 import { OutsideClick } from "@/app/hooks/OutsideClick";
 import Pfp from "@/../public/PfpDefault.png";
+import { MeDropDownMenu } from "../../__atoms/MeDropDownMenu/MeDropDownMenu";
 
 function FeedBar() {
   const [active, setActive] = useState<string>("Home");
