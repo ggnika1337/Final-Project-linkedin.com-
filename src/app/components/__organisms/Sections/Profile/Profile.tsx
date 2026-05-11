@@ -32,9 +32,10 @@ function Profile() {
                 className="w-full rounded-t-[10px]"
               />
               <div className="absolute top-25">
-                <Pfp size={152} />
+                <Pfp size={152} plusSize={52} />
+              
               </div>
-              <div className="p-4 flex flex-col mt-23">
+              <div className="p-4 flex flex-col mt-30">
                 <h1 className="text-[25px] font-[500]">
                   {auth.currentUser?.displayName}
                 </h1>

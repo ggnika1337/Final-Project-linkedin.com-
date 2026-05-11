@@ -26,7 +26,7 @@ export function MeDropDownMenu() {
         </div>
         <div className="flex gap-2 mt-3 px-[15px] font-semibold">
           <button
-            onClick={() => Router.push("/profiles/123")}
+            onMouseDown={() => Router.push(`/profiles/${auth.currentUser?.uid}`)}
             className="border-1 rounded-[20px] cursor-pointer hover:bg-[#0b67c221] px-[15px] py-[5px] text-[#0b67c2] border-[#0b67c2]"
           >
             View Profile
