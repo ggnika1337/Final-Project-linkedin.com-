@@ -11,6 +11,7 @@ import Game from "@/../public/games/Game.png";
 import GameOne from "@/../public/games/GameOne.png";
 import GameTwo from "@/../public/games/GameTwo.png";
 import GameThree from "@/../public/games/GameThree.png";
+import { StaticImageData } from "next/image";
 
 export const GAMES: string[] = [
   "Patches",
@@ -188,7 +189,15 @@ export const bizButtons: bizButton[] = [
   { header: "Admin Center", span: "Manage Billing and Account Details" },
 ];
 
-export const puzzles: object[] = [
+interface puzzle {
+  id: number;
+  image: StaticImageData;
+  title: string;
+  description: string;
+  href: string;
+}
+
+export const puzzles: puzzle[] = [
   {
     id: 1,
     image: Game,
