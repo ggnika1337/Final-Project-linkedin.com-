@@ -26,7 +26,9 @@ export function MeDropDownMenu() {
         </div>
         <div className="flex gap-2 mt-3 px-[15px] font-semibold">
           <button
-            onMouseDown={() => Router.push(`/profiles/${auth.currentUser?.uid}`)}
+            onMouseDown={() =>
+              Router.push(`/profiles/${auth.currentUser?.uid}`)
+            }
             className="border-1 rounded-[20px] cursor-pointer hover:bg-[#0b67c221] px-[15px] py-[5px] text-[#0b67c2] border-[#0b67c2]"
           >
             View Profile
@@ -80,7 +82,7 @@ export function MeDropDownMenu() {
         <div className="h-[1px] w-full bg-[#e1e1e0] mt-4"></div>
         <span
           className="ml-[15px] text-[#383838c4] cursor-pointer mt-2"
-          onClick={logout}
+          onMouseDown={logout}
         >
           Sign out
         </span>

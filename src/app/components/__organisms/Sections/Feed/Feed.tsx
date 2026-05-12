@@ -10,15 +10,18 @@ import { auth } from "@/config/firebase";
 import Loading from "@/app/components/__atoms/Loading/Loading";
 
 function Feed() {
-  const [verify, setVerify] = useState<boolean>();
+  const [verify, setVerify] = useState<boolean>(() => {
+    if (localStorage.getItem("emailVerified") === "true") {
+      return false;
+    } else return true;
+  });
   const Router = useRouter();
-  CheckAuth();
+  CheckAuth("/feed", "/");
   const [loading, setLoading] = useState(true);
   setInterval(() => {
     setLoading(false);
   }, 1000);
   console.log(auth.currentUser);
-
   useEffect(() => {
     if (auth.currentUser?.emailVerified === true) {
       localStorage.setItem("emailVerified", "true");
@@ -46,7 +49,7 @@ function Feed() {
                   resendVerification();
                   setVerify(false);
                 }}
-                className="hover:underline text-[#b65d20] font-bold cursor-pointer"
+                className="hover:underline text-[#b65d20] font-bold cursor-pointer ml-2"
               >
                 request a new confirmation link.
               </span>

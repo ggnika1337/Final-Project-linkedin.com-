@@ -27,7 +27,6 @@ function SignUp() {
 
   function stageOne() {
     setStage(stage + 1);
-    console.log("stage 1 complete");
   }
 
   if (stage === 0) {

@@ -1,9 +1,10 @@
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "@/config/firebase";
 
 export function CheckAuth() {
+  const [done, setDone] = useState<boolean>(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -13,7 +14,8 @@ export function CheckAuth() {
       } else {
         router.push("/");
       }
+      setDone(true);
     });
   }, []);
-  return <></>;
+  return done;
 }

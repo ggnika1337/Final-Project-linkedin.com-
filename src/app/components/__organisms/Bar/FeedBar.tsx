@@ -11,6 +11,8 @@ import { tabs } from "@/app/Datas/Buttons/Buttons";
 import { OutsideClick } from "@/app/hooks/OutsideClick";
 import Pfp from "@/../public/PfpDefault.png";
 import { MeDropDownMenu } from "../../__atoms/MeDropDownMenu/MeDropDownMenu";
+import { useRouter } from "next/navigation";
+import BizDropDown from "../../__atoms/BizDropDown/BizDropDown";
 
 function FeedBar() {
   const [active, setActive] = useState<string>("Home");
@@ -21,6 +23,7 @@ function FeedBar() {
   const bizRef = OutsideClick(() => setBizOpen(false));
   const vipRef = OutsideClick(() => setVip(false));
   const [isActive, setIsActive] = useState<boolean>(false);
+  let Router = useRouter();
 
   useEffect(() => {
     if (isActive) {
@@ -29,15 +32,17 @@ function FeedBar() {
   }, [isActive]);
   return (
     <>
-      <div className="w-full">
+      <div className="w-full sticky z-900">
         <div className="w-full h-[60px] bg-[#fefeff] flex justify-center shadow-[0px_0px_0px_1px_rgb(140_140_140_/_0.2)] px-[10px]">
           <div className="max-w-[1128px] h-full w-full flex justify-between relative">
             <div className="flex items-center w-full">
-              <Image
-                src={logoSmall}
-                className="cursor-pointer min-w-[34px] size-[34px]"
-                alt="linkedin logo small"
-              />
+              <div onClick={() => Router.push("/")}>
+                <Image
+                  src={logoSmall}
+                  className="cursor-pointer min-w-[34px] size-[34px]"
+                  alt="linkedin logo small"
+                />
+              </div>
               <div className="relative ml-2 h-[34px] w-full max-[790]:hidden">
                 <Image
                   src={Magnifier}
@@ -72,7 +77,7 @@ function FeedBar() {
               </div>
             </div>
             {meOpen && <MeDropDownMenu />}
-            {bizOpen && <div className="bg-black size-[20px]"></div>}
+            {bizOpen && <BizDropDown ref={bizRef} />}
 
             <div className="flex whitespace-nowrap items-center justify-center h-full right-0 max-[520px]:max-w-[300px] max-[440px]:max-w-[200px] top-0 z-900 w-full max-[790px]:overflow-x-scroll max-[790px]:justify-start max-[790px]:absolute max-[790px]:max-w-[370px] max-[790px]:overflow-y-hidden">
               {tabs.map((tab) => (

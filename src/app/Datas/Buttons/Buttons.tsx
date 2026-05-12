@@ -1,3 +1,15 @@
+import People from "@/../public/bar/People.png";
+import Jobs from "@/../public/bar/Bag.png";
+import Bell from "@/../public/bar/Bell.svg";
+import Home from "@/../public/bar/Home.svg";
+import Messages from "@/../public/bar/Messages.png";
+import Groups from "@/../public/feed/groups.png";
+import Favourites from "@/../public/feed/favourites.png";
+import News from "@/../public/feed/news.png";
+import Events from "@/../public/feed/events.png";
+import { array } from "firebase/firestore/pipelines";
+import { types } from "util";
+
 export const GAMES: string[] = [
   "Patches",
   "Zip",
@@ -119,17 +131,23 @@ export const moreStr: string[] = [
   "Administrative",
 ];
 
-import People from "@/../public/bar/People.png";
-import Jobs from "@/../public/bar/Bag.png";
-import Bell from "@/../public/bar/Bell.svg";
-import Home from "@/../public/bar/Home.svg";
-import Messages from "@/../public/bar/Messages.png";
 export const tabs = [
   { href: "/", image: Home, text: "Home" },
   { href: "/", image: People, text: "My Network" },
   { href: "/", image: Jobs, text: "Jobs" },
   { href: "/", image: Messages, text: "Messaging" },
   { href: "/", image: Bell, text: "Notifications" },
+];
+
+export const tabsNav = [
+  { icon: Favourites, name: "Saved items", href: "" },
+  { icon: Groups, name: "Groups", href: "https://www.linkedin.com/groups/" },
+  {
+    icon: News,
+    name: "Newsletters",
+    href: "https://www.linkedin.com/mynetwork/network-manager/newsletters/",
+  },
+  { icon: Events, name: "Events", href: "https://www.linkedin.com/events/" },
 ];
 
 export const smiles: string[] = [
@@ -147,17 +165,23 @@ export const smiles: string[] = [
   " T_T ",
 ];
 
-import Groups from "@/../public/feed/groups.png";
-import Favourites from "@/../public/feed/favourites.png";
-import News from "@/../public/feed/news.png";
-import Events from "@/../public/feed/events.png";
-export const tabsNav = [
-  { icon: Favourites, name: "Saved items", href: "" },
-  { icon: Groups, name: "Groups", href: "https://www.linkedin.com/groups/" },
+interface bizButton {
+  header: string;
+  span: string;
+}
+
+export const bizButtons: bizButton[] = [
+  { header: "Hire on LinkedIn", span: "Find, attract and recruit talent" },
+  { header: "Sell with LinkedIn", span: "Unlock sales opportunities" },
+  { header: "Post a job for free", span: "Find quality candidates" },
   {
-    icon: News,
-    name: "Newsletters",
-    href: "https://www.linkedin.com/mynetwork/network-manager/newsletters/",
+    header: "Advertise on LinkedIn",
+    span: "Acquire customers and grow your business",
   },
-  { icon: Events, name: "Events", href: "https://www.linkedin.com/events/" },
+  {
+    header: "Get started with Premium",
+    span: "Expand and leverage your network",
+  },
+  { header: "Learn with LinkedIn", span: "Courses to develop your employees" },
+  { header: "Admin Center", span: "Manage Billing and Account Details" },
 ];

@@ -33,7 +33,6 @@ function Profile() {
               />
               <div className="absolute top-25">
                 <Pfp size={152} plusSize={52} />
-              
               </div>
               <div className="p-4 flex flex-col mt-30">
                 <h1 className="text-[25px] font-[500]">

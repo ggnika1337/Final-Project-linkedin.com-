@@ -29,8 +29,10 @@ export async function EmailPassword(
 }
 
 export async function logout(router: any) {
+  console.log("logout called");
   try {
     await signOut(auth);
+    console.log("signed out");
     router.push("/");
   } catch (error) {
     console.log(error);
