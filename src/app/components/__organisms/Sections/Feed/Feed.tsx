@@ -10,25 +10,23 @@ import { auth } from "@/config/firebase";
 import Loading from "@/app/components/__atoms/Loading/Loading";
 
 function Feed() {
-  const [verify, setVerify] = useState<boolean>(() => {
-    if (localStorage.getItem("emailVerified") === "true") {
-      return false;
-    } else return true;
-  });
+  const [verify, setVerify] = useState<boolean>();
   const Router = useRouter();
-  CheckAuth("/feed", "/");
+  CheckAuth();
   const [loading, setLoading] = useState(true);
-  setInterval(() => {
-    setLoading(false);
-  }, 1000);
+
   console.log(auth.currentUser);
   useEffect(() => {
-    if (auth.currentUser?.emailVerified === true) {
-      localStorage.setItem("emailVerified", "true");
-    } else {
-      localStorage.setItem("emailVerified", "false");
-    }
-  }, []);
+    localStorage.setItem(
+      "emailVerified",
+      auth.currentUser?.emailVerified ? "true" : "false",
+    );
+    setVerify(auth.currentUser?.emailVerified !== true);
+
+    setInterval(() => {
+      setLoading(false);
+    }, 1000);
+  }, [auth.currentUser]);
 
   if (loading) {
     return <Loading />;
