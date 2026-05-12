@@ -1,5 +1,4 @@
 import Image from "next/image";
-import React from "react";
 import DefaultPfp from "@/../public/PfpDefault.png";
 type props = {
   size: number | `${number}` | undefined;

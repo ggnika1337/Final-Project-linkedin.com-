@@ -56,13 +56,22 @@ export function MeDropDownMenu() {
             </span>
           </div>
           <div className="text-[#383838c4]  mt-2 flex flex-col">
-            <span className="cursor-pointer" onClick={() => Router.push("/")}>
+            <span
+              className="cursor-pointer"
+              onMouseDown={() => Router.push("/settings")}
+            >
               Settings & Privacy
             </span>
-            <span className="cursor-pointer" onClick={() => Router.push("/")}>
+            <span
+              className="cursor-pointer"
+              onMouseDown={() => Router.push("/")}
+            >
               Help
             </span>
-            <span className="cursor-pointer" onClick={() => Router.push("/")}>
+            <span
+              className="cursor-pointer"
+              onMouseDown={() => Router.push("/")}
+            >
               Language
             </span>
           </div>

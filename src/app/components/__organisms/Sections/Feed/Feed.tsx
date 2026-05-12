@@ -9,13 +9,13 @@ import Middle from "@/app/components/__molecules/Feed/Middle/Middle";
 import { auth } from "@/config/firebase";
 import Loading from "@/app/components/__atoms/Loading/Loading";
 import Right from "@/app/components/__molecules/Feed/Right/Right";
+import { useDarkMode } from "@/app/hooks/CheckDisplay";
 
 function Feed() {
   const [verify, setVerify] = useState<boolean>();
   const Router = useRouter();
   CheckAuth();
   const [loading, setLoading] = useState(true);
-
   useEffect(() => {
     localStorage.setItem(
       "emailVerified",
@@ -28,13 +28,16 @@ function Feed() {
     }, 1000);
   }, [auth.currentUser]);
 
+  const darkMode = useDarkMode();
   if (loading) {
     return <Loading />;
   } else
     return (
       <>
         {verify && (
-          <div className="flex gap-3 py-5 px-2">
+          <div
+            className={`flex gap-3 py-5 px-2 w-full items-center justify-center ${darkMode ? "bg-[#1b1e22]" : "bg-[#fefeff]"}`}
+          >
             <svg fill="#ac4600" className="min-w-[22px] max-w-[22px] h-[22px]">
               <path d="M14.2 1.9c-.6-.6-1.4-.9-2.2-.9s-1.6.3-2.2.9L1.9 9.8c-.6.6-.9 1.4-.9 2.2s.3 1.6.9 2.2l7.9 7.9c.6.6 1.4.9 2.2.9s1.6-.3 2.2-.9l7.9-7.9c.6-.6.9-1.4.9-2.2s-.3-1.6-.9-2.2zM11 6h2v8h-2zm1 12.25c-.7 0-1.25-.55-1.25-1.25s.65-1.25 1.25-1.25 1.25.55 1.25 1.25-.55 1.25-1.25 1.25"></path>
             </svg>

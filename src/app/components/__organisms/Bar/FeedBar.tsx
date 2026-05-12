@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import logoSmall from "../../../../../public/logo small.png";
-import Magnifier from "../../../../../public/bar/Magnifier.png";
 import Dots from "@/../public/bar/Dots.png";
 import FeedBarTabs from "../../__atoms/FeedBarTabs/FeedBarTabs";
 import { useState, useRef, useEffect } from "react";
@@ -13,6 +12,7 @@ import Pfp from "@/../public/PfpDefault.png";
 import { MeDropDownMenu } from "../../__atoms/MeDropDownMenu/MeDropDownMenu";
 import { useRouter } from "next/navigation";
 import BizDropDown from "../../__atoms/BizDropDown/BizDropDown";
+import { useDarkMode } from "@/app/hooks/CheckDisplay";
 
 function FeedBar() {
   const [active, setActive] = useState<string>("Home");
@@ -30,10 +30,14 @@ function FeedBar() {
       document.getElementById("searchInput")?.focus();
     }
   }, [isActive]);
+
+  const darkMode = useDarkMode();
   return (
     <>
       <div className="w-full sticky top-0 z-900">
-        <div className="w-full h-[60px] bg-[#fefeff] flex justify-center shadow-[0px_0px_0px_1px_rgb(140_140_140_/_0.2)] px-[10px]">
+        <div
+          className={`w-full h-[60px] ${darkMode ? "bg-[#1b1e22]" : "bg-[#fefeff]"} flex justify-center shadow-[0px_0px_0px_1px_rgb(140_140_140_/_0.2)] px-[10px]`}
+        >
           <div className="max-w-[1128px] h-full w-full flex justify-between relative">
             <div className="flex items-center w-full">
               <div onClick={() => Router.push("/")}>
@@ -44,15 +48,17 @@ function FeedBar() {
                 />
               </div>
               <div className="relative ml-2 h-[34px] w-full max-[790]:hidden">
-                <Image
-                  src={Magnifier}
-                  alt="magnifier"
-                  className="absolute size-[15px] top-[10px] cursor-pointer left-3"
-                />
+                <svg
+                  width={16}
+                  height={16}
+                  className="absolute top-[10px] ml-3"
+                >
+                  <path d="M14.56 12.44 11.3 9.18a5.51 5.51 0 1 0-2.12 2.12l3.26 3.26a1.5 1.5 0 1 0 2.12-2.12M3 6.5A3.5 3.5 0 1 1 6.5 10 3.5 3.5 0 0 1 3 6.5"></path>
+                </svg>
                 <input
                   type="text"
                   placeholder="Search"
-                  className="h-full w-full pl-9 border rounded-[30px] border-[#0000003e] min-w-[180px] max-w-[260px] focus:max-w-[380px] w-full"
+                  className={`h-full w-full ${darkMode ? "border-[#7d7d7d]" : "border-[#0000003e]"} pl-9 border rounded-[30px] min-w-[180px] max-w-[260px] focus:max-w-[380px] w-full`}
                   onFocus={() => setIsActive(true)}
                   onBlur={() => setIsActive(false)}
                 />
@@ -60,16 +66,18 @@ function FeedBar() {
               <div
                 className={`${isActive ? "bg-white z-1200" : ""} relative ml-2 pt-[15px] h-full flex items-center justify-center h-[34px] w-full max-[790px]:block hidden`}
               >
-                <Image
-                  src={Magnifier}
-                  alt="magnifier"
-                  className="absolute size-[15px] top-[10px] cursor-pointer left-3 translate-y-[15px]"
+                <svg
+                  width={16}
+                  height={16}
+                  className="absolute top-[22px] ml-3 cursor-pointer"
                   onClick={() => setIsActive((prev) => !prev)}
-                />
+                >
+                  <path d="M14.56 12.44 11.3 9.18a5.51 5.51 0 1 0-2.12 2.12l3.26 3.26a1.5 1.5 0 1 0 2.12-2.12M3 6.5A3.5 3.5 0 1 1 6.5 10 3.5 3.5 0 0 1 3 6.5"></path>
+                </svg>
                 <input
                   type="text"
                   placeholder="Search"
-                  className={`${isActive ? "opacity-100 max-w-[500px] pointer-events-auto" : "opacity-0 max-w-[300px] pointer-events-none"} h-full w-full max-h-[33px] pl-9 border rounded-[30px] border-[#0000003e] w-full max-w-[300px] min-w-[270px]`}
+                  className={`${isActive ? "opacity-100 max-w-[500px] pointer-events-auto" : "opacity-0 max-w-[300px] pointer-events-none"} h-full w-full max-h-[33px] pl-9 border rounded-[30px] ${darkMode ? "border-[#7d7d7d]" : "border-[#0000003e]"} w-full max-w-[300px] min-w-[270px]`}
                   onFocus={() => setIsActive(true)}
                   onBlur={() => setIsActive(false)}
                   id="searchInput"
@@ -140,10 +148,10 @@ function FeedBar() {
             </div>
           </div>
         </div>
-        <div
-          className={`absolute bg-[#0000008c] w-full h-full z-[900] pointer-events-none ${isActive ? "opacity-100" : "opacity-0"}`}
-        ></div>
       </div>
+      <div
+        className={`absolute bg-[#0000008c] w-full h-full z-[600] pointer-events-none ${isActive ? "opacity-100" : "opacity-0"}`}
+      ></div>
     </>
   );
 }
