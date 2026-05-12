@@ -8,7 +8,6 @@ function TabsSelector() {
     >
       <a
         href={""}
-        key={name}
         className="flex items-center gap-5 font-semibold cursor-pointer"
       >
         <svg fill={`${DarkMode ? "white" : "black"}`} width={15} height={15}>

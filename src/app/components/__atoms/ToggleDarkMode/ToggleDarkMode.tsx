@@ -10,7 +10,7 @@ function ToggleDarkMode({ backClick }: { backClick: () => void }) {
     }
   }, []);
 
-  const handleChange = (value) => {
+  const handleChange = (value: string) => {
     setSelected(value);
     localStorage.setItem("display", value);
   };
