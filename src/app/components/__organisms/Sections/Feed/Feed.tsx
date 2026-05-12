@@ -28,7 +28,7 @@ function Feed() {
     }, 1000);
   }, [auth.currentUser]);
 
-  const darkMode = useDarkMode();
+  const DarkMode = useDarkMode();
   if (loading) {
     return <Loading />;
   } else
@@ -36,7 +36,7 @@ function Feed() {
       <>
         {verify && (
           <div
-            className={`flex gap-3 py-5 px-2 w-full items-center justify-center ${darkMode ? "bg-[#1b1e22]" : "bg-[#fefeff]"}`}
+            className={`flex gap-3 py-5 px-2 w-full items-center justify-center ${DarkMode ? "bg-[#1b1e22]" : "bg-[#fefeff]"}`}
           >
             <svg fill="#ac4600" className="min-w-[22px] max-w-[22px] h-[22px]">
               <path d="M14.2 1.9c-.6-.6-1.4-.9-2.2-.9s-1.6.3-2.2.9L1.9 9.8c-.6.6-.9 1.4-.9 2.2s.3 1.6.9 2.2l7.9 7.9c.6.6 1.4.9 2.2.9s1.6-.3 2.2-.9l7.9-7.9c.6-.6.9-1.4.9-2.2s-.3-1.6-.9-2.2zM11 6h2v8h-2zm1 12.25c-.7 0-1.25-.55-1.25-1.25s.65-1.25 1.25-1.25 1.25.55 1.25 1.25-.55 1.25-1.25 1.25"></path>
@@ -65,7 +65,9 @@ function Feed() {
             </button>
           </div>
         )}
-        <div className="w-full h-full flex flex-col items-center bg-[#f4f2ee]">
+        <div
+          className={`${DarkMode ? "bg-[#000101]" : "bg-[#f4f2ee]"} w-full h-full flex flex-col items-center `}
+        >
           <FeedBar />
           <div className="container max-w-[1128px] w-full justify-center px-2 mt-6 flex max-[830px]:flex-col max-[830px]:items-center">
             <Left />

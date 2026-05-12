@@ -1,16 +1,18 @@
 import Image from "next/image";
 import DefaultPfp from "@/../public/PfpDefault.png";
+import { useDarkMode } from "@/app/hooks/CheckDisplay";
 type props = {
   size: number | `${number}` | undefined;
   plusSize: number | `${number}` | undefined;
 };
 
 function Pfp({ size, plusSize }: props) {
+  const DarkMode = useDarkMode();
   return (
     <>
       <div
         style={{ width: size, height: size }}
-        className="absolute cursor-pointer left-4 bg-white p-[2px] top-8 rounded-full"
+        className={`absolute cursor-pointer left-4 ${DarkMode ? "text-white bg-black" : "text-black bg-white"} p-[2px] top-8 rounded-full`}
       >
         <Image
           src={DefaultPfp}

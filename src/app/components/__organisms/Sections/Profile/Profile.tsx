@@ -51,10 +51,10 @@ function Profile() {
                   </button>
                 </div>
                 <div
-                  className={`fixed inset-0 m-auto z-[900] w-full px-[15px] flex justify-center items-center ${contact ? "opacity-100 bg-[#0000008c] pointer-events-auto" : "opacity-0 pointer-events-none bg-transparent"}`}
+                  className={`fixed inset-0 m-auto transition-all duration-1000 z-[900] w-full px-[15px] flex justify-center items-center ${contact ? "opacity-100 bg-[#0000008c] pointer-events-auto" : "opacity-0 pointer-events-none bg-transparent"}`}
                 >
                   <div
-                    className={`${contact ? "opacity-100 translate-y-[-100px] pointer-events-auto" : "opacity-0 translate-y-[-0px] pointer-events-none"} w-full h-full flex items-center justify-center`}
+                    className={`${contact ? "opacity-100 translate-y-[-100px] pointer-events-auto" : "opacity-0 translate-y-[-0px] pointer-events-none"} transition-all duration-1000 w-full h-full flex items-center justify-center`}
                   >
                     <ContactPopup
                       onClick={() => setContact((prev) => !prev)}

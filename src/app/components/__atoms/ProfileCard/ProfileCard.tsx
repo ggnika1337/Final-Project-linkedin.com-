@@ -3,6 +3,7 @@ import Banner from "../../../../../public/feed/banner.png";
 import { auth } from "@/config/firebase";
 import Pfp from "../Pfp/Pfp";
 import { useRouter } from "next/navigation";
+import { useDarkMode } from "@/app/hooks/CheckDisplay";
 
 type props = {
   location: string;
@@ -10,9 +11,12 @@ type props = {
 
 function ProfileCard() {
   let Router = useRouter();
+  const DarkMode = useDarkMode();
   return (
     <>
-      <div className="rounded-[10px] relative bg-[#fefeff] shadow-[0px_0px_0px_1px_rgb(140_140_140_/_0.2)]">
+      <div
+        className={`${DarkMode ? "text-white bg-[#1b1e22]" : "text-black bg-[#fefeff]"} rounded-[10px] relative shadow-[0px_0px_0px_1px_rgb(140_140_140_/_0.2)]`}
+      >
         <Image
           src={Banner}
           alt={"background banner"}
@@ -38,7 +42,9 @@ function ProfileCard() {
           >
             {"Tbilisi"}
           </span>
-          <button className="bg-[#f4f2ee] border-dashed border-1 rounded-[5px] text-start px-1 text-[#56687A] font-[600] mt-3">
+          <button
+            className={`${DarkMode ? "text-[#84a7ce] bg-[#293136] border-white" : "text-black bg-[#fefeff] border-white"}bg-[#f4f2ee] border-dashed border-1 rounded-[5px] text-start px-1 text-[#56687A] font-[600] mt-3`}
+          >
             + Experience
           </button>
         </div>

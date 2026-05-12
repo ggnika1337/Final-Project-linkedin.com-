@@ -22,7 +22,7 @@ export type dropDownProps = {
 };
 
 export type FeedBarTabsProps = {
-  image: StaticImageData;
+  svg: string;
   text: string;
   href: string;
   border: boolean;

@@ -27,10 +27,10 @@ function Middle() {
           }}
         />
         <div
-          className={`fixed inset-0 m-auto z-[900] w-full px-[15px] flex justify-center items-center ${popup ? "opacity-100 bg-[#0000008c] pointer-events-auto" : "opacity-0 pointer-events-none bg-transparent"}`}
+          className={`fixed inset-0 transition-all duration-1000 m-auto z-[900] w-full px-[15px] flex justify-center items-center ${popup ? "opacity-100 bg-[#0000008c] pointer-events-auto" : "opacity-0 pointer-events-none bg-transparent"}`}
         >
           <div
-            className={`py-10 ${popup ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"} w-full h-full flex items-center justify-center`}
+            className={`py-10 transition-all duration-1000 ${popup ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"} w-full h-full flex items-center justify-center`}
           >
             <NewPostPopup
               mediaRef={mediaRef}

@@ -1,12 +1,9 @@
-import React from "react";
-import Image, { StaticImageData } from "next/image";
-import Pfp from "@/../public/PfpDefault.png";
-import { auth } from "@/config/firebase";
-import { useRouter } from "next/navigation";
-import { logout } from "@/app/hooks/Auth";
+import Image from "next/image";
 import { dropDownProps } from "@/app/helpers/Props/Props";
+import { useDarkMode } from "@/app/hooks/CheckDisplay";
 
 function DropDown({ image, text, onClick, searchOpen }: dropDownProps) {
+  const DarkMode = useDarkMode();
   return (
     <>
       <div
@@ -15,15 +12,19 @@ function DropDown({ image, text, onClick, searchOpen }: dropDownProps) {
       >
         <Image
           src={image}
-          className="cursor-pointer min-w-[30px] size-[30px]"
+          className={`cursor-pointer min-w-[30px] size-[30px] rounded-full ${DarkMode ? "invert" : ""}`}
           alt="btn"
         />
         <div>
           <h1
-            className={`flex items-center overflow-hidden gap-1 opacity-50 text-[12px] hover:opacity-100 max-[1100px]:hidden ${searchOpen ? "h-0" : "h-[18px]"}`}
+            className={`flex items-center transition-all duration-1000 overflow-hidden gap-1 opacity-90 text-[12px] hover:opacity-100 max-[1100px]:hidden ${searchOpen ? "h-0" : "h-[18px]"} ${DarkMode ? "text-white" : "text-black"}`}
           >
             {text}
-            <svg width={12} height={15}>
+            <svg
+              fill={`${DarkMode ? "white" : "black"}`}
+              width={12}
+              height={15}
+            >
               <path d="M8 11 3 6h10Z"></path>
             </svg>
           </h1>

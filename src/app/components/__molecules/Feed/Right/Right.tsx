@@ -16,7 +16,7 @@ function Right() {
   ];
   return (
     <>
-      <div className="flex flex-col gap-2 ml-7 max-[1100px]:hidden">
+      <div className="flex flex-col gap-2 ml-7 max-[1100px]:hidden max-w-[312px]">
         <Puzzles />
         <Image
           src={Advertisement}

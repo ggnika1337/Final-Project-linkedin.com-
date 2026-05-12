@@ -1,5 +1,5 @@
+import { useDarkMode } from "@/app/hooks/CheckDisplay";
 import { auth } from "@/config/firebase";
-import React from "react";
 type props = {
   onClick: () => void;
 };
@@ -11,9 +11,12 @@ function PremiumPopup({ onClick }: props) {
     "Access exclusive company insights",
     "Join live talks with industry leaders",
   ];
+  const DarkMode = useDarkMode();
   return (
     <>
-      <div className="p-[16px] flex flex-col max-w-[320px] rounded-[10px] gap-2 bg-white relative overflow-hidden">
+      <div
+        className={`${DarkMode ? "text-white bg-[#1b1e22]" : "text-black bg-[#fefeff]"} p-[16px] flex flex-col max-w-[320px] rounded-[10px] gap-2 relative overflow-hidden`}
+      >
         <svg
           onClick={onClick}
           fill="#ac4600"
@@ -42,7 +45,9 @@ function PremiumPopup({ onClick }: props) {
           );
         })}
 
-        <span className="text-[#191919b8]">
+        <span
+          className={` ${DarkMode ? "text-[#959595] bg-[#1b1e22]" : "text-[#191919b8] bg-[#fefeff]"} text-[14px]`}
+        >
           Millions of members use Premium
         </span>
         <a
@@ -51,7 +56,9 @@ function PremiumPopup({ onClick }: props) {
         >
           Try 1 month of Premium for $0
         </a>
-        <span className="text-[#191919b8]">
+        <span
+          className={` ${DarkMode ? "text-[#959595] bg-[#1b1e22]" : "text-[#191919b8] bg-[#fefeff]"} text-[14px]`}
+        >
           1-month free trial with 24/7 support.
         </span>
       </div>

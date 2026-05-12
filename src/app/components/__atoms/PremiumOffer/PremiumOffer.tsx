@@ -1,7 +1,12 @@
+import { useDarkMode } from "@/app/hooks/CheckDisplay";
+
 function PremiumOffer() {
+  const DarkMode = useDarkMode();
   return (
     <>
-      <div className="rounded-[10px] bg-[#fefeff] px-5 py-2 shadow-[0px_0px_0px_1px_rgb(140_140_140_/_0.2)]">
+      <div
+        className={`${DarkMode ? "text-white bg-[#1b1e22]" : "text-black bg-[#fefeff]"} rounded-[10px] px-5 py-2 shadow-[0px_0px_0px_1px_rgb(140_140_140_/_0.2)]`}
+      >
         <span className="opacity-70 text-[12px]">
           Access exclusive tools & insights
         </span>
@@ -18,7 +23,7 @@ function PremiumOffer() {
           </svg>
           <a
             href="https://www.linkedin.com/premium/survey/?isSS=true&referenceId=HUELV0YOQiqIWm%2BWiDg7%2Fg%3D%3D&upsellOrderOrigin=Tracking%3Av1%3Apremium_homepage_identity_upsell%3ANav%3AIn-Product"
-            className="mt-1 font-[600] hover:text-[#0a0abc] cursor-pointer"
+            className={`mt-1 font-[600] hover:text-[#0a0abc] text-[12px] mb-2 cursor-pointer`}
           >
             Try Premium for $0
           </a>

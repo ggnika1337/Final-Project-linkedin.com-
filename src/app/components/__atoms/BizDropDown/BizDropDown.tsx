@@ -6,7 +6,7 @@ function BizDropDown({ ref }: { ref: any }) {
     <>
       <div
         ref={ref}
-        className="max-w-[600px] px-13 max-[680px]:px-0 w-full z-100 mt-3 flex absolute right-25 bg-white max-[1100px]:right-[100] max-[680px]:flex-col max-[680px]:right-0 max-[790px]:right-[20] max-[430px]:right-[30] rounded-l-[10px] top-16"
+        className="max-w-[600px]  px-13 max-[680px]:px-0 w-full z-100 mt-3 flex absolute right-25 bg-white max-[1100px]:right-[100] max-[680px]:flex-col max-[680px]:right-0 max-[790px]:right-[20] max-[430px]:right-[30] rounded-l-[10px] top-16"
       >
         <div className="py-8 flex flex-col gap-2 max-[680px]:py-4 max-[680px]:px-8 z-[1300]">
           <h1 className="font-bold">My Apps</h1>

@@ -2,18 +2,28 @@ import Image from "next/image";
 import React from "react";
 import pfp from "../../../../../public/PfpDefault.png";
 import { NewPostProps } from "@/app/helpers/Props/Props";
+import { useDarkMode } from "@/app/hooks/CheckDisplay";
 
 function NewPost({ VideoClick, PhotoClick, TextClick }: NewPostProps) {
+  const DarkMode = useDarkMode();
   return (
     <>
-      <div className="shadow-[0px_0px_0px_1px_rgb(140_140_140_/_0.2)] w-[552px] max-[830px]:mt-4 max-[830px]:w-full py-3 px-5 rounded-[10px] bg-[#fefeff]">
+      <div
+        className={`${DarkMode ? "text-[#f4f4f4] bg-[#1b1e22]" : "text-black bg-[#fefeff]"} shadow-[0px_0px_0px_1px_rgb(140_140_140_/_0.2)] w-[552px] max-[830px]:mt-4 max-[830px]:w-full py-3 px-5 rounded-[10px]`}
+      >
         <div className="flex gap-4">
-          <Image src={pfp} width={48} height={48} alt="Profile Picute" />
+          <Image
+            src={pfp}
+            width={48}
+            height={48}
+            alt="Profile Picute"
+            className="rounded-full"
+          />
           <button
             onClick={TextClick}
-            className="rounded-[40px] cursor-pointer hover:bg-[#6e732111] font-[600] text-start pl-5 max-w-[462px] w-full py-3 shadow-[0px_0px_0px_1px_rgb(140_140_140_/_0.5)]"
+            className="rounded-[40px] cursor-pointer text-[14px] hover:bg-[#6e732111] font-[600] text-start pl-5 max-w-[462px] w-full py-3 shadow-[0px_0px_0px_1px_rgb(140_140_140_/_0.5)]"
           >
-            Start a post 
+            Start a post
           </button>
         </div>
         <div className="w-full h-full cursor-pointer items-center justify-between flex font-[600] whitespace-nowrap px-15 max-[830px]:px-0 pt-2">
