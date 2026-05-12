@@ -7,8 +7,10 @@ import Groups from "@/../public/feed/groups.png";
 import Favourites from "@/../public/feed/favourites.png";
 import News from "@/../public/feed/news.png";
 import Events from "@/../public/feed/events.png";
-import { array } from "firebase/firestore/pipelines";
-import { types } from "util";
+import Game from "@/../public/games/Game.png";
+import GameOne from "@/../public/games/GameOne.png";
+import GameTwo from "@/../public/games/GameTwo.png";
+import GameThree from "@/../public/games/GameThree.png";
 
 export const GAMES: string[] = [
   "Patches",
@@ -184,4 +186,35 @@ export const bizButtons: bizButton[] = [
   },
   { header: "Learn with LinkedIn", span: "Courses to develop your employees" },
   { header: "Admin Center", span: "Manage Billing and Account Details" },
+];
+
+export const puzzles: object[] = [
+  {
+    id: 1,
+    image: Game,
+    title: "Patches #56",
+    description: "Piece it together",
+    href: "https://www.linkedin.com/games/patches/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3BMT%2BMITMqR3mWOUqpl0%2FVHg%3D%3D",
+  },
+  {
+    id: 2,
+    image: GameOne,
+    title: "Zip #421",
+    description: "Complete the path",
+    href: "https://www.linkedin.com/games/zip/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3BMT%2BMITMqR3mWOUqpl0%2FVHg%3D%3D",
+  },
+  {
+    id: 3,
+    image: GameTwo,
+    title: "Mini Sudoku #274",
+    description: "The classic game, made mini",
+    href: "https://www.linkedin.com/games/mini-sudoku/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3BMT%2BMITMqR3mWOUqpl0%2FVHg%3D%3D",
+  },
+  {
+    id: 4,
+    image: GameThree,
+    title: "Tango #582",
+    description: "Harmonize the grid",
+    href: "https://www.linkedin.com/games/tango/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3BMT%2BMITMqR3mWOUqpl0%2FVHg%3D%3D",
+  },
 ];

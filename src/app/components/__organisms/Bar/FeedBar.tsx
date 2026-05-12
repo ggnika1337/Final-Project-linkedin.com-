@@ -32,7 +32,7 @@ function FeedBar() {
   }, [isActive]);
   return (
     <>
-      <div className="w-full sticky z-900">
+      <div className="w-full sticky top-0 z-900">
         <div className="w-full h-[60px] bg-[#fefeff] flex justify-center shadow-[0px_0px_0px_1px_rgb(140_140_140_/_0.2)] px-[10px]">
           <div className="max-w-[1128px] h-full w-full flex justify-between relative">
             <div className="flex items-center w-full">

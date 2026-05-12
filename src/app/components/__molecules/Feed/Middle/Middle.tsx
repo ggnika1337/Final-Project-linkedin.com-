@@ -11,7 +11,7 @@ function Middle() {
   const mediaRef = OutsideClick(() => setPopup(false));
   return (
     <>
-      <div className="ml-7 w-full max-[830px]:ml-0">
+      <div className="ml-7 max-[830px]:ml-0">
         <NewPost
           VideoClick={() => {
             setPopup((prev) => !prev);

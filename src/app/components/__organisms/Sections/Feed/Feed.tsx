@@ -8,6 +8,7 @@ import Left from "@/app/components/__molecules/Feed/Left/Left";
 import Middle from "@/app/components/__molecules/Feed/Middle/Middle";
 import { auth } from "@/config/firebase";
 import Loading from "@/app/components/__atoms/Loading/Loading";
+import Right from "@/app/components/__molecules/Feed/Right/Right";
 
 function Feed() {
   const [verify, setVerify] = useState<boolean>();
@@ -15,7 +16,6 @@ function Feed() {
   CheckAuth();
   const [loading, setLoading] = useState(true);
 
-  console.log(auth.currentUser);
   useEffect(() => {
     localStorage.setItem(
       "emailVerified",
@@ -67,7 +67,7 @@ function Feed() {
           <div className="container max-w-[1128px] w-full justify-center px-2 mt-6 flex max-[830px]:flex-col max-[830px]:items-center">
             <Left />
             <Middle />
-            <div></div>
+            <Right />
           </div>
         </div>
       </>
