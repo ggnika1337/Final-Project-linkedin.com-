@@ -1,12 +1,14 @@
-import React from "react";
+"use client";
 import { bizButtons } from "@/app/Datas/Buttons/Buttons";
+import { useDarkMode } from "@/app/hooks/CheckDisplay";
 
 function BizDropDown({ ref }: { ref: any }) {
+  const DarkMode = useDarkMode();
   return (
     <>
       <div
         ref={ref}
-        className="max-w-[600px]  px-13 max-[680px]:px-0 w-full z-100 mt-3 flex absolute right-25 bg-white max-[1100px]:right-[100] max-[680px]:flex-col max-[680px]:right-0 max-[790px]:right-[20] max-[430px]:right-[30] rounded-l-[10px] top-16"
+        className={`max-w-[600px] ${DarkMode ? "bg-[#1b1e22] text-white" : "bg-white text-black"} px-13 max-[680px]:px-0 w-full z-100 mt-3 flex absolute right-25 max-[1100px]:right-[100] max-[680px]:flex-col max-[680px]:right-0 max-[790px]:right-[20] max-[430px]:right-[30] rounded-l-[10px] top-16`}
       >
         <div className="py-8 flex flex-col gap-2 max-[680px]:py-4 max-[680px]:px-8 z-[1300]">
           <h1 className="font-bold">My Apps</h1>
@@ -20,14 +22,22 @@ function BizDropDown({ ref }: { ref: any }) {
             </div>
           </div>
 
-          <span className="font-semibold text-[#555555]">Talent</span>
+          <span
+            className={`font-semibold ${DarkMode ? "text-[#8d8d8d]" : "text-[#555555]"}`}
+          >
+            Talent
+          </span>
 
           <div className="flex flex-col gap-2 mt-6 mb-2">
             <h1 className="font-semibold">Hire with AI</h1>
             <h1 className="font-semibold">Talent Insights</h1>
           </div>
 
-          <span className="font-semibold text-[#555555] mt-4">Sales</span>
+          <span
+            className={`font-semibold ${DarkMode ? "text-[#8d8d8d]" : "text-[#555555]"} mt-4`}
+          >
+            Sales
+          </span>
 
           <div>
             <h1 className="font-semibold mt-5 pb-60 max-[680px]:pb-2">
@@ -51,10 +61,17 @@ function BizDropDown({ ref }: { ref: any }) {
             ))}
           </div>
           <div className="flex gap-1 items-end">
-            <h1 className="font-semibold text-[#646464] mt-10 cursor-pointer">
+            <h1
+              className={`font-semibold text-[#646464] mt-10 cursor-pointer ${DarkMode ? "text-[#8d8d8d]" : "text-[#555555]"}`}
+            >
               Create a company page
             </h1>
-            <svg width={15} height={15} className="mb-2 cursor-pointer">
+            <svg
+              fill={`${DarkMode ? "white" : "black"}`}
+              width={15}
+              height={15}
+              className="mb-2 cursor-pointer"
+            >
               <path d="M14 9H9v5H7V9H2V7h5V2h2v5h5z"></path>
             </svg>
           </div>

@@ -1,3 +1,5 @@
+"use client";
+import { useDarkMode } from "@/app/hooks/CheckDisplay";
 import React, { useState, useEffect } from "react";
 
 function ToggleDarkMode({ backClick }: { backClick: () => void }) {
@@ -13,13 +15,17 @@ function ToggleDarkMode({ backClick }: { backClick: () => void }) {
   const handleChange = (value: string) => {
     setSelected(value);
     localStorage.setItem("display", value);
+    window.location.reload();
   };
+  const DarkMode = useDarkMode();
 
   return (
-    <div className="flex flex-col w-full gap-2 p-[20px] bg-white rounded-[10px]">
+    <div
+      className={`${DarkMode ? "bg-[#1c2326] text-white" : "bg-[#fefeff] text-black"} flex flex-col w-full gap-2 p-[20px] rounded-[10px]`}
+    >
       <button
         onClick={backClick}
-        className="cursor-pointer items-center flex h-[20px] text-start gap-2 text-[13px] text-[gray]"
+        className="cursor-pointer items-center flex h-[20px] text-start gap-2 text-[13px] text-[#a9a9a9]"
       >
         <svg fill="gray" className="rotate-180" width={17} height={17}>
           <path d="M9.41 14l-1.29-1.29L11.83 9H2V7h9.83L8.12 3.29 9.41 2l5.29 5.29a1 1 0 010 1.41z"></path>
@@ -66,7 +72,7 @@ function ToggleDarkMode({ backClick }: { backClick: () => void }) {
           </label>
         </div>
 
-        <span className="text-[10px] mt-6 text-[gray]">
+        <span className="text-[10px] mt-6 text-[#a9a9a9]">
           If you choose Device settings, this app will use the mode that’s
           already selected in this device’s settings.
         </span>

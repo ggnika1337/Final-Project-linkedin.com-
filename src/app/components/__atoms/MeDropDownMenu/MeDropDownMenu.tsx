@@ -4,16 +4,20 @@ import Pfp from "@/../public/PfpDefault.png";
 import { auth } from "@/config/firebase";
 import { useRouter } from "next/navigation";
 import { logout } from "@/app/hooks/Auth";
+import { useDarkMode } from "@/app/hooks/CheckDisplay";
 
 export function MeDropDownMenu() {
   let Router = useRouter();
+  const DarkMode = useDarkMode();
   return (
     <>
-      <div className="flex flex-col bg-[#fefeff] z-[600] mt-2 absolute right-[213] max-[1100px]:right-[160] max-[790px]:right-[70] max-[430px]:right-[30] rounded-l-[10px] top-16 min-w-[240px] shadow-[#0000008c] shadow-lg pb-[10px]">
+      <div
+        className={`${DarkMode ? "bg-[#191c20] text-white" : "bg-[#fefeff] text-black"} flex flex-col z-[600] mt-2 absolute right-[213] max-[1100px]:right-[160] max-[790px]:right-[70] max-[430px]:right-[30] rounded-l-[10px] top-16 min-w-[240px] shadow-[#0000008c] shadow-lg pb-[10px]`}
+      >
         <div className="flex gap-5 px-[15px] mt-[15px]">
           <Image
             src={Pfp}
-            className="cursor-pointer max-h-[60px]"
+            className="cursor-pointer max-h-[60px] rounded-full"
             width={60}
             alt="PFP"
           />
@@ -37,7 +41,9 @@ export function MeDropDownMenu() {
             Verify Now
           </button>
         </div>
-        <div className="h-[1px] w-full bg-[#e1e1e0] mt-4"></div>
+        <div
+          className={`h-[1px] w-full ${DarkMode ? "bg-[#7d7d7d]" : "bg-[#e1e1e0]"} mt-4`}
+        ></div>
         <div className="px-[15px] pt-[7px]">
           <h1 className="font-bold">Account</h1>
           <div className="text-[14px] flex gap-2 text-center mt-2">
@@ -51,11 +57,15 @@ export function MeDropDownMenu() {
                 d="M3.99 3.99C3.36 4.62 3 5.48 3 6.38v11.25c0 1.87 1.51 3.38 3.38 3.38h11.25c.9 0 1.75-.36 2.38-.99z"
               ></path>
             </svg>
-            <span className="mt-1 font-[700] text-[#3e3e3eca] hover:text-[#0a0abc] cursor-pointer">
+            <span
+              className={`${DarkMode ? "text-[#b7b7b7c4]" : "text-[#3e3e3eca]"} mt-1 font-[700] hover:text-[#0a0abc] cursor-pointer`}
+            >
               Try 1 month of Premium for $0
             </span>
           </div>
-          <div className="text-[#383838c4]  mt-2 flex flex-col">
+          <div
+            className={`${DarkMode ? "text-[#b7b7b7c4]" : "text-[#383838c4]"} mt-2 flex flex-col`}
+          >
             <span
               className="cursor-pointer"
               onMouseDown={() => Router.push("/settings")}
@@ -76,10 +86,14 @@ export function MeDropDownMenu() {
             </span>
           </div>
         </div>
-        <div className="h-[1px] w-full bg-[#e1e1e0] mt-4"></div>
+        <div
+          className={`h-[1px] w-full ${DarkMode ? "bg-[#7d7d7d]" : "bg-[#e1e1e0]"} mt-4`}
+        ></div>
         <div className="mt-2 px-[15px]">
           <h1 className="font-bold">Manage</h1>
-          <div className="text-[#383838c4]  mt-2 flex flex-col">
+          <div
+            className={`${DarkMode ? "text-[#b7b7b7c4]" : "text-[#383838c4]"}  mt-2 flex flex-col`}
+          >
             <span className="cursor-pointer" onClick={() => Router.push("/")}>
               Posts & Activity
             </span>
@@ -88,9 +102,11 @@ export function MeDropDownMenu() {
             </span>
           </div>
         </div>
-        <div className="h-[1px] w-full bg-[#e1e1e0] mt-4"></div>
+        <div
+          className={`h-[1px] w-full ${DarkMode ? "bg-[#7d7d7d]" : "bg-[#e1e1e0]"} mt-4`}
+        ></div>
         <span
-          className="ml-[15px] text-[#383838c4] cursor-pointer mt-2"
+          className={` ml-[15px] ${DarkMode ? "text-[#b7b7b7c4]" : "text-[#383838c4]"} cursor-pointer mt-2`}
           onMouseDown={logout}
         >
           Sign out
