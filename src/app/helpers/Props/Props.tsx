@@ -1,4 +1,5 @@
 import { StaticImageData } from "next/image";
+import { RefObject } from "react";
 
 export type props = {
   text: string;
@@ -46,6 +47,8 @@ export type PostMediaProps = {
   onClick: () => void;
   upload: () => void;
   mediaRef: React.RefObject<HTMLDivElement | null>;
+  onSubmit: () => void;
+  onChange: () => void;
 };
 
 export type SliderPageProps = {
@@ -60,6 +63,7 @@ export type postAdditionsProps = {
   onChange: () => void;
   onSubmit: () => void;
   change: () => void;
+  onClick: () => void;
 };
 
 export type newPostPopupProps = {
@@ -76,4 +80,6 @@ export type pfpProps = {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
   tailwind: string;
+  change: () => void;
+  plusDisplay: any;
 };

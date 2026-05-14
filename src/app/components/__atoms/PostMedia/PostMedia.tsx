@@ -2,7 +2,13 @@ import Working from "@/../public/feed/Working.svg";
 import Image from "next/image";
 import { PostMediaProps } from "@/app/helpers/Props/Props";
 import { useDarkMode } from "@/app/hooks/CheckDisplay";
-function PostMedia({ onClick, upload, mediaRef }: PostMediaProps) {
+function PostMedia({
+  onClick,
+  mediaRef,
+  onSubmit,
+  upload,
+  onChange,
+}: PostMediaProps) {
   const DarkMode = useDarkMode();
   return (
     <>
@@ -31,12 +37,21 @@ function PostMedia({ onClick, upload, mediaRef }: PostMediaProps) {
             <p className="text-[#626262b5] font-semibold">
               Share images or a single video in your post.
             </p>
-            <button
-              className="bg-[#0b67c2] hover:bg-[#0a4783] text-white rounded-[20px] py-2 px-4 font-semibold cursor-pointer"
-              onClick={upload}
-            >
-              Upload from computer
-            </button>
+
+            <form onClick={upload} onSubmit={onSubmit}>
+              <input
+                className="hidden"
+                type="file"
+                name="image"
+                accept="image/*"
+                required
+                id="post-photo-upload"
+                onChange={onChange}
+              />
+              <button className="bg-[#0b67c2] hover:bg-[#0a4783] text-white rounded-[20px] py-2 px-4 font-semibold cursor-pointer">
+                <label htmlFor="post-photo-upload">Upload from computer</label>
+              </button>
+            </form>
           </div>
         </div>
         <div className="w-full h-[1px] bg-[#80808020]"></div>

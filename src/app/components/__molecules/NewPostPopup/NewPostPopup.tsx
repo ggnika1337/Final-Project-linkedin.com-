@@ -115,24 +115,32 @@ function NewPostPopup({ ref, postType, close, mediaRef }: newPostPopupProps) {
               Rewrite with AI
             </button>
             <PostAdditions
+              onSubmit={() => {}}
+              change={() => {}}
               onClick={() => {}}
               onChange={() => {}}
               label="Add media"
               svg="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-7 3a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm6 13H6l4-5 2 3 3-4z"
             />
             <PostAdditions
+              onSubmit={() => {}}
+              change={() => {}}
               onClick={() => {}}
               onChange={() => {}}
               label="Create an event"
               svg="M19 3h-1V1h-2v2H8V1H6v2H5a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm0 18H5V9h14v12zm0-14H5V5h14v2zM7 11h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2zm-8 4h2v2H7zm4 0h2v2h-2z"
             />
             <PostAdditions
+              onSubmit={() => {}}
+              change={() => {}}
               onClick={() => {}}
               onChange={() => {}}
               label="Celebrate an occasion"
               svg="M19.14 12.94c.04-.3.06-.61.06-.94s-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.49.49 0 0 0-.59-.22l-2.39.96a7 7 0 0 0-1.62-.94l-.36-2.54A.48.48 0 0 0 14 3h-4a.48.48 0 0 0-.48.41l-.36 2.54a7 7 0 0 0-1.61.94l-2.39-.96a.48.48 0 0 0-.59.22L2.65 9.47a.47.47 0 0 0 .12.61l2.03 1.58c-.05.3-.07.63-.07.94s.02.64.07.94l-2.03 1.58a.47.47 0 0 0-.12.61l1.92 3.32c.12.22.37.3.59.22l2.39-.96c.5.36 1.04.67 1.62.94l.36 2.54c.06.28.31.41.48.41h4c.27 0 .47-.13.48-.41l.36-2.54a7 7 0 0 0 1.61-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32a.47.47 0 0 0-.12-.61l-2.01-1.58zM12 15.6A3.6 3.6 0 1 1 12 8.4a3.6 3.6 0 0 1 0 7.2z"
             />
             <PostAdditions
+              onSubmit={() => {}}
+              change={() => {}}
               onClick={() => {}}
               onChange={() => {}}
               label="More"
@@ -153,7 +161,13 @@ function NewPostPopup({ ref, postType, close, mediaRef }: newPostPopupProps) {
   } else if (postType === "media") {
     return (
       <>
-        <PostMedia mediaRef={mediaRef} onClick={close} upload={() => {}} />
+        <PostMedia
+          onSubmit={() => {}}
+          onChange={() => {}}
+          mediaRef={mediaRef}
+          onClick={close}
+          upload={() => {}}
+        />
       </>
     );
   }

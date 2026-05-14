@@ -218,6 +218,7 @@ function Profile() {
                 size={152}
                 plusSize={52}
                 tailwind="max-h-[152px]"
+                change={() => {}}
               />
             </div>
             <div className="p-4 flex flex-col mt-30">

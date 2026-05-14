@@ -25,6 +25,10 @@ function ProfileCard() {
           className="w-full rounded-t-[10px]"
         />
         <Pfp
+          onChange={() => {}}
+          onSubmit={() => {}}
+          change={() => {}}
+          plusDisplay={() => {}}
           size={72}
           tailwind="max-h-[72px]"
           plusSize={34}
