@@ -3,6 +3,7 @@ import { auth, googleProvider } from "@/config/firebase";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { formTypes } from "@/app/helpers/Props/Props";
 import { signOut } from "firebase/auth";
+import { createUserProfile } from "@/lib/profile";
 
 export async function GoogleSignIn(router: any) {
   try {
