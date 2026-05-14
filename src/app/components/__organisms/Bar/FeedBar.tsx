@@ -13,8 +13,7 @@ import { MeDropDownMenu } from "../../__atoms/MeDropDownMenu/MeDropDownMenu";
 import { useRouter } from "next/navigation";
 import BizDropDown from "../../__atoms/BizDropDown/BizDropDown";
 import { useDarkMode } from "@/app/hooks/CheckDisplay";
-import DotsWhite from "@/../public/bar/DotsWhite.png";
-
+import { CheckAuth } from "@/app/hooks/CheckAuth";
 function FeedBar() {
   const [active, setActive] = useState<string>("Home");
   const [meOpen, setMeOpen] = useState<boolean>(false);
@@ -31,7 +30,7 @@ function FeedBar() {
       document.getElementById("searchInput")?.focus();
     }
   }, [isActive]);
-
+  const { done, profile } = CheckAuth();
   const DarkMode = useDarkMode();
   return (
     <>
@@ -105,7 +104,7 @@ function FeedBar() {
               <div ref={meRef} className="relative  ml-2 max-[790px]:ml-0">
                 <DropDown
                   onClick={() => setMeOpen((prev) => !prev)}
-                  image={Pfp}
+                  image={profile?.photoURL || Pfp}
                   text="Me"
                   searchOpen={isActive}
                 />

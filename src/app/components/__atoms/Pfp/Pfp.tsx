@@ -7,6 +7,7 @@ type props = {
   src: string | undefined;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+  tailwind: string;
 };
 
 function Pfp({
@@ -17,6 +18,7 @@ function Pfp({
   onChange,
   onSubmit,
   plusDisplay,
+  tailwind,
 }: props) {
   const DarkMode = useDarkMode();
   return (
@@ -30,7 +32,7 @@ function Pfp({
           width={size}
           height={size}
           alt="PFP"
-          className="rounded-full outline-dashed outline-1 outline-black outline-offset-[-3px]"
+          className={`rounded-full outline-dashed outline-1 outline-black outline-offset-[-3px] ${tailwind} `}
         />
         <form
           onClick={change}

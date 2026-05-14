@@ -3,9 +3,11 @@ import React from "react";
 import pfp from "../../../../../public/PfpDefault.png";
 import { NewPostProps } from "@/app/helpers/Props/Props";
 import { useDarkMode } from "@/app/hooks/CheckDisplay";
+import { CheckAuth } from "@/app/hooks/CheckAuth";
 
 function NewPost({ VideoClick, PhotoClick, TextClick }: NewPostProps) {
   const DarkMode = useDarkMode();
+  const { done, profile } = CheckAuth();
   return (
     <>
       <div
@@ -13,11 +15,11 @@ function NewPost({ VideoClick, PhotoClick, TextClick }: NewPostProps) {
       >
         <div className="flex gap-4">
           <Image
-            src={pfp}
-            width={48}
+            src={profile?.photoURL || pfp}
+            width={51}
             height={48}
             alt="Profile Picute"
-            className="rounded-full"
+            className="rounded-full max-h-[45px]"
           />
           <button
             onClick={TextClick}

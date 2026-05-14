@@ -5,10 +5,12 @@ import { auth } from "@/config/firebase";
 import { useRouter } from "next/navigation";
 import { logout } from "@/app/hooks/Auth";
 import { useDarkMode } from "@/app/hooks/CheckDisplay";
+import { CheckAuth } from "@/app/hooks/CheckAuth";
 
 export function MeDropDownMenu() {
   let Router = useRouter();
   const DarkMode = useDarkMode();
+  const { done, profile } = CheckAuth();
   return (
     <>
       <div
@@ -16,9 +18,10 @@ export function MeDropDownMenu() {
       >
         <div className="flex gap-5 px-[15px] mt-[15px]">
           <Image
-            src={Pfp}
+            src={profile?.photoURL || Pfp}
             className="cursor-pointer max-h-[60px] rounded-full"
             width={60}
+            height={60}
             alt="PFP"
           />
           <div className="flex flex-col gap-1">

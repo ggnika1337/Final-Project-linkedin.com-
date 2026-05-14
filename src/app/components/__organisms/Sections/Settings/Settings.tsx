@@ -7,10 +7,12 @@ import Logo from "@/../public/logo small.png";
 import DefaultPfp from "@/../public/PfpDefault.png";
 import { auth } from "@/config/firebase";
 import { useDarkMode } from "@/app/hooks/CheckDisplay";
+import { CheckAuth } from "@/app/hooks/CheckAuth";
 
 function Settings() {
   let Router = useRouter();
   const DarkMode = useDarkMode();
+  const { profile } = CheckAuth();
   return (
     <>
       <div
@@ -27,7 +29,7 @@ function Settings() {
             onClick={() => Router.push(`/profiles/${auth.currentUser?.uid}`)}
           >
             <Image
-              src={DefaultPfp}
+              src={profile?.photoURL || DefaultPfp}
               alt="PFP"
               width={24}
               height={24}

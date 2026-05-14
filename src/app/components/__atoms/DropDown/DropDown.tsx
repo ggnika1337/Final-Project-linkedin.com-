@@ -12,8 +12,10 @@ function DropDown({ image, text, onClick, searchOpen }: dropDownProps) {
       >
         <Image
           src={image}
-          className={`cursor-pointer min-w-[30px] size-[30px] rounded-full ${DarkMode ? "invert" : ""}`}
+          className={`cursor-pointer min-w-[30px] size-[30px] rounded-full`}
           alt="btn"
+          width={30}
+          height={30}
         />
         <div>
           <h1

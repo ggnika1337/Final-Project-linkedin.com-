@@ -9,7 +9,7 @@ function ContactPopup({ onClick, ref }: { onClick: () => void; ref: any }) {
     <>
       <div
         ref={ref}
-        className={`w-full max-w-[800px] ${DarkMode ? "bg-[#1a1e23] text-white" : "bg-white text-black"} h-full max-h-[445px] rounded-[10px]`}
+        className={`w-full max-w-[800px] ${DarkMode ? "bg-[#1a1e23] text-white" : "bg-white text-black"} h-full max-h-[400px] rounded-[10px]`}
       >
         <div className="relative w-full flex items-center justify-between py-[7px] pr-[10px] pl-[25px]">
           <h1 className="font-semibold text-[20px]">Contact Info</h1>
@@ -76,14 +76,14 @@ function ContactPopup({ onClick, ref }: { onClick: () => void; ref: any }) {
             </span>
           </div>
         </div>
-        <div className="w-full h-[1px] bg-[#80808030]"></div>
+        {/* <div className="w-full h-[1px] bg-[#80808030]"></div>
         <div className="px-[19px] flex items-end justify-end mt-2">
           <button
             className={`rounded-[15px] px-[10px] font-semibold text-[14px] py-1 border-1 border-[#1b70c7] text-[#1b70c7] hover:bg-[#1b71c733] cursor-pointer`}
           >
             Edit contact info
           </button>
-        </div>
+        </div> */}
       </div>
     </>
   );

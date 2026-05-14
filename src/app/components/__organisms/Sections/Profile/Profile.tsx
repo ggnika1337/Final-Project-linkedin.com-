@@ -54,7 +54,6 @@ function Profile() {
       uid: profile.uid,
       displayName: editData.displayName,
       email: profile.email,
-      username: profile.username,
       bio: editData.bio,
       photoURL: profile.photoURL,
       bannerURL: profile.bannerURL,
@@ -63,7 +62,6 @@ function Profile() {
       uid: prev.uid,
       displayName: editData.displayName,
       email: prev.email,
-      username: prev.username,
       bio: editData.bio,
       photoURL: prev.photoURL,
       bannerURL: prev.bannerURL,
@@ -147,7 +145,6 @@ function Profile() {
                 uid: profile.uid,
                 displayName: profile.displayName,
                 email: profile.email,
-                username: profile.username,
                 bio: profile.bio,
                 photoURL: profile.photoURL,
                 bannerURL: url,
@@ -201,6 +198,7 @@ function Profile() {
             />
             <div className="absolute top-25">
               <Pfp
+                plusDisplay={isOwner ? "block" : "none"}
                 onChange={(e) => e.target.form?.requestSubmit()}
                 onSubmit={async (e) => {
                   e.preventDefault();
@@ -210,7 +208,6 @@ function Profile() {
                     uid: profile.uid,
                     displayName: profile.displayName,
                     email: profile.email,
-                    username: profile.username,
                     bio: profile.bio,
                     photoURL: url,
                     bannerURL: profile.bannerURL,
@@ -220,6 +217,7 @@ function Profile() {
                 src={profile?.photoURL}
                 size={152}
                 plusSize={52}
+                tailwind="max-h-[152px]"
               />
             </div>
             <div className="p-4 flex flex-col mt-30">
