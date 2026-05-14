@@ -5,11 +5,19 @@ type props = {
   size: number | `${number}` | undefined;
   plusSize: number | `${number}` | undefined;
   src: string | undefined;
-  change: () => void;
-  onChange: () => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
 };
 
-function Pfp({ size, plusSize, src, change, onChange }: props) {
+function Pfp({
+  size,
+  plusSize,
+  src,
+  change,
+  onChange,
+  onSubmit,
+  plusDisplay,
+}: props) {
   const DarkMode = useDarkMode();
   return (
     <>
@@ -26,7 +34,8 @@ function Pfp({ size, plusSize, src, change, onChange }: props) {
         />
         <form
           onClick={change}
-          style={{ width: plusSize, height: plusSize }}
+          onSubmit={onSubmit}
+          style={{ width: plusSize, height: plusSize, display: plusDisplay }}
           className="absolute bg-[#0A66C2] cursor-pointer hover:bg-[#004182] right-0 bottom-0 rounded-full text-white text-center flex justify-center text-[30px]"
         >
           <input
@@ -35,11 +44,11 @@ function Pfp({ size, plusSize, src, change, onChange }: props) {
             name="image"
             accept="image/*"
             required
-            id="file-upload"
+            id="pfp-upload"
             onChange={onChange}
           />
           <label
-            htmlFor="file-upload"
+            htmlFor="pfp-upload"
             className="cursor-pointer w-full h-full flex items-center justify-center"
           >
             <h1 className="h-full flex pb-1 items-center justify-center">+</h1>

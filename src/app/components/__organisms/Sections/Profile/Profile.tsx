@@ -137,6 +137,7 @@ function Profile() {
       <div className="flex justify-between w-full container max-w-[1128px] mt-6">
         <div className="max-w-[792px] w-full relative">
           <form
+            style={{ display: isOwner ? "block" : "none" }}
             className="size-[32px] cursor-pointer rounded-full opacity-70 absolute right-6 z-[200] top-5 hover:opacity-100 flex items-center justify-center bg-white"
             onSubmit={async (e) => {
               e.preventDefault();
@@ -200,8 +201,22 @@ function Profile() {
             />
             <div className="absolute top-25">
               <Pfp
-                // onChange={}
-                // change={}
+                onChange={(e) => e.target.form?.requestSubmit()}
+                onSubmit={async (e) => {
+                  e.preventDefault();
+                  const formData = new FormData(e.currentTarget);
+                  const url = await uploadImage(formData);
+                  await setDoc(doc(db, "profiles", profileId), {
+                    uid: profile.uid,
+                    displayName: profile.displayName,
+                    email: profile.email,
+                    username: profile.username,
+                    bio: profile.bio,
+                    photoURL: url,
+                    bannerURL: profile.bannerURL,
+                  });
+                  setProfile((prev: any) => ({ ...prev, photoURL: url }));
+                }}
                 src={profile?.photoURL}
                 size={152}
                 plusSize={52}

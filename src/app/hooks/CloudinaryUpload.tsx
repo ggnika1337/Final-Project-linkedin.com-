@@ -10,7 +10,7 @@ export async function uploadImage(formData: FormData) {
   const file = formData.get("image") as File;
   const arrayBuffer = await file.arrayBuffer();
   const buffer = new Uint8Array(arrayBuffer);
-  console.log(file);
+  console.log(file);  
   const result = await new Promise((resolve, reject) => {
     cloudinary.uploader
       .unsigned_upload_stream(
