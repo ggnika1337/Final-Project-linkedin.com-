@@ -21,15 +21,16 @@ function Profile() {
   const editRef = OutsideClick(() => setEditPopup(false));
   const DarkMode = useDarkMode();
 
-  const { uid } = useParams();
+  const { uid as string } = useParams();
+  const profileId = uid as string;
 
   useEffect(() => {
     setInterval(() => {
       setLoading(false);
     }, 1000);
     const fetchProfile = async () => {
-      const isOwner = auth.currentUser?.uid === uid;
-      const docRef = doc(db, "profiles", uid);
+      const isOwner = auth.currentUser?.profileId === profileId;
+      const docRef = doc(db, "profiles", profileId);
       const docSnap = await getDoc(docRef);
       console.log(docSnap.exists(), docSnap.data());
 
@@ -41,7 +42,7 @@ function Profile() {
     };
 
     fetchProfile();
-  }, [uid]);
+  }, [profileId]);
 
   const [editData, setEditData] = useState({ displayName: "", bio: "" });
 
