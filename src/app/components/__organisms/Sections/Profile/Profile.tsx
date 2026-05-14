@@ -11,6 +11,7 @@ import ContactPopup from "@/app/components/__molecules/ContactPopup/ContactPopup
 import { useDarkMode } from "@/app/hooks/CheckDisplay";
 import { useParams } from "next/navigation";
 import { doc, getDoc, setDoc } from "firebase/firestore";
+import { uploadImage } from "@/app/hooks/CloudinaryUpload";
 
 function Profile() {
   const [loading, setLoading] = useState(true);
@@ -23,16 +24,13 @@ function Profile() {
 
   const { uid } = useParams();
   const profileId = uid as string;
-
   useEffect(() => {
     setInterval(() => {
       setLoading(false);
     }, 1000);
     const fetchProfile = async () => {
-      const isOwner = auth.currentUser?.profileId === profileId;
       const docRef = doc(db, "profiles", profileId);
       const docSnap = await getDoc(docRef);
-      console.log(docSnap.exists(), docSnap.data());
 
       if (docSnap.exists()) {
         if (docSnap.exists()) {
@@ -40,10 +38,9 @@ function Profile() {
         }
       }
     };
-
     fetchProfile();
   }, [profileId]);
-
+  const isOwner = auth.currentUser?.uid === profileId;
   const [editData, setEditData] = useState({ displayName: "", bio: "" });
 
   useEffect(() => {
@@ -139,7 +136,50 @@ function Profile() {
       )}
       <div className="flex justify-between w-full container max-w-[1128px] mt-6">
         <div className="max-w-[792px] w-full relative">
+          <form
+            className="size-[32px] cursor-pointer rounded-full opacity-70 absolute right-6 z-[200] top-5 hover:opacity-100 flex items-center justify-center bg-white"
+            onSubmit={async (e) => {
+              e.preventDefault();
+              const formData = new FormData(e.currentTarget);
+              const url = await uploadImage(formData);
+              await setDoc(doc(db, "profiles", profileId), {
+                uid: profile.uid,
+                displayName: profile.displayName,
+                email: profile.email,
+                username: profile.username,
+                bio: profile.bio,
+                photoURL: profile.photoURL,
+                bannerURL: url,
+              });
+              setProfile((prev: any) => ({ ...prev, bannerURL: url }));
+            }}
+          >
+            <input
+              className="hidden"
+              type="file"
+              name="image"
+              accept="image/*"
+              required
+              id="file-upload"
+              onChange={(e) => e.target.form?.requestSubmit()}
+            />
+            <label
+              htmlFor="file-upload"
+              className="cursor-pointer w-full h-full flex items-center justify-center"
+            >
+              <svg
+                width={16}
+                height={19}
+                className="fill-current text-gray-700"
+              >
+                <path d="M10 9a2 2 0 1 1-2-2 2 2 0 0 1 2 2m5-2.5V14H1V6.5A2.5 2.5 0 0 1 3.5 4h.75L5 2h6l.75 2h.75A2.5 2.5 0 0 1 15 6.5M11 9a3 3 0 1 0-3 3 3 3 0 0 0 3-3"></path>
+              </svg>
+            </label>
+          </form>
           <svg
+            style={{
+              display: isOwner ? "block" : "none",
+            }}
             className="absolute right-6 top-54 z-200 cursor-pointer"
             fill={`${DarkMode ? "white" : "black"}`}
             width={22}
@@ -152,12 +192,20 @@ function Profile() {
             className={`rounded-[10px] relative ${DarkMode ? "bg-[#1b1e22] text-white" : "bg-[#fefeff]"} shadow-[0px_0px_0px_1px_rgb(140_140_140_/_0.2)]`}
           >
             <Image
-              src={Banner}
+              width={792}
+              height={193}
+              src={profile?.bannerURL || Banner}
               alt={"background banner"}
-              className="w-full rounded-t-[10px]"
+              className="w-full rounded-t-[10px] max-h-[200px] min-h-[190px]"
             />
             <div className="absolute top-25">
-              <Pfp size={152} plusSize={52} />
+              <Pfp
+                // onChange={}
+                // change={}
+                src={profile?.photoURL}
+                size={152}
+                plusSize={52}
+              />
             </div>
             <div className="p-4 flex flex-col mt-30">
               <h1 className="text-[25px] font-[500]">{profile?.displayName}</h1>
