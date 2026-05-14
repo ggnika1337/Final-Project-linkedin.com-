@@ -20,9 +20,11 @@ function ProfileCard() {
         className={`${DarkMode ? "text-white bg-[#1b1e22]" : "text-black bg-[#fefeff]"} rounded-[10px] relative shadow-[0px_0px_0px_1px_rgb(140_140_140_/_0.2)]`}
       >
         <Image
-          src={Banner}
+          src={profile?.bannerURL || Banner}
+          width={216}
+          height={52}
           alt={"background banner"}
-          className="w-full rounded-t-[10px]"
+          className="w-full rounded-t-[10px] max-h-[60px]"
         />
         <Pfp
           onChange={() => {}}
