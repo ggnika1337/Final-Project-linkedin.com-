@@ -12,7 +12,7 @@ import { CheckAuth } from "@/app/hooks/CheckAuth";
 function Settings() {
   let Router = useRouter();
   const DarkMode = useDarkMode();
-  const { profile } = CheckAuth();
+  const { profile } = CheckAuth(false);
   return (
     <>
       <div

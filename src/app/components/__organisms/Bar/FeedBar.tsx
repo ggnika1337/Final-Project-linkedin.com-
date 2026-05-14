@@ -30,7 +30,7 @@ function FeedBar() {
       document.getElementById("searchInput")?.focus();
     }
   }, [isActive]);
-  const { done, profile } = CheckAuth();
+  const { done, profile } = CheckAuth(false);
   const DarkMode = useDarkMode();
   return (
     <>

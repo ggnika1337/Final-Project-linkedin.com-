@@ -10,7 +10,7 @@ import { CheckAuth } from "@/app/hooks/CheckAuth";
 export function MeDropDownMenu() {
   let Router = useRouter();
   const DarkMode = useDarkMode();
-  const { done, profile } = CheckAuth();
+  const { done, profile } = CheckAuth(false);
   return (
     <>
       <div

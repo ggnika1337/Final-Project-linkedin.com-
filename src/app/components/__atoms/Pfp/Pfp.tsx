@@ -1,14 +1,7 @@
 import Image from "next/image";
 import DefaultPfp from "@/../public/PfpDefault.png";
 import { useDarkMode } from "@/app/hooks/CheckDisplay";
-type props = {
-  size: number | `${number}` | undefined;
-  plusSize: number | `${number}` | undefined;
-  src: string | undefined;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
-  tailwind: string;
-};
+import { pfpProps } from "@/app/helpers/Props/Props";
 
 function Pfp({
   size,
@@ -19,7 +12,7 @@ function Pfp({
   onSubmit,
   plusDisplay,
   tailwind,
-}: props) {
+}: pfpProps) {
   const DarkMode = useDarkMode();
   return (
     <>

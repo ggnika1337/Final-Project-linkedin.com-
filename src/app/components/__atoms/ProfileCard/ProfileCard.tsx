@@ -13,18 +13,23 @@ type props = {
 function ProfileCard() {
   let Router = useRouter();
   const DarkMode = useDarkMode();
-  const { done, profile } = CheckAuth();
+  const { done, profile } = CheckAuth(false);
   return (
     <>
       <div
         className={`${DarkMode ? "text-white bg-[#1b1e22]" : "text-black bg-[#fefeff]"} rounded-[10px] relative shadow-[0px_0px_0px_1px_rgb(140_140_140_/_0.2)]`}
       >
         <Image
-          src={Banner}a
+          src={Banner}
           alt={"background banner"}
           className="w-full rounded-t-[10px]"
         />
-        <Pfp size={72} tailwind="max-h-[72px]" plusSize={34} src={profile?.photoURL} />
+        <Pfp
+          size={72}
+          tailwind="max-h-[72px]"
+          plusSize={34}
+          src={profile?.photoURL}
+        />
         <div className="p-4 flex flex-col mt-13">
           <h1
             onClick={() => Router.push(`/profiles/${auth.currentUser?.uid}`)}

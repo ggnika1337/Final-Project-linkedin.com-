@@ -7,18 +7,10 @@ import PremiumPopup from "../../__atoms/PremiumPopup/PremiumPopup";
 import { smiles } from "@/app/Datas/Buttons/Buttons";
 import PostMedia from "../../__atoms/PostMedia/PostMedia";
 import { useDarkMode } from "@/app/hooks/CheckDisplay";
+import { CheckAuth } from "@/app/hooks/CheckAuth";
+import { newPostPopupProps } from "@/app/helpers/Props/Props";
 
-function NewPostPopup({
-  ref,
-  postType,
-  close,
-  mediaRef,
-}: {
-  ref: React.RefObject<HTMLDivElement | null>;
-  postType: string;
-  close: () => void;
-  mediaRef: RefObject<HTMLDivElement | null>;
-}) {
+function NewPostPopup({ ref, postType, close, mediaRef }: newPostPopupProps) {
   const [text, setText] = useState<string>("");
   const [vip, setVip] = useState<boolean>(false);
   function generateRandomSmile(arr: string[]) {
@@ -27,6 +19,7 @@ function NewPostPopup({
     return final;
   }
   const DarkMode = useDarkMode();
+  const { profile, done } = CheckAuth(false);
   if (postType === "normal") {
     return (
       <>
@@ -48,7 +41,13 @@ function NewPostPopup({
           </svg>
           <div className="flex gap-3 mx-[5px] whitespace-nowrap p-[15px] max-h-[115px] ">
             <div className="hover:bg-[#80808034] flex rounded-[10px] gap-3 p-[15px] cursor-pointer ">
-              <Image className="size-[56px] rounded-full" src={Pfp} alt="pfp" />
+              <Image
+                className="size-[56px] rounded-full"
+                src={profile?.photoURL || Pfp}
+                alt="pfp"
+                height={56}
+                width={56}
+              />
               <div className="relative flex flex-col">
                 <h1 className="text-[18px] font-semibold">
                   {auth.currentUser?.displayName}
@@ -116,18 +115,26 @@ function NewPostPopup({
               Rewrite with AI
             </button>
             <PostAdditions
+              onClick={() => {}}
+              onChange={() => {}}
               label="Add media"
               svg="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-7 3a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm6 13H6l4-5 2 3 3-4z"
             />
             <PostAdditions
+              onClick={() => {}}
+              onChange={() => {}}
               label="Create an event"
               svg="M19 3h-1V1h-2v2H8V1H6v2H5a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm0 18H5V9h14v12zm0-14H5V5h14v2zM7 11h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2zm-8 4h2v2H7zm4 0h2v2h-2z"
             />
             <PostAdditions
+              onClick={() => {}}
+              onChange={() => {}}
               label="Celebrate an occasion"
               svg="M19.14 12.94c.04-.3.06-.61.06-.94s-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.49.49 0 0 0-.59-.22l-2.39.96a7 7 0 0 0-1.62-.94l-.36-2.54A.48.48 0 0 0 14 3h-4a.48.48 0 0 0-.48.41l-.36 2.54a7 7 0 0 0-1.61.94l-2.39-.96a.48.48 0 0 0-.59.22L2.65 9.47a.47.47 0 0 0 .12.61l2.03 1.58c-.05.3-.07.63-.07.94s.02.64.07.94l-2.03 1.58a.47.47 0 0 0-.12.61l1.92 3.32c.12.22.37.3.59.22l2.39-.96c.5.36 1.04.67 1.62.94l.36 2.54c.06.28.31.41.48.41h4c.27 0 .47-.13.48-.41l.36-2.54a7 7 0 0 0 1.61-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32a.47.47 0 0 0-.12-.61l-2.01-1.58zM12 15.6A3.6 3.6 0 1 1 12 8.4a3.6 3.6 0 0 1 0 7.2z"
             />
             <PostAdditions
+              onClick={() => {}}
+              onChange={() => {}}
               label="More"
               svg="M19 11h-6V5h-2v6H5v2h6v6h2v-6h6z"
             />

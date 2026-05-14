@@ -53,3 +53,27 @@ export type SliderPageProps = {
   text: string;
   img: StaticImageData;
 };
+
+export type postAdditionsProps = {
+  label: string;
+  svg: string;
+  onChange: () => void;
+  onSubmit: () => void;
+  change: () => void;
+};
+
+export type newPostPopupProps = {
+  ref: React.RefObject<HTMLDivElement | null>;
+  postType: string;
+  close: () => void;
+  mediaRef: RefObject<HTMLDivElement | null>;
+};
+
+export type pfpProps = {
+  size: number | `${number}` | undefined;
+  plusSize: number | `${number}` | undefined;
+  src: string | undefined;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+  tailwind: string;
+};

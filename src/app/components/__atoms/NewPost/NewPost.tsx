@@ -7,7 +7,7 @@ import { CheckAuth } from "@/app/hooks/CheckAuth";
 
 function NewPost({ VideoClick, PhotoClick, TextClick }: NewPostProps) {
   const DarkMode = useDarkMode();
-  const { done, profile } = CheckAuth();
+  const { done, profile } = CheckAuth(false);
   return (
     <>
       <div

@@ -14,7 +14,7 @@ import { useDarkMode } from "@/app/hooks/CheckDisplay";
 function Feed() {
   const [verify, setVerify] = useState<boolean>();
   const Router = useRouter();
-  CheckAuth();
+  CheckAuth(true);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     localStorage.setItem(
