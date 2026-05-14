@@ -21,7 +21,7 @@ function Profile() {
   const editRef = OutsideClick(() => setEditPopup(false));
   const DarkMode = useDarkMode();
 
-  const { uid as string } = useParams();
+  const { uid } = useParams();
   const profileId = uid as string;
 
   useEffect(() => {
