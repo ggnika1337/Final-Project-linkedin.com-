@@ -23,11 +23,11 @@ function PremiumPopup({ onClick }: props) {
           className="min-w-[22px] absolute top-3 right-2 max-w-[22px] h-[22px] cursor-pointer"
         >
           <path
-            fill="black"
+            fill={`${DarkMode ? "white" : "black"}`}
             d="M14 3.41 9.41 8 14 12.59 12.59 14 8 9.41 3.41 14 2 12.59 6.59 8 2 3.41 3.41 2 8 6.59 12.59 2z"
           ></path>
         </svg>
-        <h1 className="font-semibold">
+        <h1 className="font-semibold text-[13px]">
           <span>{auth.currentUser?.displayName}</span>, level up your career
         </h1>
 

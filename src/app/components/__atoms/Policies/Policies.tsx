@@ -2,11 +2,13 @@ import { footerPolicies } from "@/app/Datas/Buttons/Buttons";
 import Image from "next/image";
 import React from "react";
 import logo from "../../../../../public/logo.png";
+import { useDarkMode } from "@/app/hooks/CheckDisplay";
 
 function Policies() {
+  const DarkMode = useDarkMode();
   return (
     <>
-      <div className="flex p-[10px] max-[990px]:py-[64px] max-[990px]:px-5 gap-5 flex-wrap overflow-hidden">
+      <div className="flex p-[10px] w-full justify-center bg-[#f2f2f1] max-[990px]:py-[64px] max-[990px]:px-5 gap-5 flex-wrap overflow-hidden">
         <Image src={logo} width={101} height={30} alt="linkedin logo black" />
         <span className="text-[#666666] text-[15px]">© 2026</span>
         {footerPolicies.map((str) => {

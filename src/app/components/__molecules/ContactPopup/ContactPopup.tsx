@@ -2,12 +2,14 @@ import Image from "next/image";
 import React from "react";
 import Logo from "@/../public/logo small.png";
 import { auth } from "@/config/firebase";
+import { useDarkMode } from "@/app/hooks/CheckDisplay";
 function ContactPopup({ onClick, ref }: { onClick: () => void; ref: any }) {
+  const DarkMode = useDarkMode();
   return (
     <>
       <div
         ref={ref}
-        className="w-full max-w-[800px] bg-white h-full max-h-[445px] rounded-[10px]"
+        className={`w-full max-w-[800px] ${DarkMode ? "bg-[#1a1e23] text-white" : "bg-white text-black"} h-full max-h-[445px] rounded-[10px]`}
       >
         <div className="relative w-full flex items-center justify-between py-[7px] pr-[10px] pl-[25px]">
           <h1 className="font-semibold text-[20px]">Contact Info</h1>
@@ -32,19 +34,19 @@ function ContactPopup({ onClick, ref }: { onClick: () => void; ref: any }) {
               className="max-h-[20px]"
               alt="linkedin black logo"
             />
-            <div className="flex flex-col text-black translate-y-[-5px]">
+            <div className="flex flex-col translate-y-[-5px]">
               <h1 className="font-semibold">Your profile</h1>
               <span className="text-[#1b70c7] hover:underline cursor-pointer font-semibold">{`https://final-project-linkedin-com.vercel.app/profiles/${auth.currentUser?.uid}`}</span>
             </div>
           </div>
           <div className="flex gap-3 mt-3 max-h-[70px]">
-            <svg width={25}>
+            <svg fill={`${DarkMode ? "white" : "black"} `} width={25}>
               <path d="M2 4v13a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V4zm18 2v1.47l-8 5.33-8-5.33V6zm-1 12H5a1 1 0 0 1-1-1V8.67L12 14l8-5.33V17a1 1 0 0 1-1 1"></path>
             </svg>
-            <div className="flex flex-col text-black translate-y-[-1px]">
+            <div className="flex flex-col translate-y-[-1px]">
               <h1 className="font-semibold">Email</h1>
               <a
-                className="text-[#1b70c7] hover:underline font-semibold"
+                className="text-[#007af3] hover:underline font-semibold"
                 href=""
               >
                 {auth.currentUser?.email}

@@ -31,7 +31,7 @@ function SignIn() {
     <>
       <form
         onSubmit={signIn}
-        className="w-full h-full flex items-center justify-center"
+        className="flex flex-col gap-3 bg-[#f2f2f1] w-full items-center justify-center h-[100vh]"
       >
         <div className="flex flex-col bg-white border-1 border-[#e9e8e9] rounded-[10px] p-[30px]">
           <h1 className="text-[34px] font-[500]">Sign in</h1>

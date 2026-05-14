@@ -107,7 +107,7 @@ export function MeDropDownMenu() {
         ></div>
         <span
           className={` ml-[15px] ${DarkMode ? "text-[#b7b7b7c4]" : "text-[#383838c4]"} cursor-pointer mt-2`}
-          onMouseDown={logout}
+          onMouseDown={() => logout(Router)}
         >
           Sign out
         </span>

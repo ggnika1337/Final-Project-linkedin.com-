@@ -3,14 +3,23 @@ import { auth, googleProvider } from "@/config/firebase";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { formTypes } from "@/app/helpers/Props/Props";
 import { signOut } from "firebase/auth";
-import { createUserProfile } from "@/lib/profile";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "@/config/firebase";
+import { useRouter } from "next/navigation";
 
-export async function GoogleSignIn(router: any) {
-  try {
-    await signInWithPopup(auth, googleProvider);
-  } catch (error) {
-    console.log(error);
-  }
+export async function createUserProfile(
+  uid: string,
+  displayName: string,
+  email: string,
+) {
+  await setDoc(doc(db, "profiles", uid), {
+    uid,
+    displayName,
+    email,
+    bio: "",
+    photoURL: "",
+    bannerURL: "",
+  });
 }
 
 export async function EmailPassword(
@@ -31,10 +40,8 @@ export async function EmailPassword(
 }
 
 export async function logout(router: any) {
-  console.log("logout called");
   try {
     await signOut(auth);
-    console.log("signed out");
     router.push("/");
   } catch (error) {
     console.log(error);
@@ -45,4 +52,12 @@ export async function resendVerification() {
   if (!auth.currentUser) return;
   await sendEmailVerification(auth.currentUser);
   return;
+}
+
+export async function GoogleSignIn(router: any) {
+  try {
+    await signInWithPopup(auth, googleProvider);
+  } catch (error) {
+    console.log(error);
+  }
 }

@@ -6,6 +6,7 @@ import PostAdditions from "../../__atoms/PostAdditions/PostAdditions";
 import PremiumPopup from "../../__atoms/PremiumPopup/PremiumPopup";
 import { smiles } from "@/app/Datas/Buttons/Buttons";
 import PostMedia from "../../__atoms/PostMedia/PostMedia";
+import { useDarkMode } from "@/app/hooks/CheckDisplay";
 
 function NewPostPopup({
   ref,
@@ -25,12 +26,13 @@ function NewPostPopup({
     let final = arr[randomNumber];
     return final;
   }
+  const DarkMode = useDarkMode();
   if (postType === "normal") {
     return (
       <>
         <div
           ref={ref}
-          className="py-[10px] flex flex-col gap-3 w-full max-w-[740px] bg-white rounded-[15px] drop-shadow-lg"
+          className={`py-[10px] flex flex-col gap-3 w-full max-w-[740px] ${DarkMode ? "bg-[#1a1e23] text-white" : "bg-white text-black"}  rounded-[15px] drop-shadow-lg`}
         >
           <svg
             onClick={close}
@@ -38,7 +40,7 @@ function NewPostPopup({
             className="size-[40px] p-[12px] absolute right-3 top-4 rounded-full cursor-pointer hover:bg-[#80808023]"
           >
             <path
-              fill="black"
+              fill={`${DarkMode ? "white" : "black"}`}
               width={16}
               height={16}
               d="M14 3.41 9.41 8 14 12.59 12.59 14 8 9.41 3.41 14 2 12.59 6.59 8 2 3.41 3.41 2 8 6.59 12.59 2z"
@@ -74,7 +76,11 @@ function NewPostPopup({
               onClick={() => setText(text + generateRandomSmile(smiles))}
               className="rounded-full hover:bg-[#8080802b] size-[40px] text-center flex items-center justify-center"
             >
-              <svg width={24} height={24} fill="none">
+              <svg
+                width={24}
+                height={24}
+                fill={`${DarkMode ? "white" : "none"}`}
+              >
                 <circle
                   cx="12"
                   cy="12"

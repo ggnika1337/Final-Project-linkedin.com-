@@ -1,12 +1,14 @@
 import Working from "@/../public/feed/Working.svg";
 import Image from "next/image";
 import { PostMediaProps } from "@/app/helpers/Props/Props";
+import { useDarkMode } from "@/app/hooks/CheckDisplay";
 function PostMedia({ onClick, upload, mediaRef }: PostMediaProps) {
+  const DarkMode = useDarkMode();
   return (
     <>
       <div
         ref={mediaRef}
-        className="bg-white max-w-[1128px] w-full rounded-[8px] flex flex-col h-full max-h-[867px]"
+        className={` ${DarkMode ? "bg-[#1a1e23] text-white" : "bg-white text-black"} max-w-[1128px] w-full rounded-[8px] flex flex-col h-full max-h-[867px]`}
       >
         <div className="relative w-full flex items-center justify-between py-[7px] pr-[10px] pl-[25px]">
           <h1 className="font-semibold text-[20px]">Editor</h1>
@@ -26,7 +28,7 @@ function PostMedia({ onClick, upload, mediaRef }: PostMediaProps) {
           <div className="flex text-center flex-col items-center gap-3">
             <Image src={Working} alt="work" />
             <h1 className="font-semibold text-[20px]">Select files to begin</h1>
-            <p className="text-[#3f3f3fb5] font-semibold">
+            <p className="text-[#626262b5] font-semibold">
               Share images or a single video in your post.
             </p>
             <button
