@@ -23,6 +23,7 @@ export async function EmailPassword(
       displayName: `${firstName} ${lastName}`,
     });
     await sendEmailVerification(user.user);
+    await createUserProfile(user.user.uid, `${firstName} ${lastName}`, email);
     router.push("/feed");
   } catch (error) {
     console.error(error);
