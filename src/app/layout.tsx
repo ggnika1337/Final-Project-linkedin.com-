@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import ReactTimeAgo from "./ReactTimeAgo";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,7 +29,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className={`min-h-full flex flex-col items-center h-[100%]`}>
-        {children}
+        <ReactTimeAgo>{children}</ReactTimeAgo>
       </body>
     </html>
   );

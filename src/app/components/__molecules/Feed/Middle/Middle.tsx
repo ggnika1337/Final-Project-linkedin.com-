@@ -1,14 +1,37 @@
 "use client";
 import NewPost from "@/app/components/__atoms/NewPost/NewPost";
 import NewPostPopup from "../../NewPostPopup/NewPostPopup";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { OutsideClick } from "@/app/hooks/OutsideClick";
+import Post from "../../Post/Post";
+import postImage from "@/../public/Advertisement.png";
+import { CheckAuth } from "@/app/hooks/CheckAuth";
+import DefaultPfp from "@/../public/PfpDefault.png";
+import { collection, getDocs, orderBy, query } from "firebase/firestore";
+import { db } from "@/config/firebase";
 
 function Middle() {
   const [popup, setPopup] = useState<boolean>(false);
   const [postType, setPostType] = useState<string>("");
   const postRef = OutsideClick(() => setPopup(false));
   const mediaRef = OutsideClick(() => setPopup(false));
+  const [posts, setPosts] = useState<any[]>([]);
+  useEffect(() => {
+    async function getPosts() {
+      const quer = query(collection(db, "posts"), orderBy("createdAt", "desc"));
+      const result = await getDocs(quer);
+
+      const postsList = result.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+
+      setPosts(postsList);
+    }
+
+    getPosts();
+  }, []);
+  const { profile } = CheckAuth(false);
   return (
     <>
       <div className="ml-7 max-[830px]:ml-0 max-[1100px]:w-full">
@@ -39,6 +62,24 @@ function Middle() {
               ref={postRef}
             />
           </div>
+        </div>
+        <div className="mt-6 w-full">
+          {posts.map((post) => (
+            <Post
+              id={post.id}
+              key={post.id}
+              text={post.text}
+              ago={post.createdAt?.toDate() ?? new Date()}
+              user={post.authorName}
+              pfp={post.authorPhoto || DefaultPfp}
+              image={post.imageUrl}
+              likeCount={post.likeCount || 0}
+              commentsCount={post.commentsCount || 0}
+              tailwind="max-w-[552px]"
+              like={() => {}}
+              comments={() => {}}
+            />
+          ))}
         </div>
       </div>
     </>

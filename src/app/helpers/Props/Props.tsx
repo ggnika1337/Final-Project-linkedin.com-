@@ -83,3 +83,17 @@ export type pfpProps = {
   change: () => void;
   plusDisplay: any;
 };
+
+export type postProps = {
+  id: string;
+  text: string;
+  ago: Date;
+  user: string;
+  pfp: any;
+  image: any;
+  like: () => void;
+  likeCount: number;
+  comments: () => void;
+  commentsCount: number;
+  tailwind: string;
+};

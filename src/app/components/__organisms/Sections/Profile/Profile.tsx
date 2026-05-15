@@ -9,15 +9,20 @@ import Loading from "@/app/components/__atoms/Loading/Loading";
 import { OutsideClick } from "@/app/hooks/OutsideClick";
 import ContactPopup from "@/app/components/__molecules/ContactPopup/ContactPopup";
 import { useDarkMode } from "@/app/hooks/CheckDisplay";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { uploadImage } from "@/app/hooks/CloudinaryUpload";
+import { collection, query, where, getDocs, orderBy } from "firebase/firestore";
+import Post from "@/app/components/__molecules/Post/Post";
 
 function Profile() {
+  let Router = useRouter();
+  const [posts, setPosts] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [profile, setProfile] = useState<any>(null);
   const [contact, setContact] = useState(false);
   const contactRef = OutsideClick(() => setContact(false));
+  const [users, setUsers] = useState<any[]>([]);
   const [editPopup, setEditPopup] = useState(false);
   const editRef = OutsideClick(() => setEditPopup(false));
   const DarkMode = useDarkMode();
@@ -68,6 +73,28 @@ function Profile() {
     }));
     setEditPopup(false);
   };
+
+  useEffect(() => {
+    async function fetchUserPosts() {
+      const quer = query(
+        collection(db, "posts"),
+        where("authorId", "==", profileId),
+      );
+      const snap = await getDocs(quer);
+      const postsList = snap.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+      setPosts(postsList);
+    }
+    fetchUserPosts();
+  }, [profileId]);
+
+  useEffect(() => {
+    async function fetchUsers() {
+      const snap = await getDocs(collection(db, "profiles"));
+      const usersList = snap.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+      setUsers(usersList);
+    }
+    fetchUsers();
+  }, []);
 
   if (loading) return <Loading />;
   return (
@@ -249,6 +276,49 @@ function Profile() {
               </div>
             </div>
           </div>
+          <div className="mt-3">
+            {posts.map((post) => (
+              <Post
+                key={post.id}
+                id={post.id}
+                text={post.text}
+                ago={post.createdAt?.toDate() ?? new Date()}
+                user={post.authorName}
+                pfp={post.authorPhoto}
+                image={post.imageURL}
+                likeCount={post.likeCount || 0}
+                commentsCount={post.commentsCount || 0}
+                like={() => {}}
+                comments={() => {}}
+                tailwind=""
+              />
+            ))}
+          </div>
+        </div>
+        <div
+          className={`${DarkMode ? "bg-[#1b1e22]" : "bg-[#fefeff]"} flex flex-col gap-2 w-[300px] rounded-[10px] px-4 py-4 shadow-[0px_0px_0px_1px_rgb(140_140_140_/_0.2)]`}
+        >
+          <h1>People you may know</h1>
+          {users &&
+            users
+              .filter((user) => user.id !== auth.currentUser?.uid)
+              .map((user) => (
+                <div
+                  onClick={() => Router.push(`${user.id}`)}
+                  key={user.id}
+                  className="flex items-center gap-3 p-3"
+                >
+                  <img
+                    src={user.photoURL}
+                    className="size-[40px] rounded-full object-cover"
+                  />
+                  <div className="flex flex-col">
+                    <span className="font-semibold text-[14px]">
+                      {user.displayName}
+                    </span>
+                  </div>
+                </div>
+              ))}
         </div>
       </div>
     </>
