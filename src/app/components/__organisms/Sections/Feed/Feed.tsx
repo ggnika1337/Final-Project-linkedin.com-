@@ -59,7 +59,10 @@ function Feed() {
               onClick={() => setVerify(false)}
               className="cursor-pointer hover:bg-[#80808031] size-[32px] rounded-full"
             >
-              <svg className="ml-2 mt-1 size-[20px]">
+              <svg
+                fill={`${DarkMode ? "white" : "black"}`}
+                className="ml-2 mt-1 size-[20px]"
+              >
                 <path d="M14 3.41 9.41 8 14 12.59 12.59 14 8 9.41 3.41 14 2 12.59 6.59 8 2 3.41 3.41 2 8 6.59 12.59 2z"></path>
               </svg>
             </button>
