@@ -7,6 +7,11 @@ cloudinary.config({
 });
 
 export async function uploadImage(formData: FormData) {
+  console.log("cloud name:", process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME);
+  console.log(
+    "upload preset:",
+    process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET,
+  );
   const file = formData.get("image") as File;
   const arrayBuffer = await file.arrayBuffer();
   const buffer = new Uint8Array(arrayBuffer);
