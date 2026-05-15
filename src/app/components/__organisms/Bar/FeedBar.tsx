@@ -107,6 +107,7 @@ function FeedBar() {
                   image={profile?.photoURL || Pfp}
                   text="Me"
                   searchOpen={isActive}
+                  tailwind=""
                 />
               </div>
               <div className="ml-7 flex pl-3 border-l-1 transition-all duration-1000 border-[#0000001a] h-full justify-center max-[790px]:ml-3">
@@ -116,6 +117,7 @@ function FeedBar() {
                     image={Dots}
                     text="For Business"
                     searchOpen={isActive}
+                    tailwind={`${DarkMode ? "invert" : ""}`}
                   />
                 </div>
               </div>

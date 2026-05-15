@@ -2,7 +2,13 @@ import Image from "next/image";
 import { dropDownProps } from "@/app/helpers/Props/Props";
 import { useDarkMode } from "@/app/hooks/CheckDisplay";
 
-function DropDown({ image, text, onClick, searchOpen }: dropDownProps) {
+function DropDown({
+  image,
+  text,
+  onClick,
+  searchOpen,
+  tailwind,
+}: dropDownProps) {
   const DarkMode = useDarkMode();
   return (
     <>
@@ -12,14 +18,14 @@ function DropDown({ image, text, onClick, searchOpen }: dropDownProps) {
       >
         <Image
           src={image}
-          className={`cursor-pointer min-w-[30px] size-[30px] rounded-full`}
+          className={`cursor-pointer min-w-[30px] size-[30px] ${tailwind} rounded-full`}
           alt="btn"
           width={30}
           height={30}
         />
         <div>
           <h1
-            className={`flex items-center transition-all duration-1000 overflow-hidden gap-1 opacity-90 text-[12px] hover:opacity-100 max-[1100px]:hidden ${searchOpen ? "h-0" : "h-[18px]"} ${DarkMode ? "text-white" : "text-black"}`}
+            className={`flex items-center transition-all  duration-1000 overflow-hidden gap-1 opacity-90 text-[12px] hover:opacity-100 max-[1100px]:hidden ${searchOpen ? "h-0" : "h-[18px]"} ${DarkMode ? "text-white" : "text-black"}`}
           >
             {text}
             <svg

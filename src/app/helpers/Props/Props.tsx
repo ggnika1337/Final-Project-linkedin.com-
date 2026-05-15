@@ -20,6 +20,7 @@ export type dropDownProps = {
   text: string;
   onClick: () => void;
   searchOpen: boolean;
+  tailwind: string;
 };
 
 export type FeedBarTabsProps = {
