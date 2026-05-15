@@ -29,9 +29,9 @@ function DarkModeTab() {
             <Image
               src={profile?.photoURL || DefaultPfp}
               alt="PFP"
-              width={24}
-              height={24}
-              className="rounded-full"
+              width={30}
+              height={300}
+              className="rounded-full max-h-[30px]"
             />
           </button>
         </div>

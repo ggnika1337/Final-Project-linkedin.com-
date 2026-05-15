@@ -63,7 +63,7 @@ function Middle() {
             />
           </div>
         </div>
-        <div className="mt-6 w-full">
+        <div className="mt-6 mb-5 w-full">
           {posts.map((post) => (
             <Post
               authorId={post.authorId}
