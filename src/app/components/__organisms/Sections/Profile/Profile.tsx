@@ -296,7 +296,7 @@ function Profile() {
           </div>
         </div>
         <div
-          className={`${DarkMode ? "bg-[#1b1e22]" : "bg-[#fefeff]"} flex flex-col gap-2 w-[300px] rounded-[10px] px-4 py-4 shadow-[0px_0px_0px_1px_rgb(140_140_140_/_0.2)]`}
+          className={`${DarkMode ? "bg-[#1b1e22] text-white" : "bg-[#fefeff] text-black"} flex flex-col gap-2 w-[300px] rounded-[10px] px-4 py-4 shadow-[0px_0px_0px_1px_rgb(140_140_140_/_0.2)]`}
         >
           <h1>People you may know</h1>
           {users &&
