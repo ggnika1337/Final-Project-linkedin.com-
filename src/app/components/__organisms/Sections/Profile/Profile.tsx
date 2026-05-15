@@ -279,6 +279,7 @@ function Profile() {
           <div className="mt-3">
             {posts.map((post) => (
               <Post
+                authorId={post.authorId}
                 key={post.id}
                 id={post.id}
                 text={post.text}

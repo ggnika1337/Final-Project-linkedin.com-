@@ -66,6 +66,7 @@ function Middle() {
         <div className="mt-6 w-full">
           {posts.map((post) => (
             <Post
+              authorId={post.authorId}
               id={post.id}
               key={post.id}
               text={post.text}

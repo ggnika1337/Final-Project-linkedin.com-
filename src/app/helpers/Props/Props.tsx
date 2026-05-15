@@ -96,4 +96,5 @@ export type postProps = {
   comments: () => void;
   commentsCount: number;
   tailwind: string;
+  authorId: string;
 };

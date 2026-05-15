@@ -6,6 +6,8 @@ import Image from "next/image";
 import { useState } from "react";
 import TimeAgo from "react-time-ago";
 import { doc, updateDoc, increment } from "firebase/firestore";
+import { useRouter } from "next/navigation";
+import Pfp from "@/../public/PfpDefault.png";
 
 function Post({
   text,
@@ -19,11 +21,13 @@ function Post({
   commentsCount,
   tailwind,
   id,
+  authorId,
 }: postProps) {
   const [localLikeCount, setLocalLikeCount] = useState(likeCount);
   const [clicked, setClicked] = useState<boolean>(false);
   const [more, setMore] = useState<boolean>(false);
   const [expanded, setExpanded] = useState<boolean>(false);
+  let router = useRouter();
   async function handleLike() {
     setClicked((prev) => !prev);
     if (!clicked) {
@@ -43,16 +47,23 @@ function Post({
       <div
         className={`${DarkMode ? "bg-[#1b1e22] text-white" : "bg-[#fefeff] text-black"} ${tailwind} shadow-[0px_0px_0px_1px_rgb(140_140_140_/_0.2)] py-[10px] mt-3 rounded-[10px] flex flex-col w-full`}
       >
-        {" "}
         <div className="flex gap-1 px-[10px] mb-2">
           <Image
+            onClick={() => {
+              router.push(`/profiles/${authorId}`);
+            }}
             width={48}
             height={48}
-            src={pfp}
+            src={pfp || Pfp}
             alt="user pfp"
-            className="max-w-[48px] max-h-[48px] rounded-full"
+            className="max-w-[48px] max-h-[48px] rounded-full cursor-pointer"
           />
-          <div className="flex ml-2 flex-col">
+          <div
+            onClick={() => {
+              router.push(`/profiles/${authorId}`);
+            }}
+            className="flex ml-2 flex-col cursor-pointer"
+          >
             <h1
               className={`font-semibold ${DarkMode ? "text-white" : "text-black"}`}
             >
@@ -80,11 +91,11 @@ function Post({
           <Image src={image} alt="posted image" width={500} height={300} />
         )}
         <div className="px-[10px] flex gap-2 mt-2">
-          <div
-            onClick={handleLike}
-            className="flex gap-[3px] items-center select-none"
-          >
-            <div className="hover:bg-[#8c8c8c71] transition-all duration-1000 cursor-pointer rounded-full size-[32px] flex items-center justify-center">
+          <div className="flex gap-[3px] items-center select-none">
+            <div
+              onClick={handleLike}
+              className="hover:bg-[#8c8c8c71] transition-all duration-1000 cursor-pointer rounded-full size-[32px] flex items-center justify-center"
+            >
               <svg
                 fill={`${DarkMode ? "white" : "black"}`}
                 width={15}
